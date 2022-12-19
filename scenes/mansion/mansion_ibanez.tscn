@@ -1,0 +1,60 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scenes/mansion/exterior/exterior.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/mansion/exterior/puerta_patio.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mansion/exterior/puerta_rampa.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mansion/planta_baja/planta_baja.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/mansion/planta_baja/puerta_garaje.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/mansion/planta_baja/puerta_lateral_garaje.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mansion/planta_baja/ventana_garaje.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/mansion/planta_baja/entrada_planta_baja.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/mansion/planta_baja/ventana_planta_baja.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/mansion/primer_piso/primer_piso.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/entrada.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/entrada_lateral.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/marcos.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/lavabo_pequeno.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/cocina.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/dormitorio_pequeno.tscn" type="PackedScene" id=16]
+
+[node name="mansion_ibanez" type="Spatial"]
+
+[node name="exterior" type="Spatial" parent="."]
+
+[node name="exterior" parent="exterior" instance=ExtResource( 1 )]
+
+[node name="puerta_patio" parent="exterior" instance=ExtResource( 2 )]
+
+[node name="puerta_rampa" parent="exterior" instance=ExtResource( 3 )]
+
+[node name="planta_baja" type="Spatial" parent="."]
+
+[node name="planta_baja" parent="planta_baja" instance=ExtResource( 4 )]
+
+[node name="puerta_garaje" parent="planta_baja" instance=ExtResource( 5 )]
+
+[node name="puerta_lateral_garaje" parent="planta_baja" instance=ExtResource( 6 )]
+
+[node name="ventana_garaje" parent="planta_baja" instance=ExtResource( 7 )]
+
+[node name="entrada_planta_baja" parent="planta_baja" instance=ExtResource( 8 )]
+
+[node name="ventana_planta_baja" parent="planta_baja" instance=ExtResource( 9 )]
+
+[node name="primer_piso" type="Spatial" parent="."]
+
+[node name="primer_piso" parent="primer_piso" instance=ExtResource( 10 )]
+
+[node name="puertas" type="Spatial" parent="primer_piso"]
+
+[node name="entrada" parent="primer_piso/puertas" instance=ExtResource( 11 )]
+
+[node name="entrada_lateral" parent="primer_piso/puertas" instance=ExtResource( 12 )]
+
+[node name="marcos" parent="primer_piso/puertas" instance=ExtResource( 13 )]
+
+[node name="lavabo_pequeno" parent="primer_piso/puertas" instance=ExtResource( 14 )]
+
+[node name="cocina" parent="primer_piso/puertas" instance=ExtResource( 15 )]
+
+[node name="dormitorio_pequeno" parent="primer_piso/puertas" instance=ExtResource( 16 )]

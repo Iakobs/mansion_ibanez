@@ -1,0 +1,25 @@
+extends Node
+
+enum LayerValues {
+	WORLD = 1, PLAYER = 2, INTERACTABLE = 4
+}
+enum LayerBits {
+	WORLD = 0, PLAYER = 1, INTERACTABLE = 2
+}
+
+var door_collisions = []
+
+func _ready():
+	for node in get_tree().get_nodes_in_group("puertas"):
+		door_collisions.append_array(getAllCollisions(node))
+
+func switch_door_collisions():
+	for door in door_collisions:
+		door.disabled = !door.disabled
+
+func getAllCollisions(var node, var listOfAllNodesInTree = []):
+	if node is CollisionShape:
+		listOfAllNodesInTree.append(node)
+	for childNode in node.get_children():
+		getAllCollisions(childNode, listOfAllNodesInTree)
+	return listOfAllNodesInTree
