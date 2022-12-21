@@ -4,6 +4,7 @@
 [ext_resource path="res://addons/interactable/interactable.gd" type="Script" id=2]
 [ext_resource path="res://assets/models/materials/madera.material" type="Material" id=3]
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/entrada_lateral.gd" type="Script" id=4]
+[ext_resource path="res://resources/animations/door_open.tres" type="Animation" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "entrada_lateral_Plane059"
@@ -84,30 +85,6 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "open"
-length = 3.0
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("hoja/mango:rotation_degrees:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -44.624, -0.25, 0, 0.25, 0, -44.624, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5, 2.5, 3 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("hoja:rotation_degrees:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.6, 12.26, 90, -1.1, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.7, 2.2 )
-}
-
 [node name="entrada_lateral" type="Spatial"]
 script = ExtResource( 4 )
 
@@ -144,7 +121,7 @@ material/0 = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 5 )
-anims/open = SubResource( 6 )
+anims/door_open = ExtResource( 6 )
 
 [connection signal="area_entered" from="hoja/interactable" to="." method="_on_interactable_area_entered"]
 [connection signal="area_exited" from="hoja/interactable" to="." method="_on_interactable_area_exited"]

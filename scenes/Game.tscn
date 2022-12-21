@@ -58,6 +58,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21037, 0.208205, 13.6462 )
 mouse_sensitivity = Vector2( 0.2, 0.2 )
 mouse_acceleration = 0.25
 max_speed = 3.5
+default_fov = 60.0
+sprint_fov = 70.0
 
 [connection signal="body_exited" from="mansion_ibanez/espejo_entrada/mirror_line" to="mansion_ibanez/espejo_entrada" method="_on_mirror_line_body_exited"]
 

@@ -1,7 +1,7 @@
 tool
 extends Area
 
-var margin = 1.01
+var margin = 1.04
 
 func _get_configuration_warning():
 	# Ensure all needed signals are connected

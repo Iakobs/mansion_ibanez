@@ -6,6 +6,9 @@ enum LayerValues {
 enum LayerBits {
 	WORLD = 0, PLAYER = 1, INTERACTABLE = 2
 }
+enum Axis{ 
+	X_POSITIVE, X_NEGATIVE, Y_POSITIVE, Y_NEGATIVE, Z_POSITIVE, Z_NEGATIVE 
+}
 
 var door_collisions = []
 
