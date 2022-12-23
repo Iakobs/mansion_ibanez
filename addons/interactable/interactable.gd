@@ -1,7 +1,8 @@
 tool
 extends Area
 
-var margin = 1.04
+export var override_shape := false
+export var margin = 1.01
 
 func _get_configuration_warning():
 	# Ensure all needed signals are connected
@@ -14,13 +15,29 @@ func _get_configuration_warning():
 func _ready():
 	set_collision_layers()
 	set_collision_masks()
-	try_to_add_automatic_collision()
+	if not override_shape: 
+		try_to_add_automatic_collision()
+
+func set_collision_layers():
+	for bit in Global.LayerBits:
+		var bit_value = Global.LayerBits[bit]
+		if bit_value == Global.LayerBits.INTERACTABLE:
+			set_collision_layer_bit(bit_value, true)
+		else:
+			set_collision_layer_bit(bit_value, false)
+
+func set_collision_masks():
+	for bit in Global.LayerBits:
+		var bit_value = Global.LayerBits[bit]
+		if bit_value == Global.LayerBits.PLAYER:
+			set_collision_mask_bit(bit_value, true)
+		else:
+			set_collision_mask_bit(bit_value, false)
 
 func try_to_add_automatic_collision():
 	# Do nothing if the interactable already has a collision shape as a child
-	for child in get_children():
-		if child is CollisionShape:
-			return
+	if already_has_collision_child():
+		return
 	
 	var collision_sibling = first_collision_sibling()
 	if collision_sibling:
@@ -59,18 +76,10 @@ func first_collision_sibling():
 			return child
 	return null
 
-func set_collision_layers():
-	for bit in Global.LayerBits:
-		var bit_value = Global.LayerBits[bit]
-		if bit_value == Global.LayerBits.INTERACTABLE:
-			set_collision_layer_bit(bit_value, true)
-		else:
-			set_collision_layer_bit(bit_value, false)
-
-func set_collision_masks():
-	for bit in Global.LayerBits:
-		var bit_value = Global.LayerBits[bit]
-		if bit_value == Global.LayerBits.PLAYER:
-			set_collision_mask_bit(bit_value, true)
-		else:
-			set_collision_mask_bit(bit_value, false)
+func already_has_collision_child():
+	var result = false
+	for child in get_children():
+		if child is CollisionShape:
+			result = true
+			return
+	return result

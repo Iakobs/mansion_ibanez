@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/models/materials/Matal solid paint white.material" type="Material" id=1]
 [ext_resource path="res://assets/models/materials/black_pvc.material" type="Material" id=2]
 [ext_resource path="res://assets/models/materials/fake_window_curtain.material" type="Material" id=3]
+[ext_resource path="res://scripts/components/door.gd" type="Script" id=4]
 [ext_resource path="res://addons/interactable/interactable.gd" type="Script" id=5]
-[ext_resource path="res://scenes/mansion/planta_baja/entrada_planta_baja.gd" type="Script" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "entrada_planta_baja_Plane202"
@@ -115,8 +115,56 @@ surfaces/0 = {
 "vertex_count": 8
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "RESET"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("hoja_izquierda:rotation_degrees:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("hoja_izquierda/mango:rotation_degrees:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=9]
+resource_local_to_scene = true
+resource_name = "door_open"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("hoja_izquierda/mango:rotation_degrees:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -44.624, -0.25, 0, 0.25, 0, -44.624, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.8, 1.4, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("hoja_izquierda:rotation_degrees:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.6, 0, 90, -0.7, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 2 )
+}
+
 [node name="entrada_planta_baja" type="Spatial"]
-script = ExtResource( 6 )
+script = ExtResource( 4 )
 
 [node name="hoja_izquierda" type="StaticBody" parent="." groups=["puertas"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02337, -2.5, 3.85705 )
@@ -171,6 +219,10 @@ shape = SubResource( 7 )
 mesh = SubResource( 5 )
 skeleton = NodePath("../../MeshInstance")
 material/0 = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 8 )
+anims/door_open = SubResource( 9 )
 
 [connection signal="area_entered" from="hoja_izquierda/interactable" to="." method="_on_interactable_area_entered"]
 [connection signal="area_exited" from="hoja_izquierda/interactable" to="." method="_on_interactable_area_exited"]

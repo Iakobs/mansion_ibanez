@@ -2,8 +2,9 @@
 
 [ext_resource path="res://assets/models/materials/Worn Yellow Brass Metal.material" type="Material" id=1]
 [ext_resource path="res://assets/models/materials/Matal solid paint white.material" type="Material" id=2]
+[ext_resource path="res://scripts/components/door.gd" type="Script" id=3]
 [ext_resource path="res://addons/interactable/interactable.gd" type="Script" id=4]
-[ext_resource path="res://scenes/mansion/planta_baja/puerta_garaje.gd" type="Script" id=5]
+[ext_resource path="res://resources/animations/garage_door_open.tres" type="Animation" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "puerta_garaje_Plane085"
@@ -64,9 +65,8 @@ surfaces/1 = {
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 1.45023, 0.766062, 0.0515308 )
 
-[sub_resource type="CapsuleShape" id=8]
-radius = 0.13
-height = 0.002
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 1.47, 1.09, 0.07 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "RESET"
@@ -91,32 +91,8 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "abrir"
-length = 5.0
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("marco/hoja_superior:rotation_degrees:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 3, 0, -85, -3, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("marco/hoja_superior/hoja_inferior:rotation_degrees:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 3, 0, 170, -3, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 5 )
-}
-
 [node name="puerta_garaje" type="Spatial"]
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 
 [node name="marco" type="Spatial" parent="."]
 
@@ -154,14 +130,15 @@ shape = SubResource( 7 )
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 4 )
+override_shape = true
 
 [node name="CollisionShape2" type="CollisionShape" parent="marco/hoja_superior/hoja_inferior/interactable"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0461998, -0.312212, 0.0492033 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0138006, -0.452212, 0.0492033 )
 shape = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 4 )
-anims/abrir = SubResource( 5 )
+anims/door_open = ExtResource( 5 )
 
 [connection signal="area_entered" from="marco/hoja_superior/hoja_inferior/interactable" to="." method="_on_interactable_area_entered"]
 [connection signal="area_exited" from="marco/hoja_superior/hoja_inferior/interactable" to="." method="_on_interactable_area_exited"]

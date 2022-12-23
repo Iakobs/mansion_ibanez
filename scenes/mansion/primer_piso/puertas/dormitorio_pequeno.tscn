@@ -65,23 +65,24 @@ surfaces/0 = {
 mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="hoja" type="StaticBody" parent="." groups=["puertas"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.78301, 0.25, 3.80199 )
+collision_mask = 0
 
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+[node name="MeshInstance" type="MeshInstance" parent="hoja"]
 mesh = SubResource( 2 )
 skeleton = NodePath("../../MeshInstance")
 material/0 = ExtResource( 3 )
 material/1 = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="hoja"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 1.05, 0.03 )
 shape = SubResource( 4 )
 
-[node name="Spatial" type="Spatial" parent="StaticBody"]
+[node name="mango" type="Spatial" parent="hoja"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.620941, 1.045, 0.0244455 )
 
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody/Spatial"]
+[node name="MeshInstance" type="MeshInstance" parent="hoja/mango"]
 mesh = SubResource( 3 )
 skeleton = NodePath("../../MeshInstance")
 material/0 = ExtResource( 2 )
