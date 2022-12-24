@@ -87,7 +87,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=6]
 resource_local_to_scene = true
 resource_name = "door_open"
-length = 2.0
+length = 1.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("hoja/mango:rotation_degrees:x")
 tracks/0/interp = 1
@@ -95,8 +95,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -44.624, -0.25, 0, 0.25, 0, -44.624, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5, 0.8, 1.4, 2 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -44.624, -0.25, 0, 0.25, 0, -44.624, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.6, 0.9, 1.5 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("hoja:rotation_degrees:y")
@@ -105,8 +105,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.6, 0, -90, -0.7, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.7, 2 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -90, -0.7, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5 )
 }
 
 [node name="cocina" type="Spatial"]
