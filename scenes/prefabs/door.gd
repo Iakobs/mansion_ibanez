@@ -26,19 +26,19 @@ func is_animation_playing() -> bool:
 	return animation_manager.is_playing
 
 func _on_door_status_change(state_name: String) -> void:
-	emit_interactable_entered()
+	emit_interactable_event("interactable_updated")
 
 func _on_interactable_area_entered(_area: Area) -> void:
 	inside_interactable = true
-	emit_interactable_entered()
+	emit_interactable_event("interactable_entered")
 
 func _on_interactable_area_exited(_area: Area) -> void:
 	inside_interactable = false
-	Events.emit_signal("interactable_exited", { interactable = self })
+	emit_interactable_event("interactable_exited")
 
-func emit_interactable_entered() -> void:
+func emit_interactable_event(event := "") -> void:
 	Events.emit_signal(
-		"interactable_entered", 
+		event, 
 		{ 
 			interactable = self, 
 			name = to_string(), 
@@ -46,7 +46,8 @@ func emit_interactable_entered() -> void:
 		})
 
 func get_action() -> String:
-	return "Open" if state_machine.state.name == "Closed" else "Close"
+	return "Open" if state_machine.state.name == "Closed" \
+		else "Close"
 
 func _to_string() -> String:
 	return "Door"

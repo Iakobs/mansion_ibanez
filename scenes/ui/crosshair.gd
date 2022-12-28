@@ -8,13 +8,18 @@ var reacter
 func _ready():
 	Events.connect("interactable_entered", self, "react")
 	Events.connect("interactable_exited", self, "reset")
+	Events.connect("interactable_updated", self, "update")
 
-func react(payload := {}):
+func react(payload := {}) -> void:
 	reacter = payload.interactable
 	hand.modulate = Color.red
 	display.show_display(payload.name, payload.action)
 
-func reset(payload):
+func update(payload := {}) -> void:
+	if payload.interactable == reacter:
+		display.show_display(payload.name, payload.action)
+
+func reset(payload := {}) -> void:
 	if payload.interactable == reacter:
 		reacter = null
 		hand.modulate = Color.white
