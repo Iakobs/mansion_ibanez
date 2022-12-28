@@ -6,10 +6,11 @@ enum DoorPanelAngle { positive = 90, negative = -90 }
 export(DoorPanelAngle) var door_panel_angle := DoorPanelAngle.positive
 export(String, "x", "z") var doorknob_axis := "x"
 
-onready var door_panel := $"%door_panel"
-onready var doorknob := $"%doorknob"
-onready var interactable := $"%interactable"
-onready var state_machine := $"%StateMachine"
+onready var door_panel: StaticBody = $"%door_panel"
+onready var doorknob: Spatial = $"%doorknob"
+onready var interactable: Area = $"%interactable"
+onready var state_machine: StateMachine = $"%StateMachine"
+onready var animation_manager: DoorAnimationManager = $"%DoorAnimationManager"
 
 var inside_interactable := false
 
@@ -20,6 +21,9 @@ func _ready() -> void:
 
 func _process(delta) -> void:
 	state_machine._process(delta)
+
+func is_animation_playing() -> bool:
+	return animation_manager.is_playing
 
 func _on_door_status_change(state_name: String) -> void:
 	emit_interactable_entered()
