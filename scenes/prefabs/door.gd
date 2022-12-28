@@ -46,8 +46,8 @@ func emit_interactable_event(event := "") -> void:
 		})
 
 func get_action() -> String:
-	return "Open" if state_machine.state.name == "Closed" \
-		else "Close"
+	return tr("DOOR_ACTION_OPEN") if state_machine.state.name == "Closed" \
+		else tr("DOOR_ACTION_CLOSE")
 
 func _to_string() -> String:
-	return "Door"
+	return tr("DOOR_NAME")

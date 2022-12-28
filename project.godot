@@ -137,6 +137,11 @@ left_click={
 3d_physics/layer_2="player"
 3d_physics/layer_3="interactable"
 
+[locale]
+
+test="ca"
+translations=PoolStringArray( "res://locale/locales.ca.translation", "res://locale/locales.en.translation", "res://locale/locales.es.translation" )
+
 [physics]
 
 common/enable_pause_aware_picking=true
