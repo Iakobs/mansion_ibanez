@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "Door",
+"language": "GDScript",
+"path": "res://scenes/prefabs/door.gd"
+}, {
+"base": "State",
+"class": "DoorState",
+"language": "GDScript",
+"path": "res://scripts/state_machine/door/door_state.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
@@ -18,10 +28,24 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://assets/player/Player.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://scripts/state_machine/state.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://scripts/state_machine/state_machine.gd"
 } ]
 _global_script_class_icons={
+"Door": "",
+"DoorState": "",
 "GitAPI": "",
-"Player": ""
+"Player": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]

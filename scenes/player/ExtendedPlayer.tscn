@@ -40,17 +40,21 @@ mesh = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
 
 [node name="Camera" type="Camera" parent="."]
+unique_name_in_owner = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
 current = true
 fov = 90.0
 far = 160.0
 
 [node name="Interacter" type="Area" parent="Camera"]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Camera/Interacter"]
+unique_name_in_owner = true
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Crosshair" parent="Camera" instance=ExtResource( 2 )]
+unique_name_in_owner = true

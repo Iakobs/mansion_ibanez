@@ -13,7 +13,7 @@ enum Axis{
 var door_collisions = []
 
 func _ready():
-	for node in get_tree().get_nodes_in_group("puertas"):
+	for node in get_tree().get_nodes_in_group("doors"):
 		door_collisions.append_array(getAllCollisions(node))
 
 func switch_door_collisions():
@@ -26,3 +26,7 @@ func getAllCollisions(var node, var listOfAllNodesInTree = []):
 	for childNode in node.get_children():
 		getAllCollisions(childNode, listOfAllNodesInTree)
 	return listOfAllNodesInTree
+
+func _unhandled_input(event):
+	if event.is_action_pressed("door_collisions"):
+		switch_door_collisions()
