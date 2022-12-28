@@ -5,7 +5,7 @@ signal animation_finished
 
 var is_playing := false
 
-func open_animation(reverse := false):
+func open(reverse := false) -> void:
 	is_playing = true
 	var door_final_angle := 0.0 if reverse else float(owner.door_panel_angle)
 	var tween = get_tree().\

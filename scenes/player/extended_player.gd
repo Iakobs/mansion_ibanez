@@ -2,17 +2,17 @@ extends Player
 
 const SCANNED_LAYERS = Global.LayerValues.WORLD + Global.LayerValues.INTERACTABLE
 
-var ray_length = 1
-var distance_to_nearest = 100
+var ray_length := 1.0
+var distance_to_nearest := 100.0
 
-onready var crosshair = $"%Crosshair"
+onready var crosshair: Control = $"%Crosshair"
 onready var camera: Camera = $"%Camera"
 onready var interacter_collision: CollisionShape = $"%CollisionShape"
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	set_ray_lenght()
 
-func set_ray_lenght():
+func set_ray_lenght() -> void:
 	var mouse_position := get_viewport().get_mouse_position()
 	var from := camera.project_ray_origin(mouse_position)
 	var to = from + camera.project_ray_normal(mouse_position) * ray_length

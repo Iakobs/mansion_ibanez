@@ -1,26 +1,26 @@
 extends Control
 
-onready var hand := $"%Hand"
-onready var display := $"%interactable_info_display"
+onready var hand: TextureRect = $"%Hand"
+onready var display: Control = $"%interactable_info_display"
 
-var reacter
+var interactable
 
-func _ready():
-	Events.connect("interactable_entered", self, "react")
+func _ready() -> void:
+	Events.connect("interactable_entered", self, "interact")
 	Events.connect("interactable_exited", self, "reset")
 	Events.connect("interactable_updated", self, "update")
 
-func react(payload := {}) -> void:
-	reacter = payload.interactable
+func interact(payload := {}) -> void:
+	interactable = payload.interactable
 	hand.modulate = Color.red
 	display.show_display(payload.name, payload.action)
 
 func update(payload := {}) -> void:
-	if payload.interactable == reacter:
+	if payload.interactable == interactable:
 		display.show_display(payload.name, payload.action)
 
 func reset(payload := {}) -> void:
-	if payload.interactable == reacter:
-		reacter = null
+	if payload.interactable == interactable:
+		interactable = null
 		hand.modulate = Color.white
 		display.hide_display()

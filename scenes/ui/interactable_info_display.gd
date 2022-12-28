@@ -1,18 +1,17 @@
 extends Control
 
-onready var name_label := $"%Name"
-onready var action_label := $"%Action"
+onready var name_label: Label = $"%Name"
+onready var action_label: Label = $"%Action"
 
 func _ready():
 	visible = false
 
-func show_display(name := "", action := ""):
+func show_display(name := "", action := "") -> void:
 	name_label.text = name
 	action_label.text = action
-	print("name {0}, action{1}".format([name, action]))
 	visible = true
 
-func hide_display():
+func hide_display() -> void:
 	name_label.text = ""
 	action_label.text = ""
 	visible = false

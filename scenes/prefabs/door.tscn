@@ -23,6 +23,10 @@ script = ExtResource( 1 )
 [node name="doorknob" type="Spatial" parent="door_panel"]
 unique_name_in_owner = true
 
+[node name="DoorAnimationManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource( 6 )
+
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource( 3 )
@@ -33,7 +37,3 @@ script = ExtResource( 4 )
 
 [node name="Opened" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
-
-[node name="DoorAnimationManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource( 6 )

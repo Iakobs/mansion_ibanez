@@ -1,13 +1,13 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/mansion/exterior/exterior.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mansion/exterior/puerta_patio.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mansion/exterior/puerta_rampa.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/mansion/planta_baja/planta_baja.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mansion/planta_baja/puerta_garaje.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/mansion/planta_baja/puerta_lateral_garaje.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/prefabs/door.gd" type="Script" id=6]
 [ext_resource path="res://scenes/mansion/planta_baja/ventana_garaje.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/mansion/planta_baja/entrada_planta_baja.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/mansion/planta_baja/garage_lateral_door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/mansion/planta_baja/ventana_planta_baja.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/mansion/primer_piso/primer_piso.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/entrada.tscn" type="PackedScene" id=11]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/lavabo_pequeno.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/cocina.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/dormitorio_pequeno.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/mansion/planta_baja/basement_floor_entrance.tscn" type="PackedScene" id=17]
 
 [node name="mansion_ibanez" type="Spatial"]
 
@@ -33,13 +34,14 @@
 
 [node name="puerta_garaje" parent="planta_baja" instance=ExtResource( 5 )]
 
-[node name="puerta_lateral_garaje" parent="planta_baja" instance=ExtResource( 6 )]
-
 [node name="ventana_garaje" parent="planta_baja" instance=ExtResource( 7 )]
 
-[node name="entrada_planta_baja" parent="planta_baja" instance=ExtResource( 8 )]
-
 [node name="ventana_planta_baja" parent="planta_baja" instance=ExtResource( 9 )]
+
+[node name="basement_floor_entrance" parent="planta_baja" instance=ExtResource( 17 )]
+script = ExtResource( 6 )
+
+[node name="garage_lateral_door" parent="planta_baja" instance=ExtResource( 8 )]
 
 [node name="primer_piso" type="Spatial" parent="."]
 

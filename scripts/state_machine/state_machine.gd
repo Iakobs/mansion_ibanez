@@ -22,11 +22,11 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
 
-func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
+func transition_to(target_state_name: String, payload := {}) -> void:
 	if not has_node(target_state_name):
 		return
 
 	state.exit()
 	state = get_node(target_state_name)
-	state.enter(msg)
+	state.enter(payload)
 	emit_signal("transitioned", state.name)

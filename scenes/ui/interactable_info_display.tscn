@@ -1,18 +1,22 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-BoldItalic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/ui/interactable_info_display.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
-use_filter = true
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 24
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="interactable_info_display" type="Control"]
 anchor_left = 0.5
@@ -27,42 +31,51 @@ mouse_filter = 2
 script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -138.5
-margin_top = -34.0
-margin_right = 138.5
-margin_bottom = 34.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_top = 100
+custom_constants/margin_top = 604
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_top = 100.0
-margin_right = 277.0
-margin_bottom = 168.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_top = 604.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="LeftMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+margin_bottom = 476.0
+size_flags_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 927.0
+margin_right = 993.0
+margin_bottom = 476.0
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_right = 277.0
-margin_bottom = 32.0
+margin_right = 66.0
+margin_bottom = 31.0
 custom_fonts/font = SubResource( 1 )
 text = "text"
 align = 1
 valign = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 277.0
-margin_bottom = 40.0
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 35.0
+margin_right = 66.0
+margin_bottom = 39.0
 
-[node name="Action" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Action" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 44.0
-margin_right = 277.0
-margin_bottom = 68.0
+margin_top = 43.0
+margin_right = 66.0
+margin_bottom = 79.0
 custom_fonts/font = SubResource( 2 )
 text = "text"
 align = 1
 valign = 1
+
+[node name="RightMargin" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 997.0
+margin_right = 997.0
+margin_bottom = 476.0
+size_flags_horizontal = 2
