@@ -11,6 +11,7 @@ onready var doorknob: Spatial = $"%doorknob"
 onready var interactable: Area = $"%interactable"
 onready var state_machine: StateMachine = $"%StateMachine"
 onready var animation_manager: DoorAnimationManager = $"%DoorAnimationManager"
+onready var animation := funcref(animation_manager, "open")
 
 var inside_interactable := false
 
@@ -22,12 +23,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	state_machine._process(delta)
 
-func is_animation_playing() -> bool:
-	return animation_manager.is_playing
-
-func _on_door_status_change(_state_name: String) -> void:
-	emit_interactable_event("interactable_updated")
-
 func _on_interactable_area_entered(_area: Area) -> void:
 	inside_interactable = true
 	emit_interactable_event("interactable_entered")
@@ -35,6 +30,9 @@ func _on_interactable_area_entered(_area: Area) -> void:
 func _on_interactable_area_exited(_area: Area) -> void:
 	inside_interactable = false
 	emit_interactable_event("interactable_exited")
+
+func _on_door_status_change(_state_name: String) -> void:
+	emit_interactable_event("interactable_updated")
 
 func emit_interactable_event(event := "") -> void:
 	Events.emit_signal(

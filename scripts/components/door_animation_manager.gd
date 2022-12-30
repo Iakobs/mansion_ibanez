@@ -26,3 +26,25 @@ func open(reverse := false) -> void:
 	yield(tween, "finished")
 	is_playing = false
 	emit_signal("animation_finished")
+
+func open_garage(reverse := false) -> void:
+	is_playing = true
+	var upper_door_final_angle := 0.0 if reverse else -85.0
+	var lower_door_final_angle := 0.0 if reverse else 170.0
+	var tween = get_tree().\
+		create_tween().\
+		set_trans(Tween.TRANS_QUART).\
+		set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(
+		owner.upper_door_panel, 
+		"rotation_degrees:x", 
+		upper_door_final_angle,
+		3.0)
+	tween.parallel().tween_property(
+		owner.lower_door_panel, 
+		"rotation_degrees:x", 
+		lower_door_final_angle, 
+		3.0)
+	yield(tween, "finished")
+	is_playing = false
+	emit_signal("animation_finished")
