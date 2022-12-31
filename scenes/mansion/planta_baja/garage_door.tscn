@@ -64,6 +64,7 @@ surfaces/0 = {
 }
 
 [node name="garage_door" instance=ExtResource( 2 )]
+is_locked = true
 
 [node name="upper_door_panel" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8628, -0.385373, 0.15 )

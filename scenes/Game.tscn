@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/mansion/primer_piso/entrance_mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mansion/mansion_ibanez.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/hdri/kloofendal_48d_partly_cloudy_puresky_1k.hdr" type="Texture" id=3]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=4]
+[ext_resource path="res://scenes/props/keys/key.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/player/ExtendedPlayer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PanoramaSky" id=1]
@@ -26,17 +27,28 @@ transform = Transform( 0.730664, 0.657973, -0.182215, -0.0799213, 0.347483, 0.93
 shadow_enabled = true
 
 [node name="mansion_ibanez" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1.25, 0, 0, 0, 1, 0, 0, 0, 1.25, 0, 0, 0 )
+transform = Transform( 1.25, 0, 0, 0, 1, 0, 0, 0, 1.25, 0.00599384, 0, 0 )
 
 [node name="espejo_entrada" parent="mansion_ibanez" instance=ExtResource( 1 )]
 
 [node name="ExtendedPlayer" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88149, 0.208205, 17.8021 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88149, 0.417625, 17.8021 )
 mouse_sensitivity = Vector2( 0.2, 0.2 )
 mouse_acceleration = 0.25
 max_speed = 3.5
 default_fov = 60.0
 sprint_fov = 70.0
+
+[node name="collectibles" type="Spatial" parent="."]
+
+[node name="key" parent="collectibles" instance=ExtResource( 5 )]
+transform = Transform( 0.696376, 0.717677, 0, -0.717677, 0.696376, 0, 0, 0, 1, 2.32613, 1.25526, 10.4593 )
+
+[node name="key2" parent="collectibles" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15.1255, -2.29249, -0.317016 )
+
+[node name="key3" parent="collectibles" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0901949, 1.30089, -0.572822 )
 
 [editable path="mansion_ibanez/espejo_entrada"]
 [editable path="ExtendedPlayer"]

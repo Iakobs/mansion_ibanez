@@ -1,8 +1,10 @@
 extends Player
 
-const SCANNED_LAYERS = Global.LayerValues.WORLD + Global.LayerValues.INTERACTABLE
+const SCANNED_LAYERS = Global.LayerValues.WORLD \
+	+ Global.LayerValues.INTERACTABLE \
+	+ Global.LayerValues.COLLECTIBLE
 
-var ray_length := 1.0
+var ray_length := 1.55
 var distance_to_nearest := 100.0
 
 onready var crosshair: Control = $"%Crosshair"

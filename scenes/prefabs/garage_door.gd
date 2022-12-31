@@ -1,6 +1,8 @@
 class_name GarageDoor
 extends Spatial
 
+export(bool) var is_locked := false
+
 onready var upper_door_panel: StaticBody = $"%upper_door_panel"
 onready var lower_door_panel: StaticBody = $"%lower_door_panel"
 onready var upper_interactable: Area = $"%upper_interactable"
@@ -51,7 +53,8 @@ func emit_interactable_event(event := "") -> void:
 		{ 
 			interactable = self, 
 			name = to_string(), 
-			action = get_action() 
+			action = get_action(),
+			locked = is_locked
 		})
 
 func _to_string() -> String:

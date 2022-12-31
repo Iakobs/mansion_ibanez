@@ -70,6 +70,7 @@ config/icon="res://icon.png"
 
 Global="*res://scripts/global/Global.gd"
 Events="*res://scripts/global/Events.gd"
+PlayerStats="*res://scripts/global/PlayerStats.gd"
 
 [display]
 
@@ -142,6 +143,7 @@ left_click={
 3d_physics/layer_1="world"
 3d_physics/layer_2="player"
 3d_physics/layer_3="interactable"
+3d_physics/layer_4="collectible"
 
 [locale]
 

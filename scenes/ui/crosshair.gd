@@ -13,11 +13,11 @@ func _ready() -> void:
 func interact(payload := {}) -> void:
 	interactable = payload.interactable
 	hand.modulate = Color.red
-	display.show_display(payload.name, payload.action)
+	display.show_display(payload)
 
 func update(payload := {}) -> void:
 	if payload.interactable == interactable:
-		display.show_display(payload.name, payload.action)
+		display.show_display(payload)
 
 func reset(payload := {}) -> void:
 	if payload.interactable == interactable:

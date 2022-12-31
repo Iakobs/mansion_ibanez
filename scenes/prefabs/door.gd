@@ -5,6 +5,7 @@ enum DoorPanelAngle { positive = 90, negative = -90 }
 
 export(DoorPanelAngle) var door_panel_angle := DoorPanelAngle.positive
 export(String, "x", "z") var doorknob_axis := "x"
+export(bool) var is_locked := false
 
 onready var door_panel: StaticBody = $"%door_panel"
 onready var doorknob: Spatial = $"%doorknob"
@@ -40,7 +41,8 @@ func emit_interactable_event(event := "") -> void:
 		{ 
 			interactable = self, 
 			name = to_string(), 
-			action = get_action() 
+			action = get_action(),
+			locked = is_locked
 		})
 
 func _to_string() -> String:
