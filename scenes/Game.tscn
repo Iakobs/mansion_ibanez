@@ -45,10 +45,7 @@ sprint_fov = 70.0
 transform = Transform( 0.696376, 0.717677, 0, -0.717677, 0.696376, 0, 0, 0, 1, 2.32613, 1.25526, 10.4593 )
 
 [node name="key2" parent="collectibles" instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15.1255, -2.29249, -0.317016 )
-
-[node name="key3" parent="collectibles" instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0901949, 1.30089, -0.572822 )
+transform = Transform( -3.48036e-08, -0.796213, 0.605016, 1, -4.37114e-08, 0, 2.64461e-08, 0.605016, 0.796213, 15.5073, -1.76394, -0.236432 )
 
 [editable path="mansion_ibanez/espejo_entrada"]
 [editable path="ExtendedPlayer"]
