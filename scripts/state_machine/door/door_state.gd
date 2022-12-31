@@ -1,13 +1,12 @@
 class_name DoorState
 extends State
 
-var door
+var door: Door
 
 func _ready():
 	yield(owner, "ready")
-#	if owner is Door:
-#		door = owner as Door
-#	elif owner is GarageDoor:
-#		door = owner as GarageDoor
-	door = owner as Door if owner is Door else owner as GarageDoor
+	door = owner as Door
 	assert(door != null)
+
+func get_action() -> String:
+	return ""

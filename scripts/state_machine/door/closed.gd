@@ -18,4 +18,8 @@ func update(_delta: float) -> void:
 		else: 
 			door.animation.call_func()
 			yield(door.animation_manager, "animation_finished")
+			door.action = tr("DOOR_ACTION_CLOSE")
 			state_machine.transition_to("Opened")
+
+func get_action() -> String:
+	return tr("DOOR_ACTION_OPEN")

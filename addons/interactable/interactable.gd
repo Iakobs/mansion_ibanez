@@ -4,14 +4,6 @@ extends Area
 export var override_shape := false
 export var margin = 1.01
 
-func _get_configuration_warning():
-	# Ensure all needed signals are connected
-	if get_signal_connection_list("area_entered").empty():
-		return "area_entered signal needs to be connected"
-	if get_signal_connection_list("area_exited").empty():
-		return "area_exited signal needs to be connected"
-	return ""
-
 func _ready():
 	set_collision_layers()
 	set_collision_masks()

@@ -24,3 +24,6 @@ func reset(payload := {}) -> void:
 		interactable = null
 		hand.modulate = Color.white
 		display.hide_display()
+
+func _unhandled_input(event: InputEvent) -> void:
+	pass

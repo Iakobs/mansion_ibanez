@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Spatial",
+"base": "Interacter",
 "class": "Door",
 "language": "GDScript",
 "path": "res://scenes/prefabs/door.gd"
@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/state_machine/door/door_state.gd"
 }, {
-"base": "Spatial",
+"base": "Door",
 "class": "GarageDoor",
 "language": "GDScript",
 "path": "res://scenes/prefabs/garage_door.gd"
@@ -33,6 +33,11 @@ _global_script_classes=[ {
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "Spatial",
+"class": "Interacter",
+"language": "GDScript",
+"path": "res://addons/interactable/interacter.gd"
 }, {
 "base": "RigidBody",
 "class": "Player",
@@ -55,6 +60,7 @@ _global_script_class_icons={
 "DoorState": "",
 "GarageDoor": "",
 "GitAPI": "",
+"Interacter": "",
 "Player": "",
 "State": "",
 "StateMachine": ""
