@@ -1,9 +1,5 @@
 class_name DoorAnimationManager
-extends Node
-
-signal animation_finished
-
-var is_playing := false
+extends AnimationManager
 
 func open(reverse := false) -> void:
 	is_playing = true

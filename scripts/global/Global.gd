@@ -24,7 +24,7 @@ func getAllCollisions(node: Node, listOfAllNodesInTree := []) -> Array:
 	if node is CollisionShape:
 		listOfAllNodesInTree.append(node)
 	for childNode in node.get_children():
-		getAllCollisions(childNode, listOfAllNodesInTree)
+		var _discarded = getAllCollisions(childNode, listOfAllNodesInTree)
 	return listOfAllNodesInTree
 
 func _unhandled_input(event: InputEvent) -> void:

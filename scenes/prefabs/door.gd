@@ -14,7 +14,7 @@ onready var animation_manager: DoorAnimationManager = $"%DoorAnimationManager"
 onready var animation := funcref(animation_manager, "open")
 
 func _ready() -> void:
-	state_machine.connect("transitioned", self, "_on_door_status_change")
+	var _err = state_machine.connect("transitioned", self, "_on_door_status_change")
 	action = state_machine.state.get_action()
 
 func _process(delta: float) -> void:

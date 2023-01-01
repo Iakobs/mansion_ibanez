@@ -1,7 +1,6 @@
 extends Interacter
 
 func _ready() -> void:
-	._ready()
 	action = tr("PICKABLE_ACTION")
 
 func _process(_delta: float) -> void:

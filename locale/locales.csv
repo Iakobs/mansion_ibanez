@@ -5,3 +5,6 @@ DOOR_ACTION_CLOSE,Close,Cerrar,Tancar
 GARAGE_DOOR_NAME,Garage Door,Puerta del garaje,Porta del garatge
 KEY_NAME,Key,Llave,Clau
 PICKABLE_ACTION,Pick up,Coger,Agafar
+WINDOW_NAME,Window,Ventana,Finestra
+WINDOW_ACTION_OPEN,Open,Abrir,Obrir
+WINDOW_ACTION_CLOSE,Close,Cerrar,Tancar

@@ -7,22 +7,22 @@ var interactable: Interacter
 var hand_original_size: Vector2
 
 func _ready() -> void:
-	Events.connect("interactable_entered", self, "interact")
-	Events.connect("interactable_exited", self, "reset")
-	Events.connect("interactable_updated", self, "update")
+	var _err = Events.connect("interactable_entered", self, "interact")
+	_err = Events.connect("interactable_exited", self, "reset")
+	_err = Events.connect("interactable_updated", self, "update")
 	hand_original_size = hand.rect_scale
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		var tween := create_tween()\
 			.set_trans(Tween.TRANS_QUAD)\
 			.set_ease(Tween.EASE_IN_OUT)
-		tween.tween_property(hand, "rect_scale", hand_original_size * 0.8, 0.1)
+		var _discard = tween.tween_property(hand, "rect_scale", hand_original_size * 0.8, 0.1)
 	if Input.is_action_just_released("left_click"):
 		var tween := create_tween()\
 			.set_trans(Tween.TRANS_QUAD)\
 			.set_ease(Tween.EASE_IN_OUT)
-		tween.tween_property(hand, "rect_scale", hand_original_size, 0.1).from_current()
+		var _discard = tween.tween_property(hand, "rect_scale", hand_original_size, 0.1).from_current()
 	pass
 
 func interact(payload := {}) -> void:

@@ -9,12 +9,17 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "AnimationManager",
+"language": "GDScript",
+"path": "res://scripts/components/animation_manager.gd"
+}, {
 "base": "Interacter",
 "class": "Door",
 "language": "GDScript",
 "path": "res://scenes/prefabs/door.gd"
 }, {
-"base": "Node",
+"base": "AnimationManager",
 "class": "DoorAnimationManager",
 "language": "GDScript",
 "path": "res://scripts/components/door_animation_manager.gd"
@@ -53,8 +58,24 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://scripts/state_machine/state_machine.gd"
+}, {
+"base": "Interacter",
+"class": "Window",
+"language": "GDScript",
+"path": "res://scenes/prefabs/window.gd"
+}, {
+"base": "AnimationManager",
+"class": "WindowAnimationManager",
+"language": "GDScript",
+"path": "res://scripts/components/window_animation_manager.gd"
+}, {
+"base": "State",
+"class": "WindowState",
+"language": "GDScript",
+"path": "res://scripts/state_machine/window/window_state.gd"
 } ]
 _global_script_class_icons={
+"AnimationManager": "",
 "Door": "",
 "DoorAnimationManager": "",
 "DoorState": "",
@@ -63,7 +84,10 @@ _global_script_class_icons={
 "Interacter": "",
 "Player": "",
 "State": "",
-"StateMachine": ""
+"StateMachine": "",
+"Window": "",
+"WindowAnimationManager": "",
+"WindowState": ""
 }
 
 [application]
