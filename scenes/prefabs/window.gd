@@ -20,9 +20,17 @@ onready var left_stop_end: Position3D = $"%left_stop_end"
 
 onready var state_machine: StateMachine = $"%StateMachine"
 onready var animation_manager: WindowAnimationManager = $"%WindowAnimationManager"
+
 onready var animation := funcref(animation_manager, "open")
+onready var lock_vertical_origin: float
 
 var dragging := false
+var player_is_in_front := false
+
+var sash: StaticBody
+var lock: Spatial
+var stop_start: Position3D
+var stop_end: Position3D
 
 func _ready() -> void:
 	var _err = right_interactable.connect("area_entered", self, "_on_right_interactable_area_entered")
@@ -31,6 +39,7 @@ func _ready() -> void:
 	_err = left_interactable.connect("area_exited", self, "_on_left_interactable_area_exited")
 	_err = state_machine.connect("transitioned", self, "_on_status_change")
 	action = state_machine.state.get_action()
+	lock_vertical_origin = right_lock.translation.y
 
 func _process(_delta: float) -> void:
 #	state_machine._process(_delta)
@@ -39,20 +48,32 @@ func _process(_delta: float) -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	pass
 
-func _on_right_interactable_area_entered(_area: Area) -> void:
+func _on_right_interactable_area_entered(area: Area) -> void:
 	interactable = right_interactable
-	inside_interactable = true
-	emit_interactable_event("interactable_entered")
+	sash = right_sash
+	lock =right_lock
+	stop_start = right_stop_start
+	stop_end = right_stop_end
+	calculate_player_position(area)
+	if not player_is_in_front:
+		inside_interactable = true
+		emit_interactable_event("interactable_entered")
 
 func _on_right_interactable_area_exited(_area: Area) -> void:
 	if interactable == right_interactable:
 		inside_interactable = false
 		emit_interactable_event("interactable_exited")
 
-func _on_left_interactable_area_entered(_area: Area) -> void:
+func _on_left_interactable_area_entered(area: Area) -> void:
 	interactable = left_interactable
-	inside_interactable = true
-	emit_interactable_event("interactable_entered")
+	sash = left_sash
+	lock = left_lock
+	stop_start = left_stop_end
+	stop_end = left_stop_start
+	calculate_player_position(area)
+	if not player_is_in_front:
+		inside_interactable = true
+		emit_interactable_event("interactable_entered")
 
 func _on_left_interactable_area_exited(_area: Area) -> void:
 	if interactable == left_interactable:
@@ -66,6 +87,23 @@ func emit_interactable_event(event := "") -> void:
 	var _payload = get_payload()
 	_payload["locked"] = is_locked
 	Events.emit_signal(event, _payload)
+
+func calculate_player_position(player: Area) -> void:
+	var player_horizontal_position: float
+	var window_horizontal_position: float
+	if rail_direction == "x":
+		player_horizontal_position = player.global_translation.z
+		window_horizontal_position = interactable.global_translation.z
+	else:
+		player_horizontal_position = player.global_translation.x
+		window_horizontal_position = interactable.global_translation.x
+	
+	var distance_between_player_and_window = \
+		player_horizontal_position - window_horizontal_position
+	
+	player_is_in_front = distance_between_player_and_window > 0\
+		if facing_direction == FacingDirection.positive else\
+		distance_between_player_and_window < 0
 
 func _to_string() -> String:
 	return tr("WINDOW_NAME")

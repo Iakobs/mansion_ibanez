@@ -13,17 +13,29 @@ func _ready() -> void:
 	hand_original_size = hand.rect_scale
 
 func _process(_delta: float) -> void:
+	tween_hand()
+	pass
+
+func tween_hand() -> void:
 	if Input.is_action_just_pressed("left_click"):
 		var tween := create_tween()\
 			.set_trans(Tween.TRANS_QUAD)\
 			.set_ease(Tween.EASE_IN_OUT)
-		var _discard = tween.tween_property(hand, "rect_scale", hand_original_size * 0.8, 0.1)
+		var _discard = tween.tween_property(
+			hand, 
+			"rect_scale", 
+			hand_original_size * 0.8,
+			0.1)
 	if Input.is_action_just_released("left_click"):
 		var tween := create_tween()\
 			.set_trans(Tween.TRANS_QUAD)\
 			.set_ease(Tween.EASE_IN_OUT)
-		var _discard = tween.tween_property(hand, "rect_scale", hand_original_size, 0.1).from_current()
-	pass
+		var _discard = tween.tween_property(
+			hand, 
+			"rect_scale", 
+			hand_original_size, 
+			0.1)\
+			.from_current()
 
 func interact(payload := {}) -> void:
 	interactable = payload.interactable

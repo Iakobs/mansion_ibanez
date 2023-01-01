@@ -7,12 +7,12 @@
 [ext_resource path="res://scenes/props/keys/key.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/player/ExtendedPlayer.tscn" type="PackedScene" id=7]
 
-[sub_resource type="PanoramaSky" id=1]
+[sub_resource type="PanoramaSky" id=3]
 panorama = ExtResource( 3 )
 
 [sub_resource type="Environment" id=2]
 background_mode = 2
-background_sky = SubResource( 1 )
+background_sky = SubResource( 3 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )

@@ -1,9 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/player/ExtendedPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/prefabs/door_one.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/mansion/planta_baja/garage_window.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/hdri/kloofendal_48d_partly_cloudy_puresky_1k.hdr" type="Texture" id=4]
+[ext_resource path="res://scenes/Test.gd" type="Script" id=5]
+[ext_resource path="res://assets/images/kenney_prototypetextures/Dark/texture_09.png" type="Texture" id=6]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 6 )
+uv1_triplanar = true
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 4 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.1
+height = 0.2
 
 [node name="Test" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0 )
@@ -11,6 +31,7 @@ use_collision = true
 width = 27.9
 height = 0.08
 depth = 42.28
+material = SubResource( 4 )
 
 [node name="puertas" type="Spatial" parent="."]
 
@@ -32,5 +53,26 @@ mouse_acceleration = 0.25
 max_speed = 3.5
 default_fov = 60.0
 sprint_fov = 70.0
+
+[node name="garage_window" parent="." instance=ExtResource( 3 )]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42353, 2.34911, -5.1906 )
+
+[node name="garage_window2" parent="." instance=ExtResource( 3 )]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42353, 2.34911, -7.7906 )
+
+[node name="entorno" type="Spatial" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="entorno"]
+environment = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="entorno"]
+transform = Transform( 0.730664, 0.657973, -0.182215, -0.0799213, 0.347483, 0.934274, 0.678044, -0.668077, 0.306479, 0, 28.9156, 22.6258 )
+shadow_enabled = true
+
+[node name="touching_point" type="MeshInstance" parent="."]
+unique_name_in_owner = true
+mesh = SubResource( 3 )
 
 [editable path="ExtendedPlayer"]

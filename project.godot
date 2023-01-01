@@ -93,6 +93,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mansion Ibáñez"
+config/description="A first person 3d game on exploring a house in the search of secrets."
 run/main_scene="res://scenes/Game.tscn"
 config/icon="res://icon.png"
 

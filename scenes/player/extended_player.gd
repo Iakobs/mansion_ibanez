@@ -4,14 +4,20 @@ const SCANNED_LAYERS = Global.LayerValues.WORLD \
 	+ Global.LayerValues.INTERACTABLE \
 	+ Global.LayerValues.COLLECTIBLE
 
-var ray_length := 1.55
-var distance_to_nearest := 100.0
+export var ray_length := 1.55
 
 onready var crosshair: Control = $"%Crosshair"
 onready var camera: Camera = $"%Camera"
 onready var interacter_collision: CollisionShape = $"%CollisionShape"
 
+var nearest_object_position := Vector3.INF
+var distance_to_nearest_object: float
+
+func _ready() -> void:
+	interacter_collision.shape.length = ray_length
+
 func _process(_delta: float) -> void:
+	interacter_collision.shape.length = ray_length
 	set_ray_lenght()
 
 func set_ray_lenght() -> void:
@@ -24,8 +30,14 @@ func set_ray_lenght() -> void:
 				to, [], SCANNED_LAYERS, true, true)
 	# We have a collision
 	if not cast.empty():
-		var position = cast["position"]
+		nearest_object_position = cast["position"]
 		
 		# Ray length to interact will be as long as the nearest object + small extra distance
-		distance_to_nearest = from.distance_to(position)
-		interacter_collision.shape.length = distance_to_nearest + 0.075
+		distance_to_nearest_object = from.distance_to(nearest_object_position)
+		interacter_collision.shape.length = distance_to_nearest_object + 0.05
+	else:
+		nearest_object_position = Vector3.INF
+	
+	if Input.is_action_pressed("left_click"):
+		PlayerStats.touching_point = nearest_object_position \
+		if nearest_object_position != Vector3.INF else to
