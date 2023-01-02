@@ -2,7 +2,7 @@ tool
 extends Area
 
 export var override_shape := false
-export var margin = 1.01
+export var margin = 1.05
 
 func _ready():
 	set_collision_layers()
@@ -61,6 +61,7 @@ func try_to_add_automatic_collision():
 				collision.transform = collision_sibling.transform
 				collision.shape = optional_shape
 				add_child(collision)
+				collision.owner = self
 
 func first_collision_sibling():
 	for child in get_parent().get_children():

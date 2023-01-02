@@ -40,7 +40,7 @@ mesh = SubResource( 3 )
 [node name="RayCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
 
-[node name="Camera" type="Camera" parent="."]
+[node name="Camera" type="Camera" parent="." groups=["camera"]]
 unique_name_in_owner = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
 current = true

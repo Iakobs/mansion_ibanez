@@ -1,4 +1,4 @@
-tool
+#tool
 extends Spatial
 
 const whitegreen : Color = Color(0.9, 0.97, 0.94)
@@ -29,7 +29,9 @@ func _ready():
 
 
 func _process(delta):
-	_ready() # need to reload for proper operation when used as a toolscript
+#	_ready() # need to reload for proper operation when used as a toolscript
+	if Global.camera != null:
+		MainCam = Global.camera
 	if MainCam == null:
 		# No camera specified for the mirror to operate on
 		return

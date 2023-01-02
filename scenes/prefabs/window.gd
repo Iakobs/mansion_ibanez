@@ -38,7 +38,7 @@ func _ready() -> void:
 	_err = left_interactable.connect("area_entered", self, "_on_left_interactable_area_entered")
 	_err = left_interactable.connect("area_exited", self, "_on_left_interactable_area_exited")
 	_err = state_machine.connect("transitioned", self, "_on_status_change")
-	action = state_machine.state.get_action()
+	action = tr("WINDOW_ACTION_OPEN")
 	lock_vertical_origin = right_lock.translation.y
 
 func _process(_delta: float) -> void:
@@ -68,8 +68,8 @@ func _on_left_interactable_area_entered(area: Area) -> void:
 	interactable = left_interactable
 	sash = left_sash
 	lock = left_lock
-	stop_start = left_stop_end
-	stop_end = left_stop_start
+	stop_start = left_stop_start
+	stop_end = left_stop_end
 	calculate_player_position(area)
 	if not player_is_in_front:
 		inside_interactable = true

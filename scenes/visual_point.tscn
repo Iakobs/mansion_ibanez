@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 0.01
+height = 0.02
+
+[node name="visual_point" type="MeshInstance"]
+mesh = SubResource( 1 )

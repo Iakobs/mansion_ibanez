@@ -6,8 +6,8 @@
 [ext_resource path="res://scenes/mansion/planta_baja/planta_baja.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mansion/planta_baja/garage_door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/mansion/planta_baja/garage_window.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/mansion/planta_baja/basement_window.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/mansion/planta_baja/garage_lateral_door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/mansion/planta_baja/ventana_planta_baja.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/mansion/primer_piso/primer_piso.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/kitchen_door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/marcos.tscn" type="PackedScene" id=13]
@@ -31,8 +31,6 @@
 
 [node name="planta_baja" parent="planta_baja" instance=ExtResource( 4 )]
 
-[node name="ventana_planta_baja" parent="planta_baja" instance=ExtResource( 9 )]
-
 [node name="basement_floor_entrance" parent="planta_baja" instance=ExtResource( 17 )]
 
 [node name="garage_lateral_door" parent="planta_baja" instance=ExtResource( 8 )]
@@ -40,6 +38,8 @@
 [node name="garage_door" parent="planta_baja" instance=ExtResource( 5 )]
 
 [node name="garage_window" parent="planta_baja" instance=ExtResource( 6 )]
+
+[node name="basement_window" parent="planta_baja" instance=ExtResource( 7 )]
 
 [node name="first_floor" type="Spatial" parent="."]
 

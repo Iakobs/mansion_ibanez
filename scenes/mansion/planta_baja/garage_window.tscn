@@ -193,6 +193,9 @@ material/3 = ExtResource( 2 )
 [node name="right_sash" parent="." index="5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87226, -0.950985, 2.73569 )
 
+[node name="right_interactable" parent="right_sash" index="0"]
+margin = 1.01
+
 [node name="right_lock" parent="right_sash" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0194178, -0.0244172, 0.328059 )
 
@@ -218,6 +221,9 @@ material/0 = ExtResource( 7 )
 
 [node name="left_sash" parent="." index="6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91634, -0.950985, 2.04346 )
+
+[node name="left_interactable" parent="left_sash" index="0"]
+margin = 1.01
 
 [node name="left_lock" parent="left_sash" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0194173, -0.0244172, -0.328059 )

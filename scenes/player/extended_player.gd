@@ -34,7 +34,7 @@ func set_ray_lenght() -> void:
 		
 		# Ray length to interact will be as long as the nearest object + small extra distance
 		distance_to_nearest_object = from.distance_to(nearest_object_position)
-		interacter_collision.shape.length = distance_to_nearest_object + 0.05
+		interacter_collision.shape.length = distance_to_nearest_object + 0.025
 	else:
 		nearest_object_position = Vector3.INF
 	

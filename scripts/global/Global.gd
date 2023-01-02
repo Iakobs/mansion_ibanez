@@ -11,10 +11,15 @@ enum Axis{
 }
 
 var door_collisions := []
+var camera: Camera
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("doors"):
 		door_collisions.append_array(getAllCollisions(node))
+	
+	for node in get_tree().get_nodes_in_group("camera"):
+		camera = node
+		return
 
 func switch_door_collisions() -> void:
 	for door in door_collisions:
