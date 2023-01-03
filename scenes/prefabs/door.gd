@@ -13,12 +13,18 @@ onready var state_machine: StateMachine = $"%StateMachine"
 onready var animation_manager: DoorAnimationManager = $"%DoorAnimationManager"
 onready var animation := funcref(animation_manager, "open")
 
+var clicking_is_active := true
+
 func _ready() -> void:
 	var _err := state_machine.connect("transitioned", self, "_on_door_status_change")
 	action = state_machine.state.get_action()
 
 func _process(_delta: float) -> void:
 	pass
+
+func _on_interactable_area_entered(area: Area) -> void:
+	._on_interactable_area_entered(area)
+	check_clicking()
 
 func _on_door_status_change(_state_name: String) -> void:
 	emit_interactable_event("interactable_updated")
@@ -27,6 +33,12 @@ func emit_interactable_event(event := "") -> void:
 	var _payload = get_payload()
 	_payload["locked"] = is_locked
 	Events.emit_signal(event, _payload)
+
+func check_clicking() -> void:
+	print("Is pressed: %s" % Input.is_action_pressed("left_click"))
+	print("Is inside: %s" % inside_interactable)
+	clicking_is_active = not (inside_interactable \
+		and Input.is_action_pressed("left_click"))
 
 func _to_string() -> String:
 	return tr("DOOR_NAME")

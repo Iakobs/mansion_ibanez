@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
 func _on_upper_interactable_area_entered(_area: Area) -> void:
 	interactable = upper_interactable
 	inside_interactable = true
+	check_clicking()
 	emit_interactable_event("interactable_entered")
 
 func _on_upper_interactable_area_exited(_area: Area) -> void:
@@ -29,6 +30,7 @@ func _on_upper_interactable_area_exited(_area: Area) -> void:
 func _on_lower_interactable_area_entered(_area: Area) -> void:
 	interactable = lower_interactable
 	inside_interactable = true
+	check_clicking()
 	emit_interactable_event("interactable_entered")
 
 func _on_lower_interactable_area_exited(_area: Area) -> void:

@@ -5,6 +5,10 @@ func update(_delta: float) -> void:
 	and door.inside_interactable \
 	and Input.is_action_just_released("left_click"):
 		
+		if not door.clicking_is_active:
+			door.clicking_is_active = true
+			return
+		
 		if door.is_locked:
 			if PlayerStats.key_count > 0:
 				door.is_locked = false

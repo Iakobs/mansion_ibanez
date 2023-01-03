@@ -4,6 +4,11 @@ func update(_delta: float) -> void:
 	if not door.animation_manager.is_playing \
 	and door.inside_interactable \
 	and Input.is_action_just_released("left_click"):
+		
+		if not door.clicking_is_active:
+			door.clicking_is_active = true
+			return
+		
 		door.animation.call_func(true)
 		yield(door.animation_manager, "animation_finished")
 		door.action = tr("DOOR_ACTION_OPEN")
