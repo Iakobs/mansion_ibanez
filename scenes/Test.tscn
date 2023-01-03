@@ -22,7 +22,7 @@ background_sky = SubResource( 5 )
 [node name="Test" type="Spatial"]
 script = ExtResource( 5 )
 
-[node name="CSGBox" type="CSGBox" parent="."]
+[node name="floor" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.35, 0 )
 use_collision = true
 width = 27.9
@@ -30,14 +30,55 @@ height = 0.08
 depth = 42.28
 material = SubResource( 4 )
 
-[node name="CSGBox" type="CSGBox" parent="CSGBox"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.752353, 1.1, 4.02104 )
-depth = 0.597199
+[node name="room_1" type="CSGBox" parent="floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86186, 1.00962, 4.02104 )
+width = 6.3717
+height = 2.6
+depth = 0.2
 material = SubResource( 4 )
 
-[node name="CSGBox2" type="CSGBox" parent="CSGBox"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15235, 1.1, 4.02104 )
-depth = 0.597199
+[node name="window_hole" type="CSGBox" parent="floor/room_1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.336281, 0 )
+operation = 2
+width = 1.4
+height = 1.17932
+depth = 0.4
+material = SubResource( 4 )
+
+[node name="door_hole" type="CSGBox" parent="floor/room_1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53285, 0.136281, 0 )
+operation = 2
+width = 0.819466
+height = 2.2
+depth = 0.4
+material = SubResource( 4 )
+
+[node name="wall" type="CSGBox" parent="floor/room_1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.2 )
+width = 6.3717
+height = 2.6
+depth = 0.2
+material = SubResource( 4 )
+
+[node name="wall2" type="CSGBox" parent="floor/room_1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.1, 0, 3.1 )
+width = 6.3717
+height = 2.6
+depth = 0.2
+material = SubResource( 4 )
+
+[node name="wall3" type="CSGBox" parent="floor/room_1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.1, 0, 3.1 )
+width = 6.3717
+height = 2.6
+depth = 0.2
+material = SubResource( 4 )
+
+[node name="ceiling" type="CSGBox" parent="floor/room_1"]
+transform = Transform( 8.88178e-16, -1, -1.49012e-08, -4.37114e-08, -1.49012e-08, 1, -1, 0, -4.37114e-08, 4.76837e-07, 1.4, 3.1 )
+width = 6.3717
+height = 6.4
+depth = 0.2
 material = SubResource( 4 )
 
 [node name="puertas" type="Spatial" parent="."]
@@ -53,7 +94,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94, 0, 0 )
 
 [node name="door4" parent="puertas" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72767, 0, 4 )
 
 [node name="ExtendedPlayer" parent="." instance=ExtResource( 1 )]
 mouse_sensitivity = Vector2( 0.2, 0.2 )

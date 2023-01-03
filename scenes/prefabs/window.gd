@@ -8,20 +8,19 @@ export(FacingDirection) var facing_direction := FacingDirection.positive
 export(bool) var is_locked := false
 
 onready var right_sash: StaticBody = $"%right_sash"
-onready var left_sash: StaticBody = $"%left_sash"
 onready var right_lock: Spatial = $"%right_lock"
-onready var left_lock: Spatial = $"%left_lock"
-onready var right_interactable: Area = $"%right_interactable"
-onready var left_interactable: Area = $"%left_interactable"
 onready var right_stop_start: Position3D = $"%right_stop_start"
 onready var right_stop_end: Position3D = $"%right_stop_end"
+onready var right_interactable: Area = $"%right_interactable"
+
+onready var left_sash: StaticBody = $"%left_sash"
+onready var left_lock: Spatial = $"%left_lock"
 onready var left_stop_start: Position3D = $"%left_stop_start"
 onready var left_stop_end: Position3D = $"%left_stop_end"
+onready var left_interactable: Area = $"%left_interactable"
 
 onready var state_machine: StateMachine = $"%StateMachine"
-onready var animation_manager: WindowAnimationManager = $"%WindowAnimationManager"
 
-onready var animation := funcref(animation_manager, "open")
 onready var lock_vertical_origin: float
 
 var dragging := false
@@ -33,16 +32,16 @@ var stop_start: Position3D
 var stop_end: Position3D
 
 func _ready() -> void:
-	var _err = right_interactable.connect("area_entered", self, "_on_right_interactable_area_entered")
+	var _err := right_interactable.connect("area_entered", self, "_on_right_interactable_area_entered")
 	_err = right_interactable.connect("area_exited", self, "_on_right_interactable_area_exited")
 	_err = left_interactable.connect("area_entered", self, "_on_left_interactable_area_entered")
 	_err = left_interactable.connect("area_exited", self, "_on_left_interactable_area_exited")
 	_err = state_machine.connect("transitioned", self, "_on_status_change")
+	
 	action = tr("WINDOW_ACTION_OPEN")
 	lock_vertical_origin = right_lock.translation.y
 
 func _process(_delta: float) -> void:
-#	state_machine._process(_delta)
 	pass
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -51,7 +50,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _on_right_interactable_area_entered(area: Area) -> void:
 	interactable = right_interactable
 	sash = right_sash
-	lock =right_lock
+	lock = right_lock
 	stop_start = right_stop_start
 	stop_end = right_stop_end
 	calculate_player_position(area)

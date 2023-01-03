@@ -4,7 +4,7 @@ onready var keys_count: Label = $"%keys_count"
 
 func _ready() -> void:
 	keys_count.text = str(PlayerStats.key_count)
-	var _err = Events.connect("collectible_collected", self, "on_collectible_collected")
+	var _err := Events.connect("collectible_collected", self, "on_collectible_collected")
 	_err = Events.connect("collectible_consumed", self, "on_collectible_consumed")
 
 func on_collectible_collected(_payload := {}) -> void:

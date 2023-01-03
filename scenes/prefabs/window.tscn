@@ -3,8 +3,8 @@
 [ext_resource path="res://addons/interactable/interactable.gd" type="Script" id=1]
 [ext_resource path="res://scenes/prefabs/window.gd" type="Script" id=2]
 [ext_resource path="res://scripts/state_machine/state_machine.gd" type="Script" id=3]
-[ext_resource path="res://scripts/components/window_animation_manager.gd" type="Script" id=4]
-[ext_resource path="res://scripts/state_machine/window/closed.gd" type="Script" id=5]
+[ext_resource path="res://scripts/state_machine/window/stopped.gd" type="Script" id=4]
+[ext_resource path="res://scripts/state_machine/window/dragging.gd" type="Script" id=5]
 
 [node name="window" type="Spatial"]
 script = ExtResource( 2 )
@@ -50,11 +50,10 @@ unique_name_in_owner = true
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource( 3 )
-initial_state = NodePath("Closed")
+initial_state = NodePath("Stopped")
 
-[node name="Closed" type="Node" parent="StateMachine"]
-script = ExtResource( 5 )
-
-[node name="WindowAnimationManager" type="Node" parent="."]
-unique_name_in_owner = true
+[node name="Stopped" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
+
+[node name="Dragging" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )

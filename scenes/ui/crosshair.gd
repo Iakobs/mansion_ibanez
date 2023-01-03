@@ -7,7 +7,7 @@ var interactable: Interacter
 var hand_original_size: Vector2
 
 func _ready() -> void:
-	var _err = Events.connect("interactable_entered", self, "interact")
+	var _err := Events.connect("interactable_entered", self, "interact")
 	_err = Events.connect("interactable_exited", self, "reset")
 	_err = Events.connect("interactable_updated", self, "update")
 	hand_original_size = hand.rect_scale

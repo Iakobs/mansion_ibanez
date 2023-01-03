@@ -23,7 +23,7 @@ radial_segments = 16
 [sub_resource type="RayShape" id=6]
 margin = 0.001
 
-[node name="ExtendedPlayer" type="RigidBody"]
+[node name="ExtendedPlayer" type="RigidBody" groups=["player"]]
 collision_layer = 2
 mode = 2
 physics_material_override = SubResource( 4 )

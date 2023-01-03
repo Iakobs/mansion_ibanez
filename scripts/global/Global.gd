@@ -6,11 +6,9 @@ enum LayerValues {
 enum LayerBits {
 	WORLD = 0, PLAYER = 1, INTERACTABLE = 2, COLLECTIBLE = 3
 }
-enum Axis{ 
-	X_POSITIVE, X_NEGATIVE, Y_POSITIVE, Y_NEGATIVE, Z_POSITIVE, Z_NEGATIVE 
-}
 
 var door_collisions := []
+var player: Player
 var camera: Camera
 
 func _ready() -> void:
@@ -19,7 +17,12 @@ func _ready() -> void:
 	
 	for node in get_tree().get_nodes_in_group("camera"):
 		camera = node
-		return
+	
+	for node in get_tree().get_nodes_in_group("player"):
+		player = node
+	
+	assert(camera != null, "No camera was found!")
+	assert(player != null, "No player was found!")
 
 func switch_door_collisions() -> void:
 	for door in door_collisions:
