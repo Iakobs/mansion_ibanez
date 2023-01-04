@@ -1,3 +1,4 @@
+class_name Key
 extends Interacter
 
 func _ready() -> void:

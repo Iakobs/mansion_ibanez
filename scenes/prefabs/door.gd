@@ -35,8 +35,6 @@ func emit_interactable_event(event := "") -> void:
 	Events.emit_signal(event, _payload)
 
 func check_clicking() -> void:
-	print("Is pressed: %s" % Input.is_action_pressed("left_click"))
-	print("Is inside: %s" % inside_interactable)
 	clicking_is_active = not (inside_interactable \
 		and Input.is_action_pressed("left_click"))
 
