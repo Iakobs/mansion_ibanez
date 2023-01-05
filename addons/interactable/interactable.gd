@@ -1,8 +1,7 @@
-tool
 extends Area
 
 export var override_shape := false
-export var margin = 1.05
+export var margin := 1.05
 
 func _ready():
 	set_collision_layers()

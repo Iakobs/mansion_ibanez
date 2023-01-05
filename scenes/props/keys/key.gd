@@ -5,8 +5,9 @@ func _ready() -> void:
 	action = tr("PICKABLE_ACTION")
 
 func _process(_delta: float) -> void:
-	if inside_interactable and Input.is_action_just_released("left_click"):
-		Events.emit_signal("collectible_collected")
+	if inside_interactable and Input.is_action_just_released("primary_action"):
+		Events.emit_signal("collectible_collected",
+			{ collectibles = [Events.collectibles.key] })
 		queue_free()
 
 func _to_string() -> String:

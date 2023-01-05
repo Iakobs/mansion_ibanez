@@ -67,7 +67,7 @@ margin_right = 90.0
 margin_bottom = 72.0
 custom_constants/margin_left = -22
 
-[node name="keys_count" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="key_count" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 margin_left = 94.0
 margin_top = 6.0

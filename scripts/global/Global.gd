@@ -8,8 +8,10 @@ enum LayerBits {
 }
 
 var door_collisions := []
+
 var player: Player
 var camera: Camera
+
 var ray_origin: Vector3
 var mouse_position: Vector2
 

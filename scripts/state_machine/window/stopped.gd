@@ -5,5 +5,5 @@ func enter(_payload := {}) -> void:
 
 func update(_delta: float) -> void:
 	if window.inside_interactable\
-	and Input.is_action_just_pressed("left_click"):
+	and Input.is_action_just_pressed("primary_action"):
 		state_machine.transition_to("Dragging")

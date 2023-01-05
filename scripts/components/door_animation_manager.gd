@@ -1,6 +1,12 @@
 class_name DoorAnimationManager
 extends AnimationManager
 
+export(String, "open", "open_garage") var selected_animation := "open"
+
+func play(params := []) -> void:
+	if has_method(selected_animation):
+		callv(selected_animation, params)
+
 func open(reverse := false) -> void:
 	is_playing = true
 	var door_final_angle := 0.0 if reverse else float(owner.door_panel_angle)

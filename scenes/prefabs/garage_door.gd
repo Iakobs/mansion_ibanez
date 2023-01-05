@@ -7,11 +7,14 @@ onready var upper_interactable: Area = $"%upper_interactable"
 onready var lower_interactable: Area = $"%lower_interactable"
 
 func _ready() -> void:
-	var _err := upper_interactable.connect("area_entered", self, "_on_upper_interactable_area_entered")
-	_err = upper_interactable.connect("area_exited", self, "_on_upper_interactable_area_exited")
-	_err = lower_interactable.connect("area_entered", self, "_on_lower_interactable_area_entered")
-	_err = lower_interactable.connect("area_exited", self, "_on_lower_interactable_area_exited")
-	animation = funcref(animation_manager, "open_garage")
+	var _err := upper_interactable\
+		.connect("area_entered", self, "_on_upper_interactable_area_entered")
+	_err = upper_interactable\
+		.connect("area_exited", self, "_on_upper_interactable_area_exited")
+	_err = lower_interactable\
+		.connect("area_entered", self, "_on_lower_interactable_area_entered")
+	_err = lower_interactable\
+		.connect("area_exited", self, "_on_lower_interactable_area_exited")
 
 func _process(_delta: float) -> void:
 	pass

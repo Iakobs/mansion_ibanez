@@ -13,3 +13,7 @@ signal interactable_updated(payload)
 signal collectible_collected(payload)
 # warning-ignore:unused_signal
 signal collectible_consumed(payload)
+
+enum collectibles {
+	key
+}

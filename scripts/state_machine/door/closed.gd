@@ -3,7 +3,7 @@ extends DoorState
 func update(_delta: float) -> void:
 	if not door.animation_manager.is_playing \
 	and door.inside_interactable \
-	and Input.is_action_just_released("left_click"):
+	and Input.is_action_just_released("primary_action"):
 		
 		if not door.clicking_is_active:
 			door.clicking_is_active = true
@@ -12,15 +12,15 @@ func update(_delta: float) -> void:
 		if door.is_locked:
 			if PlayerStats.key_count > 0:
 				door.is_locked = false
-				PlayerStats.key_count -= 1
-				Events.emit_signal("collectible_consumed")
+				Events.emit_signal("collectible_consumed",
+					{ collectibles = [Events.collectibles.key] })
 				Events.emit_signal("interactable_updated", 
 				{ 
-					interactable = door, 
+					interacter = door, 
 					locked = false 
 				})
 		else: 
-			door.animation.call_func()
+			door.animation_manager.play()
 			yield(door.animation_manager, "animation_finished")
 			door.action = tr("DOOR_ACTION_CLOSE")
 			state_machine.transition_to("Opened")

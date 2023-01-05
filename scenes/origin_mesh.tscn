@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/kenney_prototypetextures/Red/texture_09.png" type="Texture" id=1]
+
+[sub_resource type="PrismMesh" id=1]
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+
+[node name="origin_mesh" type="MeshInstance"]
+unique_name_in_owner = true
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )

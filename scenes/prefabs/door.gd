@@ -11,7 +11,6 @@ onready var door_panel: StaticBody = $"%door_panel"
 onready var doorknob: Spatial = $"%doorknob"
 onready var state_machine: StateMachine = $"%StateMachine"
 onready var animation_manager: DoorAnimationManager = $"%DoorAnimationManager"
-onready var animation := funcref(animation_manager, "open")
 
 var clicking_is_active := true
 
@@ -36,7 +35,7 @@ func emit_interactable_event(event := "") -> void:
 
 func check_clicking() -> void:
 	clicking_is_active = not (inside_interactable \
-		and Input.is_action_pressed("left_click"))
+		and Input.is_action_pressed("primary_action"))
 
 func _to_string() -> String:
 	return tr("DOOR_NAME")

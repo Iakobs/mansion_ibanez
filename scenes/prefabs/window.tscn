@@ -57,3 +57,6 @@ script = ExtResource( 4 )
 
 [node name="Dragging" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
+
+[node name="interactable" type="Area" parent="."]
+unique_name_in_owner = true

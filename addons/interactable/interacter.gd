@@ -17,7 +17,7 @@ func emit_interactable_event(event := "") -> void:
 
 func get_payload() -> Dictionary:
 	return {
-		interactable = self, 
+		interacter = self, 
 		name = to_string(), 
 		action = action
 	}

@@ -3,7 +3,7 @@ extends Control
 onready var hand: TextureRect = $"%Hand"
 onready var display: Control = $"%interactable_info_display"
 
-var interactable: Interacter
+var interacter: Interacter
 var hand_original_size: Vector2
 
 func _ready() -> void:
@@ -14,10 +14,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	tween_hand()
-	pass
 
 func tween_hand() -> void:
-	if Input.is_action_just_pressed("left_click"):
+	if Input.is_action_just_pressed("primary_action"):
 		var tween := create_tween()\
 			.set_trans(Tween.TRANS_QUAD)\
 			.set_ease(Tween.EASE_IN_OUT)
@@ -26,7 +25,7 @@ func tween_hand() -> void:
 			"rect_scale", 
 			hand_original_size * 0.8,
 			0.1)
-	if Input.is_action_just_released("left_click"):
+	if Input.is_action_just_released("primary_action"):
 		var tween := create_tween()\
 			.set_trans(Tween.TRANS_QUAD)\
 			.set_ease(Tween.EASE_IN_OUT)
@@ -38,16 +37,16 @@ func tween_hand() -> void:
 			.from_current()
 
 func interact(payload := {}) -> void:
-	interactable = payload.interactable
+	interacter = payload.interacter
 	hand.modulate = Color.red
 	display.show_display(payload)
 
 func update(payload := {}) -> void:
-	if payload.interactable == interactable:
+	if payload.interacter == interacter:
 		display.show_display(payload)
 
 func reset(payload := {}) -> void:
-	if payload.interactable == interactable:
-		interactable = null
+	if payload.interacter == interacter:
+		interacter = null
 		hand.modulate = Color.white
 		display.hide_display()

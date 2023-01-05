@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/kenney_prototypetextures/Red/texture_09.png" type="Texture" id=1]
 
 [sub_resource type="SphereMesh" id=1]
-radius = 0.01
-height = 0.02
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
 
 [node name="visual_point" type="MeshInstance"]
 mesh = SubResource( 1 )
+material/0 = SubResource( 2 )

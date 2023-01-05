@@ -95,3 +95,14 @@ material/0 = ExtResource( 1 )
 
 [node name="StateMachine" parent="." index="3"]
 initial_state = NodePath("Closed")
+
+[node name="_discard" type="Spatial" parent="." index="4"]
+
+[node name="interactable" type="Area" parent="_discard" index="0"]
+unique_name_in_owner = true
+
+[node name="door_panel" type="StaticBody" parent="_discard" index="1"]
+unique_name_in_owner = true
+
+[node name="doorknob" type="Spatial" parent="_discard" index="2"]
+unique_name_in_owner = true

@@ -15,7 +15,7 @@ func exit() -> void:
 func update(_delta: float) -> void:
 	drag_window()
 	
-	if Input.is_action_just_released("left_click")\
+	if Input.is_action_just_released("primary_action")\
 	or not window.inside_interactable:
 		state_machine.transition_to("Stopped")
 
