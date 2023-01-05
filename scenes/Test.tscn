@@ -1,34 +1,25 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/player/ExtendedPlayer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/prefabs/test_door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/mansion/planta_baja/garage_window.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/images/kenney_prototypetextures/Dark/texture_08.png" type="Texture" id=2]
+[ext_resource path="res://scenes/props/keys/rigid_key.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/hdri/day.hdr" type="Texture" id=4]
 [ext_resource path="res://scenes/Test.gd" type="Script" id=5]
-[ext_resource path="res://assets/images/kenney_prototypetextures/Dark/texture_09.png" type="Texture" id=6]
-[ext_resource path="res://scenes/mansion/planta_baja/basement_window.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/images/kenney_prototypetextures/Purple/texture_01.png" type="Texture" id=8]
+[ext_resource path="res://scenes/prefabs/test_door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/prefabs/draggable/draggable.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/props/keys/static_key.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/images/kenney_prototypetextures/Orange/texture_08.png" type="Texture" id=9]
 
-[sub_resource type="SpatialMaterial" id=4]
-albedo_texture = ExtResource( 6 )
-uv1_triplanar = true
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_texture = ExtResource( 8 )
-uv1_triplanar = true
-
-[sub_resource type="PanoramaSky" id=5]
+[sub_resource type="PanoramaSky" id=3]
 panorama = ExtResource( 4 )
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=11]
 background_mode = 2
-background_sky = SubResource( 5 )
-ss_reflections_enabled = true
-ssao_enabled = true
+background_sky = SubResource( 3 )
 dof_blur_far_enabled = true
+dof_blur_far_distance = 22.39
 dof_blur_near_enabled = true
-dof_blur_near_distance = 0.5
+dof_blur_near_distance = 0.75
 glow_enabled = true
 
 [sub_resource type="CubeMesh" id=7]
@@ -41,118 +32,31 @@ uv1_triplanar = true
 [sub_resource type="BoxShape" id=9]
 extents = Vector3( 0.125, 0.25, 0.125 )
 
-[sub_resource type="SphereMesh" id=10]
-radius = 0.1
-height = 0.2
+[sub_resource type="SpatialMaterial" id=10]
+albedo_texture = ExtResource( 2 )
+uv1_triplanar = true
 
 [node name="Test" type="Spatial"]
 script = ExtResource( 5 )
 
-[node name="floor" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.35, 0 )
-use_collision = true
-width = 27.9
-height = 0.08
-depth = 42.28
-material = SubResource( 4 )
+[node name="environment" type="Spatial" parent="."]
 
-[node name="room_1" type="CSGBox" parent="floor"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86186, 1.00962, 4.02104 )
-width = 6.3717
-height = 2.6
-depth = 0.2
-material = SubResource( 6 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+environment = SubResource( 11 )
 
-[node name="window_hole" type="CSGBox" parent="floor/room_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.336281, 0 )
-operation = 2
-width = 1.4
-height = 1.17932
-depth = 0.4
-material = SubResource( 4 )
-
-[node name="door_hole" type="CSGBox" parent="floor/room_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53285, 0.136281, 0 )
-operation = 2
-width = 0.819466
-height = 2.2
-depth = 0.4
-material = SubResource( 4 )
-
-[node name="wall" type="CSGBox" parent="floor/room_1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.2 )
-width = 6.3717
-height = 2.6
-depth = 0.2
-material = SubResource( 6 )
-
-[node name="wall2" type="CSGBox" parent="floor/room_1"]
-transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -3.1, 0, 3.1 )
-width = 6.3717
-height = 2.6
-depth = 0.2
-material = SubResource( 6 )
-
-[node name="wall3" type="CSGBox" parent="floor/room_1"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.1, 0, 3.1 )
-width = 6.3717
-height = 2.6
-depth = 0.2
-material = SubResource( 6 )
-
-[node name="ceiling" type="CSGBox" parent="floor/room_1"]
-transform = Transform( 8.88178e-16, -1, -1.49012e-08, -4.37114e-08, -1.49012e-08, 1, -1, 0, -4.37114e-08, 4.76837e-07, 1.4, 3.1 )
-width = 6.3717
-height = 6.4
-depth = 0.2
-material = SubResource( 4 )
-
-[node name="CSGBox" type="CSGBox" parent="floor"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.1 )
-width = 0.6
-depth = 0.6
-
-[node name="puertas" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.31834, 0 )
-
-[node name="door" parent="puertas" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.56, 0, 0 )
-
-[node name="door2" parent="puertas" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24, 0, 0 )
-
-[node name="door3" parent="puertas" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94, 0, 0 )
-
-[node name="door4" parent="puertas" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72767, 0, 4 )
+[node name="DirectionalLight" type="DirectionalLight" parent="environment"]
+transform = Transform( 0.730664, 0.657973, -0.182215, -0.0799213, 0.347483, 0.934274, 0.678044, -0.668077, 0.306479, 0, 28.9156, 22.6258 )
+shadow_enabled = true
 
 [node name="ExtendedPlayer" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -2.2, 2.4 )
 mouse_sensitivity = Vector2( 0.2, 0.2 )
 mouse_acceleration = 0.25
 max_speed = 3.5
 default_fov = 60.0
 sprint_fov = 70.0
 
-[node name="entorno" type="Spatial" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="entorno"]
-environment = SubResource( 2 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="entorno"]
-transform = Transform( 0.730664, 0.657973, -0.182215, -0.0799213, 0.347483, 0.934274, 0.678044, -0.668077, 0.306479, 0, 28.9156, 22.6258 )
-shadow_enabled = true
-shadow_contact = 0.517
-
-[node name="windows" type="Spatial" parent="."]
-
-[node name="garage_window" parent="windows" instance=ExtResource( 3 )]
-
-[node name="basement_window" parent="windows" instance=ExtResource( 7 )]
-
 [node name="altar" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -2.1, 7.3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0.25, -2.72 )
 
 [node name="MeshInstance" type="MeshInstance" parent="altar"]
 mesh = SubResource( 7 )
@@ -161,11 +65,27 @@ material/0 = SubResource( 8 )
 [node name="CollisionShape" type="CollisionShape" parent="altar"]
 shape = SubResource( 9 )
 
+[node name="floor" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0 )
+use_collision = true
+collision_mask = 0
+width = 100.0
+height = 0.1
+depth = 100.0
+material = SubResource( 10 )
+
+[node name="doors" type="Spatial" parent="."]
+
+[node name="door" parent="doors" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.39 )
+is_locked = true
+
 [node name="props" type="Spatial" parent="."]
 
-[node name="demo_mesh" type="MeshInstance" parent="."]
-unique_name_in_owner = true
-visible = false
-mesh = SubResource( 10 )
+[node name="draggable" parent="props" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0.55, -2.72 )
+floating_margin = 0.2
+static_scene = ExtResource( 8 )
+rigid_scene = ExtResource( 3 )
 
 [editable path="ExtendedPlayer"]

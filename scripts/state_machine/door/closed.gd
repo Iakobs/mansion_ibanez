@@ -10,15 +10,16 @@ func update(_delta: float) -> void:
 			return
 		
 		if door.is_locked:
-			if PlayerStats.key_count > 0:
-				door.is_locked = false
-				Events.emit_signal("collectible_consumed",
-					{ collectibles = [Events.collectibles.key] })
-				Events.emit_signal("interactable_updated", 
-				{ 
-					interacter = door, 
-					locked = false 
-				})
+			pass
+#			if PlayerStats.key_count > 0:
+#				door.is_locked = false
+#				Events.emit_signal("collectible_consumed",
+#					{ collectibles = [Events.collectibles.key] })
+#				Events.emit_signal("interactable_updated", 
+#				{ 
+#					interacter = door, 
+#					locked = false 
+#				})
 		else: 
 			door.animation_manager.play()
 			yield(door.animation_manager, "animation_finished")

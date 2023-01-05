@@ -11,11 +11,13 @@ onready var door_panel: StaticBody = $"%door_panel"
 onready var doorknob: Spatial = $"%doorknob"
 onready var state_machine: StateMachine = $"%StateMachine"
 onready var animation_manager: DoorAnimationManager = $"%DoorAnimationManager"
+onready var unlock_area: Area = $"%unlock_area"
 
 var clicking_is_active := true
 
 func _ready() -> void:
 	var _err := state_machine.connect("transitioned", self, "_on_door_status_change")
+	_err = unlock_area.connect("body_entered", self, "_on_unlock_area_body_entered")
 	action = state_machine.state.get_action()
 
 func _process(_delta: float) -> void:
@@ -27,6 +29,12 @@ func _on_interactable_area_entered(area: Area) -> void:
 
 func _on_door_status_change(_state_name: String) -> void:
 	emit_interactable_event("interactable_updated")
+
+func _on_unlock_area_body_entered(body: PhysicsBody) -> void:
+	if body.is_in_group("key") and is_locked:
+		is_locked = false
+		body.owner.queue_free()
+		emit_interactable_event("interactable_updated")
 
 func emit_interactable_event(event := "") -> void:
 	var _payload = get_payload()
