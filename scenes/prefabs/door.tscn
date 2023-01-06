@@ -28,6 +28,9 @@ unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 8
 
+[node name="key_lock_position" type="Position3D" parent="."]
+unique_name_in_owner = true
+
 [node name="DoorAnimationManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource( 6 )

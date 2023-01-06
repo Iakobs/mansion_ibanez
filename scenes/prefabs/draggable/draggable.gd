@@ -90,3 +90,6 @@ func replace_member(from: Spatial, to: Spatial) -> void:
 	add_child_and_set_owner(to)
 	to.global_transform = from.global_transform
 	remove_child(from)
+	
+	
+

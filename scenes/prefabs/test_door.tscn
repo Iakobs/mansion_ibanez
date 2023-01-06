@@ -67,3 +67,6 @@ material/0 = ExtResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="unlock_area" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.1, -0.02 )
 shape = SubResource( 7 )
+
+[node name="key_lock_position" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.88, -0.02 )
