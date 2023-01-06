@@ -23,12 +23,12 @@ script = ExtResource( 1 )
 [node name="doorknob" type="Spatial" parent="door_panel"]
 unique_name_in_owner = true
 
-[node name="unlock_area" type="Area" parent="."]
+[node name="unlock_area" type="Area" parent="door_panel/doorknob"]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 8
 
-[node name="key_lock_position" type="Position3D" parent="."]
+[node name="key_lock_position" type="Position3D" parent="door_panel/doorknob"]
 unique_name_in_owner = true
 
 [node name="DoorAnimationManager" type="Node" parent="."]

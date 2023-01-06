@@ -7,6 +7,3 @@ func _ready():
 	yield(owner, "ready")
 	door = owner as Door
 	assert(door != null)
-
-func get_action() -> String:
-	return ""

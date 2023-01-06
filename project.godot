@@ -34,11 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/prefabs/garage_door.gd"
 }, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
 "base": "Spatial",
 "class": "Interacter",
 "language": "GDScript",
@@ -80,7 +75,6 @@ _global_script_class_icons={
 "DoorAnimationManager": "",
 "DoorState": "",
 "GarageDoor": "",
-"GitAPI": "",
 "Interacter": "",
 "Key": "",
 "Player": "",
