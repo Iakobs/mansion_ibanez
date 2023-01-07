@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/models/materials/fake_window_curtain.material" type="Material" id=1]
 [ext_resource path="res://assets/models/materials/Matal solid paint white.material" type="Material" id=2]
 [ext_resource path="res://assets/models/materials/black_pvc.material" type="Material" id=3]
 [ext_resource path="res://scenes/prefabs/door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/models/materials/glass_material.tres" type="Material" id=5]
 
 [sub_resource type="ArrayMesh" id=3]
 resource_name = "entrada_planta_baja_Plane207"
@@ -149,7 +149,7 @@ material/1 = ExtResource( 3 )
 [node name="MeshInstance" type="MeshInstance" parent="door_panel/MeshInstance" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348104, 1.05, -0.0270412 )
 mesh = SubResource( 2 )
-material/0 = ExtResource( 1 )
+material/0 = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="door_panel" index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348104, 1.05, -0.0270412 )
@@ -166,7 +166,7 @@ material/1 = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="right_panel/MeshInstance" index="0"]
 mesh = SubResource( 5 )
-material/0 = ExtResource( 1 )
+material/0 = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="right_panel" index="1"]
 shape = SubResource( 7 )
