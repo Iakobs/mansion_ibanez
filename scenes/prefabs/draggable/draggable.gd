@@ -47,7 +47,6 @@ func _process(_delta:float) -> void:
 		active_member.global_translation = floating_point
 
 func _on_dead_zone_entered() -> void:
-	print("Returned!")
 	active_member.global_translation = self.global_translation
 
 func pickup() -> void:

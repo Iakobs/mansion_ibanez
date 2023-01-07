@@ -63,6 +63,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1919, 1.20143, 4.34187 )
 static_scene = ExtResource( 6 )
 rigid_scene = ExtResource( 2 )
 
+[node name="draggable3" parent="collectibles" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3976, -1.73302, -0.406724 )
+static_scene = ExtResource( 6 )
+rigid_scene = ExtResource( 2 )
+
 [node name="dead_zone" type="Area" parent="."]
 collision_layer = 0
 collision_mask = 15

@@ -41,19 +41,13 @@ func _ready() -> void:
 	action = tr("WINDOW_ACTION_OPEN")
 	lock_vertical_origin = right_lock.translation.y
 
-func _process(_delta: float) -> void:
-	pass
-
-func _unhandled_input(_event: InputEvent) -> void:
-	pass
-
-func _on_right_interactable_area_entered(area: Area) -> void:
+func _on_right_interactable_area_entered(_area: Area) -> void:
 	interactable = right_interactable
 	sash = right_sash
 	lock = right_lock
 	stop_start = right_stop_start
 	stop_end = right_stop_end
-	calculate_player_position(area)
+	calculate_player_position()
 	if not player_is_in_front:
 		inside_interactable = true
 		emit_interactable_event("interactable_entered")
@@ -63,13 +57,13 @@ func _on_right_interactable_area_exited(_area: Area) -> void:
 		inside_interactable = false
 		emit_interactable_event("interactable_exited")
 
-func _on_left_interactable_area_entered(area: Area) -> void:
+func _on_left_interactable_area_entered(_area: Area) -> void:
 	interactable = left_interactable
 	sash = left_sash
 	lock = left_lock
 	stop_start = left_stop_start
 	stop_end = left_stop_end
-	calculate_player_position(area)
+	calculate_player_position()
 	if not player_is_in_front:
 		inside_interactable = true
 		emit_interactable_event("interactable_entered")
@@ -83,26 +77,15 @@ func _on_status_change(_state_name: String) -> void:
 	emit_interactable_event("interactable_updated")
 
 func emit_interactable_event(event := "") -> void:
-	var _payload = get_payload()
-	_payload["locked"] = is_locked
-	Events.emit_signal(event, _payload)
+	var payload = get_payload()
+	payload["locked"] = is_locked
+	Events.emit_signal(event, payload)
 
-func calculate_player_position(player: Area) -> void:
-	var player_horizontal_position: float
-	var window_horizontal_position: float
-	if rail_direction == "x":
-		player_horizontal_position = player.global_translation.z
-		window_horizontal_position = interactable.global_translation.z
-	else:
-		player_horizontal_position = player.global_translation.x
-		window_horizontal_position = interactable.global_translation.x
-	
-	var distance_between_player_and_window = \
-		player_horizontal_position - window_horizontal_position
-	
-	player_is_in_front = distance_between_player_and_window > 0\
-		if facing_direction == FacingDirection.positive else\
-		distance_between_player_and_window < 0
+func calculate_player_position() -> void:
+	var direction_to_player := sash.global_translation\
+		.direction_to(Global.player.global_translation) as Vector3
+	var facing_front_direction := Vector3.RIGHT if rail_direction == "z" else Vector3.BACK
+	player_is_in_front = direction_to_player.dot(facing_front_direction) < 0.0
 
 func _to_string() -> String:
 	return tr("WINDOW_NAME")

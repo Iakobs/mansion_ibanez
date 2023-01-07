@@ -9,6 +9,7 @@ func play(params := []) -> void:
 
 func open(reverse := false) -> void:
 	is_playing = true
+	
 	var door_final_angle := 0.0 if reverse else float(owner.door_panel_angle)
 	var tween = get_tree().\
 		create_tween().\
@@ -25,12 +26,18 @@ func open(reverse := false) -> void:
 		"rotation_degrees:{0}".format([owner.doorknob_axis]),
 		0.0,
 		0.3).set_delay(1.0).from(-45.0)
+	
 	yield(tween, "finished")
 	is_playing = false
-	emit_signal("animation_finished")
+	emit_signal("animation_finished", 
+		{
+			animation_name = "open",
+			args = [reverse]
+		})
 
 func open_garage(reverse := false) -> void:
 	is_playing = true
+	
 	var upper_door_final_angle := 0.0 if reverse else -85.0
 	var lower_door_final_angle := 0.0 if reverse else 170.0
 	var tween = get_tree().\
@@ -47,6 +54,42 @@ func open_garage(reverse := false) -> void:
 		"rotation_degrees:x", 
 		lower_door_final_angle, 
 		3.0)
+	
 	yield(tween, "finished")
 	is_playing = false
-	emit_signal("animation_finished")
+	emit_signal("animation_finished", 
+		{
+			animation_name = "open_garage",
+			args = [reverse]
+		})
+
+func unlock(
+	mesh: MeshInstance, 
+	destination: Position3D,
+	scale_factor: Vector3,
+	pushback: Vector3
+) -> void:
+	is_playing = true
+	
+	mesh.scale_object_local(scale_factor)
+	var tween := mesh.create_tween()\
+		.set_trans(Tween.TRANS_EXPO)\
+		.set_ease(Tween.EASE_OUT)
+	var _discard := tween.tween_property(
+		mesh, 
+		"global_translation", 
+		destination.global_translation + pushback,
+		1.0)
+	_discard = tween.tween_property(
+		mesh,
+		"rotation_degrees:z",
+		-90.0,
+		1.0).from(0.0)
+	
+	yield(tween, "finished")
+	is_playing = false
+	emit_signal("animation_finished", 
+		{
+			animation_name = "unlock",
+			args = [mesh, destination]
+		})

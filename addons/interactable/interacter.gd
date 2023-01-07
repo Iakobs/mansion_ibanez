@@ -5,7 +5,6 @@ onready var interactable: Area = $"%interactable"
 
 var inside_interactable := false
 var action := ""
-var payload := {} setget ,get_payload
 
 func _ready() -> void:
 	if interactable:
