@@ -49,14 +49,14 @@ func handle_orientation(event : InputEventMouseMotion):
 	self.target_yaw_pitch.x = wrapf(self.target_yaw_pitch.x, -PI, PI);
 	self.target_yaw_pitch.y = clamp(self.target_yaw_pitch.y, -PI/2.0, PI/2.0);
 
-func handle_focus(event : InputEvent):
-	if event is InputEventMouseButton and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
-	elif event.is_action_pressed(self.uncapture_action) and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
+#func handle_focus(event : InputEvent):
+#	if event is InputEventMouseButton and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+#		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+#	elif event.is_action_pressed(self.uncapture_action) and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+#		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 
 func _unhandled_input(event : InputEvent):
-	self.handle_focus(event);
+#	self.handle_focus(event);
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			handle_orientation(event)

@@ -3,7 +3,8 @@
 [ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-BoldItalic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/ui/interactable_info_display.gd" type="Script" id=3]
-[ext_resource path="res://assets/images/lock_closed.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/icons/lock_closed.png" type="Texture" id=4]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

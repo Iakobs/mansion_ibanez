@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/mansion/manor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/props/keys/rigid_key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/hdri/day.hdr" type="Texture" id=3]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=4]
+[ext_resource path="res://scenes/ui/pause_menu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/props/keys/static_key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/player/ExtendedPlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/prefabs/draggable/draggable.tscn" type="PackedScene" id=8]
@@ -75,6 +76,9 @@ collision_mask = 15
 [node name="CollisionShape" type="CollisionShape" parent="dead_zone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, 2 )
 shape = SubResource( 4 )
+
+[node name="pause_menu" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [connection signal="body_entered" from="dead_zone" to="." method="_on_dead_zone_body_entered"]
 
