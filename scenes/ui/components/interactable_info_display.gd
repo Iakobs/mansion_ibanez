@@ -9,7 +9,7 @@ func _ready():
 
 func show_display(payload := {}) -> void:
 	if "name" in payload: interactable_name.text = payload.name
-	if "action" in payload: action_label.text = payload.action
+	if "action" in payload: action_label.text = tr(payload.action)
 	if "status_icon" in payload:
 		interactable_icon.texture = payload.status_icon
 	else:

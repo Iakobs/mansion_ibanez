@@ -18,11 +18,17 @@ msgstr ""
 msgid "ACTION_PICK"
 msgstr ""
 
-msgid "PAUSE_MENU_CONTINUE"
+msgid "MENU_CONTINUE"
 msgstr ""
-msgid "PAUSE_MENU_QUIT"
+msgid "MENU_QUIT"
 msgstr ""
-msgid "PAUSE_MENU_SURE_LABEL"
+msgid "MENU_BACK"
+msgstr ""
+
+msgid "TITLE_LANGUAGES"
+msgstr ""
+
+msgid "ARE_YOU_SURE_LABEL"
 msgstr ""
 
 msgid "YES"

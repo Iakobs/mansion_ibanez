@@ -6,9 +6,8 @@ msgstr ""
 "Language-Team: none\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "DOOR_NAME"
 msgstr "Door"
@@ -31,13 +30,19 @@ msgstr "Close"
 msgid "ACTION_PICK"
 msgstr "Pick"
 
-msgid "PAUSE_MENU_CONTINUE"
+msgid "MENU_CONTINUE"
 msgstr "Continue"
 
-msgid "PAUSE_MENU_QUIT"
+msgid "MENU_QUIT"
 msgstr "Quit"
 
-msgid "PAUSE_MENU_SURE_LABEL"
+msgid "MENU_BACK"
+msgstr "Back"
+
+msgid "TITLE_LANGUAGES"
+msgstr "Languages"
+
+msgid "ARE_YOU_SURE_LABEL"
 msgstr "Are you sure?"
 
 msgid "YES"

@@ -1,7 +1,7 @@
 extends DoorState
 
 func enter(_payload := {}) -> void:
-	door.action = tr("ACTION_OPEN")
+	door.action = "ACTION_OPEN"
 
 func exit() -> void:
 	door.animation_manager.play()

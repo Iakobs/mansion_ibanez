@@ -6,7 +6,7 @@ msgstr ""
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "DOOR_NAME"
@@ -30,13 +30,19 @@ msgstr "Tancar"
 msgid "ACTION_PICK"
 msgstr "Agafar"
 
-msgid "PAUSE_MENU_CONTINUE"
+msgid "MENU_CONTINUE"
 msgstr "Continuar"
 
-msgid "PAUSE_MENU_QUIT"
+msgid "MENU_QUIT"
 msgstr "Abandonar"
 
-msgid "PAUSE_MENU_SURE_LABEL"
+msgid "MENU_BACK"
+msgstr "Tornar"
+
+msgid "TITLE_LANGUAGES"
+msgstr "Idiomes"
+
+msgid "ARE_YOU_SURE_LABEL"
 msgstr "De veritat?"
 
 msgid "YES"

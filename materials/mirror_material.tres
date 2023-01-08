@@ -1,9 +1,0 @@
-[gd_resource type="SpatialMaterial" load_steps=2 format=2]
-
-[sub_resource type="GDScript" id=1]
-
-[resource]
-albedo_color = Color( 0.560784, 0.560784, 0.560784, 1 )
-metallic = 1.0
-roughness = 0.0
-script = SubResource( 1 )

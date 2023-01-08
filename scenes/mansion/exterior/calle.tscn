@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://materials/Asphalt Black.material" type="Material" id=1]
+[ext_resource path="res://resources/materials/Asphalt Black.material" type="Material" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "calle_Plane011"

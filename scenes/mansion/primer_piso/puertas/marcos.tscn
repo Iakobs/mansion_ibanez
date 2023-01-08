@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://materials/madera.material" type="Material" id=1]
+[ext_resource path="res://resources/materials/madera.material" type="Material" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "marcos_Plane064"

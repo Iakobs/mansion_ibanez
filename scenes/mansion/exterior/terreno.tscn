@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://materials/pared_exterior.material" type="Material" id=1]
+[ext_resource path="res://resources/materials/pared_exterior.material" type="Material" id=1]
 [ext_resource path="res://assets/images/textures/forrest_ground_01_nor_gl_1k.png" type="Texture" id=2]
-[ext_resource path="res://materials/Old Wood.material" type="Material" id=3]
-[ext_resource path="res://materials/Concrete floor.material" type="Material" id=4]
-[ext_resource path="res://materials/brown tiles pattern.material" type="Material" id=5]
+[ext_resource path="res://resources/materials/Old Wood.material" type="Material" id=3]
+[ext_resource path="res://resources/materials/Concrete floor.material" type="Material" id=4]
+[ext_resource path="res://resources/materials/brown tiles pattern.material" type="Material" id=5]
 [ext_resource path="res://assets/images/textures/forrest_ground_01_rough_1k.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/textures/forrest_ground_01_diff_1k.png" type="Texture" id=7]
 

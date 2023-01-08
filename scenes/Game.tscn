@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/mansion/manor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/props/keys/rigid_key.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://scenes/props/keys/static_key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/player/ExtendedPlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/prefabs/draggable/draggable.tscn" type="PackedScene" id=8]
+[ext_resource path="res://locale/messages-ca.po" type="Translation" id=9]
+[ext_resource path="res://locale/messages-en.po" type="Translation" id=10]
+[ext_resource path="res://locale/messages-es.po" type="Translation" id=11]
 
 [sub_resource type="PanoramaSky" id=5]
 panorama = ExtResource( 3 )
@@ -28,6 +31,9 @@ extents = Vector3( 18, 1, 19 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
+es = ExtResource( 11 )
+en = ExtResource( 10 )
+ca = ExtResource( 9 )
 
 [node name="manor" parent="." instance=ExtResource( 1 )]
 

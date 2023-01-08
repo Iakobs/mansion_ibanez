@@ -1,6 +1,7 @@
 extends Control
 
 onready var sure_popup: PopupDialog = $"%sure_popup"
+onready var options_menu: Control = $"options_menu"
 
 var paused := false
 
@@ -15,7 +16,7 @@ func _on_quit_pressed() -> void:
 	sure_popup.popup_centered()
 
 func _on_config_button_pressed():
-	pass # Replace with function body.
+	options_menu.show()
 
 func _on_yes_sure_pressed():
 	get_tree().quit()
@@ -25,6 +26,10 @@ func _on_no_sure_pressed():
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
+		if options_menu.visible:
+			options_menu.hide()
+			return
+		
 		if not paused:
 			pause()
 		else:

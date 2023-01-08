@@ -2,7 +2,7 @@ class_name Key
 extends Interacter
 
 func _ready() -> void:
-	action = tr("ACTION_PICK")
+	action = "ACTION_PICK"
 
 func _process(_delta: float) -> void:
 	if inside_interactable and Input.is_action_just_released("primary_action"):
