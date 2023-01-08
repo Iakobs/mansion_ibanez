@@ -1,28 +1,21 @@
 extends Control
 
-const PADDING_BUTON_TEXT := "  {0}  "
-
-onready var continue_button: Button = $"%continue"
-onready var quit_button: Button = $"%quit"
 onready var sure_popup: PopupDialog = $"%sure_popup"
-onready var sure_label: Label = $"%sure_label"
-onready var yes_sure_button: Button = $"%yes_sure"
-onready var no_sure_button: Button = $"%no_sure"
 
 var paused := false
 
 func _ready() -> void:
-	continue_button.text = PADDING_BUTON_TEXT.format([tr("PAUSE_MENU_CONTINUE")])
-	quit_button.text =  PADDING_BUTON_TEXT.format([tr("PAUSE_MENU_QUIT")])
-	sure_label.text = tr("PAUSE_MENU_SURE_LABEL")
-	yes_sure_button.text = tr("YES")
-	no_sure_button.text = tr("NO")
+	var _error := sure_popup.connect("yes_pressed", self, "_on_yes_sure_pressed")
+	_error = sure_popup.connect("no_pressed", self, "_on_no_sure_pressed")
 
 func _on_continue_pressed() -> void:
 	unpause()
 
 func _on_quit_pressed() -> void:
 	sure_popup.popup()
+
+func _on_config_button_pressed():
+	pass # Replace with function body.
 
 func _on_yes_sure_pressed():
 	get_tree().quit()

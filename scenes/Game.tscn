@@ -15,6 +15,8 @@ panorama = ExtResource( 3 )
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 5 )
+ss_reflections_enabled = true
+ss_reflections_max_steps = 512
 dof_blur_far_enabled = true
 dof_blur_far_distance = 22.39
 dof_blur_near_enabled = true

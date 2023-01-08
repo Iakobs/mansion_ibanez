@@ -38,7 +38,7 @@ func _ready() -> void:
 	_err = left_interactable.connect("area_exited", self, "_on_left_interactable_area_exited")
 	_err = state_machine.connect("transitioned", self, "_on_status_change")
 	
-	action = tr("WINDOW_ACTION_OPEN")
+	action = tr("ACTION_OPEN")
 	lock_vertical_origin = right_lock.translation.y
 
 func _on_right_interactable_area_entered(_area: Area) -> void:

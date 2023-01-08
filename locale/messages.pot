@@ -1,0 +1,31 @@
+# Don't remove the two lines below, they're required for gettext to work correctly.
+msgid ""
+msgstr ""
+
+msgid "DOOR_NAME"
+msgstr ""
+msgid "GARAGE_DOOR_NAME"
+msgstr ""
+msgid "WINDOW_NAME"
+msgstr ""
+msgid "KEY_NAME"
+msgstr ""
+
+msgid "ACTION_OPEN"
+msgstr ""
+msgid "ACTION_CLOSE"
+msgstr ""
+msgid "ACTION_PICK"
+msgstr ""
+
+msgid "PAUSE_MENU_CONTINUE"
+msgstr ""
+msgid "PAUSE_MENU_QUIT"
+msgstr ""
+msgid "PAUSE_MENU_SURE_LABEL"
+msgstr ""
+
+msgid "YES"
+msgstr ""
+msgid "NO"
+msgstr ""
