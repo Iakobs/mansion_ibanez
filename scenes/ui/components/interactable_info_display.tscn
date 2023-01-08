@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ui/components/interactable_info_display.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-BoldItalic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/locked.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 54
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="interactable_info_display" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+mouse_filter = 2
+script = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+mouse_filter = 2
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1870.0
+margin_bottom = 1030.0
+mouse_filter = 2
+custom_constants/separation = 150
+
+[node name="upper_half" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_right = 1820.0
+margin_bottom = 415.0
+size_flags_vertical = 3
+
+[node name="lower_half" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 565.0
+margin_right = 1820.0
+margin_bottom = 980.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="left_push" type="Control" parent="MarginContainer/VBoxContainer/lower_half"]
+margin_bottom = 415.0
+size_flags_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/lower_half"]
+margin_left = 825.0
+margin_right = 994.0
+margin_bottom = 415.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer"]
+margin_right = 169.0
+margin_bottom = 138.0
+size_flags_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer"]
+margin_right = 169.0
+margin_bottom = 138.0
+color = Color( 0, 0, 0, 0.313726 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer"]
+margin_right = 169.0
+margin_bottom = 138.0
+mouse_filter = 2
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="info_control" type="VBoxContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 159.0
+margin_bottom = 128.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control"]
+margin_right = 149.0
+margin_bottom = 51.0
+size_flags_horizontal = 4
+
+[node name="interactable_icon" type="TextureRect" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 50.0
+margin_bottom = 51.0
+texture = ExtResource( 5 )
+
+[node name="interactable_name" type="Label" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 54.0
+margin_right = 149.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 1 )
+text = "text"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control"]
+margin_top = 55.0
+margin_right = 149.0
+margin_bottom = 59.0
+
+[node name="action_label" type="Label" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control"]
+unique_name_in_owner = true
+margin_top = 63.0
+margin_right = 149.0
+margin_bottom = 118.0
+custom_fonts/font = SubResource( 2 )
+text = "text"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer"]
+margin_top = 142.0
+margin_bottom = 142.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="right_push" type="Control" parent="MarginContainer/VBoxContainer/lower_half"]
+margin_left = 998.0
+margin_right = 998.0
+margin_bottom = 415.0
+size_flags_horizontal = 2

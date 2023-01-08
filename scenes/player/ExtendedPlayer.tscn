@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/player/extended_player.gd" type="Script" id=1]
-[ext_resource path="res://scenes/ui/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/components/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/player/Arm.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=4]

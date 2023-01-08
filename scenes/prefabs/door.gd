@@ -48,7 +48,7 @@ func _on_animation_finished(payload := {}) -> void:
 
 func emit_interactable_event(event := "") -> void:
 	var payload = get_payload()
-	payload["locked"] = is_locked
+	payload.status_icon = Global.locked_icon if is_locked else null
 	Events.emit_signal(event, payload)
 
 func check_clicking() -> void:

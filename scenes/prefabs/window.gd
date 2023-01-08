@@ -78,7 +78,7 @@ func _on_status_change(_state_name: String) -> void:
 
 func emit_interactable_event(event := "") -> void:
 	var payload = get_payload()
-	payload["locked"] = is_locked
+	payload.status_icon = Global.locked_icon if is_locked else null
 	Events.emit_signal(event, payload)
 
 func calculate_player_position() -> void:

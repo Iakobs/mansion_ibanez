@@ -5,6 +5,8 @@ onready var interactable: Area = $"%interactable"
 
 var inside_interactable := false
 var action := ""
+var status_icon: Texture
+var action_icon: Texture
 
 func _ready() -> void:
 	if interactable:
@@ -18,7 +20,8 @@ func get_payload() -> Dictionary:
 	return {
 		interacter = self, 
 		name = to_string(), 
-		action = action
+		action = action,
+		status_icon = status_icon
 	}
 
 func _on_interactable_area_entered(_area: Area) -> void:
