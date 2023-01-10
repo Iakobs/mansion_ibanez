@@ -12,3 +12,6 @@ data_*/
 
 # Mac de los huevos
 .DS_Store
+
+# VS Code
+.vscode
