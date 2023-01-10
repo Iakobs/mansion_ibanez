@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/mansion/planta_baja/planta_baja.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mansion/planta_baja/garage_window.tscn" type="PackedScene" id=2]
@@ -16,6 +16,12 @@
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/main_entrance.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/kitchen_door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/mansion/primer_piso/puertas/secondary_entrance.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/mansion/planta_baja/basement_door.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/mansion/tejado/roof.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/medium_dorm_door.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/big_dorm_room.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/big_bathroom_door.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/mansion/primer_piso/puertas/balcony_door.tscn" type="PackedScene" id=22]
 
 [node name="manor" type="Spatial"]
 
@@ -41,6 +47,8 @@
 
 [node name="basement_floor_entrance" parent="basement" instance=ExtResource( 9 )]
 
+[node name="basement_door" parent="basement" instance=ExtResource( 17 )]
+
 [node name="first_floor" type="Spatial" parent="."]
 
 [node name="first_floor" parent="first_floor" instance=ExtResource( 5 )]
@@ -58,3 +66,17 @@
 [node name="main_entrance" parent="first_floor/doors" instance=ExtResource( 14 )]
 
 [node name="secondary_entrance" parent="first_floor/doors" instance=ExtResource( 16 )]
+
+[node name="medium_dorm_door" parent="first_floor/doors" instance=ExtResource( 19 )]
+
+[node name="big_dorm_room" parent="first_floor/doors" instance=ExtResource( 20 )]
+
+[node name="big_bathroom_door" parent="first_floor/doors" instance=ExtResource( 21 )]
+
+[node name="balcony_door" parent="first_floor/doors" instance=ExtResource( 22 )]
+
+[node name="windows" type="Spatial" parent="first_floor"]
+
+[node name="roof" type="Spatial" parent="."]
+
+[node name="roof" parent="roof" instance=ExtResource( 18 )]

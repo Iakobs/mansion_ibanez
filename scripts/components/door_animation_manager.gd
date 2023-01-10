@@ -29,11 +29,7 @@ func open(reverse := false) -> void:
 	
 	yield(tween, "finished")
 	is_playing = false
-	emit_signal("animation_finished", 
-		{
-			animation_name = "open",
-			args = [reverse]
-		})
+	animation_finished("open", [reverse])
 
 func open_garage(reverse := false) -> void:
 	is_playing = true
@@ -57,11 +53,7 @@ func open_garage(reverse := false) -> void:
 	
 	yield(tween, "finished")
 	is_playing = false
-	emit_signal("animation_finished", 
-		{
-			animation_name = "open_garage",
-			args = [reverse]
-		})
+	animation_finished("open_garage", [reverse])
 
 func unlock(
 	mesh: MeshInstance, 
@@ -88,8 +80,4 @@ func unlock(
 	
 	yield(tween, "finished")
 	is_playing = false
-	emit_signal("animation_finished", 
-		{
-			animation_name = "unlock",
-			args = [mesh, destination]
-		})
+	animation_finished("unlock", [mesh, destination])

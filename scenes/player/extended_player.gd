@@ -1,8 +1,5 @@
 extends Player
 
-const SCANNED_LAYERS = Global.LayerValues.WORLD\
-	+ Global.LayerValues.INTERACTABLE
-
 export var sight_lenght := 100.0
 export var arm_length := 1.55
 
@@ -11,6 +8,7 @@ onready var arm: Area = $"%Arm"
 
 var looking_object: Dictionary
 var touching_object: Dictionary
+var scanned_layers = Global.LayerValues.WORLD + Global.LayerValues.INTERACTABLE
 
 func _ready() -> void:
 	arm.set_length(arm_length)
@@ -29,12 +27,12 @@ func calculate_objects() -> void:
 		.intersect_ray(
 			Global.ray_origin, 
 			to_looking_object, 
-			[], SCANNED_LAYERS, true, true)
+			[], scanned_layers, true, true)
 	touching_object = camera.get_world().direct_space_state\
 		.intersect_ray(
 			Global.ray_origin, 
 			to_touching_object, 
-			[], SCANNED_LAYERS, true, true)
+			[], scanned_layers, true, true)
 	
 	PlayerStats.looking_object = looking_object
 	PlayerStats.touching_object = touching_object

@@ -60,5 +60,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0194831 )
 shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+portal_mode = 3
+include_in_bound = false
 mesh = SubResource( 6 )
 material/0 = SubResource( 5 )

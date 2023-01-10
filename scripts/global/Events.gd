@@ -1,5 +1,9 @@
 extends Node
 
+# DeadZones
+# warning-ignore:unused_signal
+signal dead_zone_entered(body)
+
 # Interactables
 # warning-ignore:unused_signal
 signal interactable_entered(payload)

@@ -1,9 +1,5 @@
 extends Spatial
 
-export(Translation) var es: Translation
-export(Translation) var en: Translation
-export(Translation) var ca: Translation
-
 func _ready() -> void:
 	pass
 
