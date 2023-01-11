@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/basement-interior.gltf-056ee1025e305e0527a312791a71ae02.scn"
+path="res://.import/first_floor_exterior.gltf-c10e1a201baa078f557ceec6180c752f.scn"
 
 [deps]
 
-source_file="res://assets/models/rooms/basement/basement-interior.gltf"
-dest_files=[ "res://.import/basement-interior.gltf-056ee1025e305e0527a312791a71ae02.scn" ]
+source_file="res://assets/models/rooms/basement/first_floor_exterior.gltf"
+dest_files=[ "res://.import/first_floor_exterior.gltf-c10e1a201baa078f557ceec6180c752f.scn" ]
 
 [params]
 
