@@ -86,12 +86,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name="The Ibanez Manor"
+config/name="The Ibanez Mansion"
 config/description="A first person 3d game on exploring a house in the search of secrets."
 run/main_scene="res://scenes/Game.tscn"
 config/icon="res://icon.png"
-config/name_es="Mansión Ibáñez"
-config/name_ca="Mansió Ibáñez"
+config/name_es="La Mansión Ibáñez"
+config/name_ca="La Mansió Ibáñez"
 
 [autoload]
 

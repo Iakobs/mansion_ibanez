@@ -13,7 +13,8 @@ func exit() -> void:
 	switch_monitoring()
 
 func update(_delta: float) -> void:
-	drag_window()
+	if not window.is_locked:
+		drag_window()
 	
 	if Input.is_action_just_released("primary_action")\
 	or not window.inside_interactable:

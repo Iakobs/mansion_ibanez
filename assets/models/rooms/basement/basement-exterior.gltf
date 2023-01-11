@@ -46,13 +46,13 @@
                 1,
                 2
             ],
-            "name" : "basement_exterior"
+            "name" : "basement_exterior.001"
         },
         {
             "children" : [
                 3
             ],
-            "name" : "basement_exterior_group"
+            "name" : "basement_exterior"
         }
     ],
     "meshes" : [
