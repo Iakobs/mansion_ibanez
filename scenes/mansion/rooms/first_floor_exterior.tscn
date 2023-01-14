@@ -2,7 +2,7 @@
 
 [ext_resource path="res://resources/materials/rachola_exterior.material" type="Material" id=1]
 [ext_resource path="res://resources/materials/pared_exterior.material" type="Material" id=2]
-[ext_resource path="res://resources/materials/iron old.material" type="Material" id=3]
+[ext_resource path="res://resources/materials/Cast Iron.material" type="Material" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "first_floor_exterior_Plane021"
