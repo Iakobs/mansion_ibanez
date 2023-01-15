@@ -8,7 +8,7 @@
 [ext_resource path="res://resources/materials/mirror_material.tres" type="Material" id=6]
 
 [sub_resource type="BoxShape" id=25]
-extents = Vector3( 0.09, 0.08, 0.1 )
+extents = Vector3( 0.09, 0.08, 0.03 )
 
 [sub_resource type="ArrayMesh" id=21]
 resource_name = "first_floor_doors_and_windows_Plane288"
@@ -111,6 +111,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.844628, 1.02609, -0.0220404
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0584265, 0.0599999 )
 
 [node name="CollisionShape" type="CollisionShape" parent="door_panel/doorknob/unlock_area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0700002 )
 shape = SubResource( 25 )
 
 [node name="key_lock_position" parent="door_panel/doorknob" index="1"]

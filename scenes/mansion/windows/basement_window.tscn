@@ -169,7 +169,6 @@ surfaces/0 = {
 
 [node name="basement_window" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17457, 0, -1.82707 )
-facing_direction = 1
 
 [node name="right_stop_start" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64701, -0.950985, 5.02782 )

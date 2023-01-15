@@ -85,7 +85,10 @@ func calculate_player_position() -> void:
 	var direction_to_player := sash.global_translation\
 		.direction_to(Global.player.global_translation) as Vector3
 	var facing_front_direction := Vector3.RIGHT if rail_direction == "z" else Vector3.BACK
-	player_is_in_front = direction_to_player.dot(facing_front_direction) < 0.0
+	var player_to_window_position := direction_to_player.dot(facing_front_direction)
+	player_is_in_front = player_to_window_position < 0.0\
+		if facing_direction == FacingDirection.positive\
+		else player_to_window_position > 0.0
 
 func _to_string() -> String:
 	return tr("WINDOW_NAME")

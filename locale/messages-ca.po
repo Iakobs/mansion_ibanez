@@ -21,6 +21,9 @@ msgstr "Finestra"
 msgid "KEY_NAME"
 msgstr "Clau"
 
+msgid "SECRET_LID_NAME"
+msgstr "Una totxana"
+
 msgid "ACTION_OPEN"
 msgstr "Obrir"
 
@@ -29,6 +32,9 @@ msgstr "Tancar"
 
 msgid "ACTION_PICK"
 msgstr "Agafar"
+
+msgid "ACTION_TOUCH"
+msgstr "Tocar"
 
 msgid "MENU_CONTINUE"
 msgstr "Continuar"

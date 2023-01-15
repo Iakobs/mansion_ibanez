@@ -21,6 +21,9 @@ msgstr "Window"
 msgid "KEY_NAME"
 msgstr "Key"
 
+msgid "SECRET_LID_NAME"
+msgstr "A brick"
+
 msgid "ACTION_OPEN"
 msgstr "Open"
 
@@ -29,6 +32,9 @@ msgstr "Close"
 
 msgid "ACTION_PICK"
 msgstr "Pick"
+
+msgid "ACTION_TOUCH"
+msgstr "Touch"
 
 msgid "MENU_CONTINUE"
 msgstr "Continue"

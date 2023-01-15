@@ -38,9 +38,6 @@ func _process(_delta:float) -> void:
 	and dragging:
 		drop()
 	
-#	if active_member is RigidBody and Input.is_action_just_released("primary_action"):
-#			active_member.add_central_force(active_member.global_transform.basis.z * -100)
-	
 	if dragging:
 		var floating_distance = Global.ray_origin\
 			.distance_to(PlayerStats.touching_point) - floating_margin

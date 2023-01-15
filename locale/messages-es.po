@@ -21,6 +21,9 @@ msgstr "Ventana"
 msgid "KEY_NAME"
 msgstr "Llave"
 
+msgid "SECRET_LID_NAME"
+msgstr "Un ladrillo"
+
 msgid "ACTION_OPEN"
 msgstr "Abrir"
 
@@ -29,6 +32,9 @@ msgstr "Cerrar"
 
 msgid "ACTION_PICK"
 msgstr "Coger"
+
+msgid "ACTION_TOUCH"
+msgstr "Tocar"
 
 msgid "MENU_CONTINUE"
 msgstr "Continuar"

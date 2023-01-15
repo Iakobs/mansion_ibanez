@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/mansion/rooms/basement_exterior.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/mansion/rooms/basement_interior.tscn" type="PackedScene" id=2]
@@ -20,6 +20,19 @@
 [ext_resource path="res://scenes/mansion/doors/kitchen_door.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/mansion/doors/main_entrance.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/mansion/doors/mid_dorm_door.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/mansion/doors/secondary_entrance.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/mansion/doors/small_dorm_door.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/mansion/doors/balcony_door.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/mansion/windows/balcony_right_window.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/mansion/windows/big_bathroom_window.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/mansion/windows/big_dorm_left_window.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/mansion/windows/big_dorm_right_window.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/mansion/windows/dining_room_window.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/mansion/windows/kitchen_window.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scenes/mansion/windows/laundry_room_window.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/mansion/windows/mid_dorm_window.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenes/mansion/windows/small_bathroom_window.tscn" type="PackedScene" id=32]
+[ext_resource path="res://scenes/mansion/windows/small_dorm_window.tscn" type="PackedScene" id=33]
 
 [node name="mansion" type="Spatial"]
 
@@ -47,6 +60,12 @@
 
 [node name="mid_dorm_door" parent="doors" instance=ExtResource( 20 )]
 
+[node name="secondary_entrance" parent="doors" instance=ExtResource( 21 )]
+
+[node name="small_dorm_door" parent="doors" instance=ExtResource( 22 )]
+
+[node name="balcony_door" parent="doors" instance=ExtResource( 23 )]
+
 [node name="windows" type="Spatial" parent="."]
 
 [node name="garage_window" parent="windows" instance=ExtResource( 6 )]
@@ -54,6 +73,26 @@
 [node name="basement_window" parent="windows" instance=ExtResource( 7 )]
 
 [node name="balcony_left_window" parent="windows" instance=ExtResource( 13 )]
+
+[node name="balcony_right_window" parent="windows" instance=ExtResource( 24 )]
+
+[node name="big_bathroom_window" parent="windows" instance=ExtResource( 25 )]
+
+[node name="big_dorm_left_window" parent="windows" instance=ExtResource( 26 )]
+
+[node name="big_dorm_right_window" parent="windows" instance=ExtResource( 27 )]
+
+[node name="dining_room_window" parent="windows" instance=ExtResource( 28 )]
+
+[node name="kitchen_window" parent="windows" instance=ExtResource( 29 )]
+
+[node name="laundry_room_window" parent="windows" instance=ExtResource( 30 )]
+
+[node name="mid_dorm_window" parent="windows" instance=ExtResource( 31 )]
+
+[node name="small_bathroom_window" parent="windows" instance=ExtResource( 32 )]
+
+[node name="small_dorm_window" parent="windows" instance=ExtResource( 33 )]
 
 [node name="first_floor_exterior" parent="." instance=ExtResource( 9 )]
 
