@@ -52,7 +52,7 @@ transform = Transform( 0.730664, 0.657973, -0.182215, -0.0799213, 0.347483, 0.93
 shadow_enabled = true
 
 [node name="ExtendedPlayer" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.942, -2.38593, -6.956 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398704, 13.1 )
 __meta__ = {
 "_edit_pinned_properties_": [ "mouse_sensitivity", "mouse_acceleration", "max_speed", "default_fov", "sprint_fov" ]
 }

@@ -2,9 +2,11 @@ class_name Door
 extends Interacter
 
 enum DoorPanelAngle { positive = 90, negative = -90 }
+enum DoorKnobAngle { positive = 1, negative = -1 }
 
 export(DoorPanelAngle) var door_panel_angle := DoorPanelAngle.positive
 export(String, "x", "z") var doorknob_axis := "x"
+export(DoorKnobAngle) var doorknob_angle := DoorKnobAngle.positive
 export(bool) var is_locked := false
 
 onready var door_panel: StaticBody = $"%door_panel"

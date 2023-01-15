@@ -19,13 +19,13 @@ func open(reverse := false) -> void:
 	tween.parallel().tween_property(
 		owner.doorknob, 
 		"rotation_degrees:{0}".format([owner.doorknob_axis]),
-		-45.0,
+		-45.0 * float(owner.doorknob_angle),
 		0.3)
 	tween.parallel().tween_property(
 		owner.doorknob, 
 		"rotation_degrees:{0}".format([owner.doorknob_axis]),
 		0.0,
-		0.3).set_delay(1.0).from(-45.0)
+		0.3).set_delay(1.0).from(-45.0 * float(owner.doorknob_angle))
 	
 	yield(tween, "finished")
 	is_playing = false
