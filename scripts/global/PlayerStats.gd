@@ -14,9 +14,6 @@ func _ready() -> void:
 	looking_object = {}
 	touching_point = Vector3.ZERO
 
-func _process(_delta) -> void:
-	pass
-
 func _on_collectible_collected(payload := {}) -> void:
 	if Events.collectibles.key in payload.collectibles: key_count += 1
 

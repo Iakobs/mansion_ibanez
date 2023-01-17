@@ -88,7 +88,7 @@ _global_script_class_icons={
 
 config/name="The Ibanez Mansion"
 config/description="A first person 3d game on exploring a house in the search of secrets."
-run/main_scene="res://scenes/Game.tscn"
+run/main_scene="res://scenes/ui/menus/main_menu.tscn"
 config/icon="res://icon.png"
 config/name_es="La Mansión Ibáñez"
 config/name_ca="La Mansió Ibáñez"
@@ -96,6 +96,7 @@ config/name_ca="La Mansió Ibáñez"
 [autoload]
 
 Global="*res://scripts/global/Global.gd"
+SceneChanger="*res://scenes/global/scene_changer.tscn"
 Events="*res://scripts/global/Events.gd"
 PlayerStats="*res://scripts/global/PlayerStats.gd"
 
@@ -117,6 +118,7 @@ singletons=[  ]
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/custom="res://resources/main_theme.tres"
 
 [input]
 

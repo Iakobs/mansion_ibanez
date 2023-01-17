@@ -1,7 +1,7 @@
 extends Spatial
 
 func _ready() -> void:
-	pass
+	Global.game_is_running = true
 
 func _on_dead_zone_body_entered(body: PhysicsBody) -> void:
 	if body.has_method("_on_dead_zone_entered"):

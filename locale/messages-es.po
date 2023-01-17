@@ -9,50 +9,51 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "GAME_TITLE"
+msgstr "La Mansión Ibáñez"
+
 msgid "DOOR_NAME"
 msgstr "Puerta"
-
 msgid "GARAGE_DOOR_NAME"
 msgstr "Puerta del garaje"
-
 msgid "WINDOW_NAME"
 msgstr "Ventana"
-
 msgid "KEY_NAME"
 msgstr "Llave"
-
 msgid "SECRET_LID_NAME"
 msgstr "Un ladrillo"
 
 msgid "ACTION_OPEN"
 msgstr "Abrir"
-
 msgid "ACTION_CLOSE"
 msgstr "Cerrar"
-
 msgid "ACTION_PICK"
 msgstr "Coger"
-
 msgid "ACTION_TOUCH"
 msgstr "Tocar"
 
-msgid "MENU_CONTINUE"
+msgid "BUTTON_START"
+msgstr "Empezar"
+msgid "BUTTON_CONTINUE"
 msgstr "Continuar"
-
-msgid "MENU_QUIT"
+msgid "BUTTON_QUIT"
 msgstr "Abandonar"
-
-msgid "MENU_BACK"
+msgid "BUTTON_BACK"
 msgstr "Volver"
+msgid "BUTTON_HOW_TO_PLAY"
+msgstr "Cómo jugar"
+msgid "BUTTON_EXIT"
+msgstr "Salir"
 
 msgid "TITLE_LANGUAGES"
 msgstr "Idiomas"
 
-msgid "ARE_YOU_SURE_LABEL"
+msgid "LABEL_ARE_YOU_SURE"
 msgstr "¿De verdad?"
+msgid "LABEL_HOW_TO_PLAY"
+msgstr ""
 
 msgid "YES"
 msgstr "Sí"
-
 msgid "NO"
 msgstr "No"

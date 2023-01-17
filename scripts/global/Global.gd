@@ -15,22 +15,27 @@ var camera: Camera
 var ray_origin: Vector3
 var mouse_position: Vector2
 
+var game_is_running := false
+
 func _ready() -> void:
-	for node in get_tree().get_nodes_in_group("doors"):
-		door_collisions.append_array(getAllCollisions(node))
-	
-	for node in get_tree().get_nodes_in_group("camera"):
-		camera = node
-	
-	for node in get_tree().get_nodes_in_group("player"):
-		player = node
-	
-	assert(camera != null, "No camera was found!")
-	assert(player != null, "No player was found!")
+	pass
+#	for node in get_tree().get_nodes_in_group("doors"):
+#		door_collisions.append_array(getAllCollisions(node))
+#
+#	for node in get_tree().get_nodes_in_group("camera"):
+#		camera = node
+#
+#	for node in get_tree().get_nodes_in_group("player"):
+#		player = node
+#
+#	assert(camera != null, "No camera was found!")
+#	assert(player != null, "No player was found!")
 
 func _process(_delta) -> void:
-	mouse_position = get_viewport().get_mouse_position()
-	ray_origin = camera.project_ray_origin(mouse_position)
+	if game_is_running:
+		mouse_position = get_viewport().get_mouse_position()
+		if camera:
+			ray_origin = camera.project_ray_origin(mouse_position)
 
 func switch_door_collisions() -> void:
 	for door in door_collisions:

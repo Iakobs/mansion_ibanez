@@ -7,9 +7,9 @@
 
 [node name="sure_popup" type="PopupDialog"]
 unique_name_in_owner = true
-visible = true
 margin_right = 501.0
-margin_bottom = 252.0
+margin_bottom = 249.0
+size_flags_horizontal = 3
 script = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -17,48 +17,50 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -312.0
-margin_top = -140.0
-margin_right = 312.0
-margin_bottom = 140.0
+margin_left = -250.5
+margin_top = -126.0
+margin_right = 250.5
+margin_bottom = 126.0
+size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 624.0
-margin_bottom = 280.0
+margin_right = 501.0
+margin_bottom = 252.0
+size_flags_horizontal = 3
 custom_constants/separation = 28
 alignment = 1
 
 [node name="sure_label" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_top = 72.0
-margin_right = 624.0
-margin_bottom = 123.0
+margin_top = 56.0
+margin_right = 501.0
+margin_bottom = 107.0
 custom_fonts/font = ExtResource( 1 )
-text = "ARE_YOU_SURE_LABEL"
+text = "LABEL_ARE_YOU_SURE"
 align = 1
 valign = 1
 clip_text = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_left = 142.0
-margin_top = 151.0
-margin_right = 482.0
-margin_bottom = 208.0
+margin_left = 82.0
+margin_top = 135.0
+margin_right = 418.0
+margin_bottom = 196.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_constants/separation = 50
 
 [node name="yes_sure" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 160.0
-margin_bottom = 57.0
+margin_right = 158.0
+margin_bottom = 61.0
 size_flags_horizontal = 6
 custom_fonts/font = ExtResource( 1 )
 text = "YES"
 icon = ExtResource( 3 )
 
 [node name="no_sure" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 210.0
-margin_right = 340.0
-margin_bottom = 57.0
+margin_left = 208.0
+margin_right = 336.0
+margin_bottom = 61.0
 size_flags_horizontal = 6
 custom_fonts/font = ExtResource( 1 )
 text = "NO"

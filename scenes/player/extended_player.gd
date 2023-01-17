@@ -12,6 +12,8 @@ var scanned_layers = Global.LayerValues.WORLD + Global.LayerValues.INTERACTABLE
 
 func _ready() -> void:
 	arm.set_length(arm_length)
+	Global.player = self
+	Global.camera = camera
 
 func _process(_delta: float) -> void:
 	calculate_objects()

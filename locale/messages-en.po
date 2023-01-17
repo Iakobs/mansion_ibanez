@@ -9,50 +9,57 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "GAME_TITLE"
+msgstr "The Ibáñez Mansion"
+
 msgid "DOOR_NAME"
 msgstr "Door"
-
 msgid "GARAGE_DOOR_NAME"
 msgstr "Garage door"
-
 msgid "WINDOW_NAME"
 msgstr "Window"
-
 msgid "KEY_NAME"
 msgstr "Key"
-
 msgid "SECRET_LID_NAME"
 msgstr "A brick"
 
 msgid "ACTION_OPEN"
 msgstr "Open"
-
 msgid "ACTION_CLOSE"
 msgstr "Close"
-
 msgid "ACTION_PICK"
 msgstr "Pick"
-
 msgid "ACTION_TOUCH"
 msgstr "Touch"
 
-msgid "MENU_CONTINUE"
+msgid "BUTTON_START"
+msgstr "Start"
+msgid "BUTTON_CONTINUE"
 msgstr "Continue"
-
-msgid "MENU_QUIT"
+msgid "BUTTON_QUIT"
 msgstr "Quit"
-
-msgid "MENU_BACK"
+msgid "BUTTON_BACK"
 msgstr "Back"
+msgid "BUTTON_HOW_TO_PLAY"
+msgstr "How to play"
+msgid "BUTTON_EXIT"
+msgstr "Exit"
 
 msgid "TITLE_LANGUAGES"
 msgstr "Languages"
 
-msgid "ARE_YOU_SURE_LABEL"
+msgid "LABEL_ARE_YOU_SURE"
 msgstr "Are you sure?"
+msgid "LABEL_HOW_TO_PLAY"
+msgstr "Lorem fistrum la caidita de la pradera no te digo trigo por no llamarte Rodrigor se calle ustée. Por la gloria de mi madre condemor papaar papaar a wan a wan benemeritaar qué dise usteer quietooor ese hombree. Te voy a borrar el cerito jarl ahorarr a wan. Te va a hasé pupitaa te va a hasé pupitaa tiene musho peligro va usté muy cargadoo se calle ustée papaar papaar benemeritaar sexuarl hasta luego Lucas. Quietooor me cago en tus muelas diodenoo quietooor no te digo trigo por no llamarte Rodrigor amatomaa. Me cago en tus muelas quietooor ahorarr mamaar.\n"
+"\n"
+"Lorem fistrum papaar papaar llevame al sircoo diodenoo a peich llevame al sircoo no puedor pupita. Por la gloria de mi madre no puedor benemeritaar a peich diodeno a wan diodenoo al ataquerl papaar papaar. A wan pupita qué dise usteer te va a hasé pupitaa pecador a peich va usté muy cargadoo no te digo trigo por no llamarte Rodrigor diodeno tiene musho peligro. Ahorarr ese que llega diodeno ese pedazo de. Jarl te va a hasé pupitaa pupita benemeritaar no puedor caballo blanco caballo negroorl qué dise usteer. Se calle ustée quietooor fistro quietooor papaar papaar.\n"
+"\n"
+"A peich ese pedazo de diodenoo fistro diodeno. Apetecan la caidita pecador condemor caballo blanco caballo negroorl de la pradera torpedo amatomaa a gramenawer a wan. No puedor ahorarr no puedor diodeno tiene musho peligro ese hombree al ataquerl apetecan hasta luego Lucas. Mamaar amatomaa no te digo trigo por no llamarte Rodrigor tiene musho peligro ese que llega sexuarl. Fistro ese que llega a gramenawer me cago en tus muelas caballo blanco caballo negroorl fistro no te digo trigo por no llamarte Rodrigor. Qué dise usteer ese que llega ese que llega benemeritaar condemor te va a hasé pupitaa.\n"
+"\n"
+"Mamaar qué dise usteer pupita pupita quietooor llevame al sircoo por la gloria de mi madre. Ese hombree torpedo me cago en tus muelas me cago en tus muelas diodenoo a peich jarl ese pedazo de. Qué dise usteer benemeritaar te va a hasé pupitaa te va a hasé pupitaa jarl diodeno pecador ese que llega papaar papaar pecador condemor. Ese hombree amatomaa qué dise usteer a peich está la cosa muy malar ese hombree no te digo trigo por no llamarte Rodrigor jarl ese hombree. Al ataquerl a wan la caidita quietooor a peich por la gloria de mi madre diodenoo está la cosa muy malar.\n"
 
 msgid "YES"
 msgstr "Yes"
-
 msgid "NO"
 msgstr "No"

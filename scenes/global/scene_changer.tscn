@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/fonts/menu_big.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/global/scene_changer.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/kenney_gameicons_expansion/PNG/White/2x/car.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/gear.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.976471, 0.501961, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0.768627, 0.329412, 1 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, -0.0453423, 0, 0, Vector2( 1, 0 ), -3.46084, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("TextureRect:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 897, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("TextureRect:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 350, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "loading"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("TextureRect:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 897, -0.25, 0, 0.25, 0, 997, -0.25, 0, 0.25, 0, 897, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("TextureRect:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 350, -0.25, 0, 0.25, 0, 350, -0.25, 0, 0.25, 0, 340, -0.25, 0, 0.25, 0, 350, -0.25, 0, 0.25, 0, 350, -0.25, 0, 0.25, 0, 340, -0.25, 0, 0.25, 0, 350, -0.25, 0, 0.25, 0, 350, -0.25, 0, 0.25, 0, 340, -0.25, 0, 0.25, 0, 350, -0.25, 0, 0.25, 0, 350, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 1, 1.1, 1.2, 1.4, 1.5, 1.6, 2 )
+}
+
+[node name="scene_changer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 50.0
+margin_top = 490.0
+margin_right = 1870.0
+margin_bottom = 590.0
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 1820.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 897.0
+margin_top = 350.0
+margin_right = 997.007
+margin_bottom = 450.0
+rect_pivot_offset = Vector2( 50, 50 )
+texture = ExtResource( 3 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="TextureRect"]
+position = Vector2( 0, 60 )
+local_coords = false
+texture = ExtResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2( -1, 0 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 200.0
+angular_velocity_random = 1.0
+scale_amount = 0.4
+scale_amount_curve = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "loading"
+anims/RESET = SubResource( 3 )
+anims/loading = SubResource( 4 )

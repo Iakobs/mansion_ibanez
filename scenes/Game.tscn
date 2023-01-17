@@ -44,6 +44,17 @@ glow_enabled = true
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
 
+[node name="ExtendedPlayer" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0.398704, 16.3 )
+__meta__ = {
+"_edit_pinned_properties_": [ "mouse_sensitivity", "mouse_acceleration", "max_speed", "default_fov", "sprint_fov" ]
+}
+mouse_sensitivity = Vector2( 0.2, 0.2 )
+mouse_acceleration = 0.25
+max_speed = 3.5
+default_fov = 60.0
+sprint_fov = 70.0
+
 [node name="dead_zone" type="Area" parent="."]
 collision_layer = 0
 collision_mask = 10
@@ -114,17 +125,6 @@ environment = SubResource( 6 )
 transform = Transform( 0.730664, 0.657973, -0.182215, -0.0799213, 0.347483, 0.934274, 0.678044, -0.668077, 0.306479, 0, 28.9156, 22.6258 )
 shadow_enabled = true
 
-[node name="ExtendedPlayer" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0.398704, 16.3 )
-__meta__ = {
-"_edit_pinned_properties_": [ "mouse_sensitivity", "mouse_acceleration", "max_speed", "default_fov", "sprint_fov" ]
-}
-mouse_sensitivity = Vector2( 0.2, 0.2 )
-mouse_acceleration = 0.25
-max_speed = 3.5
-default_fov = 60.0
-sprint_fov = 70.0
-
 [node name="collectibles" type="Spatial" parent="."]
 
 [node name="key" parent="collectibles" instance=ExtResource( 8 )]
@@ -139,6 +139,11 @@ rigid_scene = ExtResource( 2 )
 
 [node name="key3" parent="collectibles" instance=ExtResource( 8 )]
 transform = Transform( -3.77377e-15, 4.37114e-08, -1, 1, 7.54979e-08, -4.73656e-16, 7.54979e-08, -1, -4.37114e-08, 10.3942, 0.55682, -1.6554 )
+static_scene = ExtResource( 6 )
+rigid_scene = ExtResource( 2 )
+
+[node name="key4" parent="collectibles" instance=ExtResource( 8 )]
+transform = Transform( 1.70699e-08, 1, -3.90806e-08, 0.258819, -4.2167e-08, -0.965926, -0.965926, 6.3735e-09, -0.258819, 7.8, 5.8, 2.9 )
 static_scene = ExtResource( 6 )
 rigid_scene = ExtResource( 2 )
 
