@@ -8,7 +8,7 @@ var door: Door
 func _ready():
 	yield(owner, "ready")
 	door = owner as Door
-	assert(door != null)
+	assert(door)
 
 func _process(_delta):
 	if door.player_is_in_front:

@@ -19,8 +19,8 @@ func _ready() -> void:
 	
 	static_member = static_scene.instance() as Spatial
 	rigid_member = rigid_scene.instance() as Spatial
-	assert(static_member != null)
-	assert(rigid_member != null)
+	assert(static_member)
+	assert(rigid_member)
 	
 	add_child_and_set_owner(rigid_member)
 

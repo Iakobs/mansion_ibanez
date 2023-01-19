@@ -1,8 +1,9 @@
 extends PanelContainer
 
-enum languages { CATALAN, SPANISH, ENGLISH }
+enum languages { ca = 0, es = 1, en = 2 }
 
 onready var content: Control = $"%content"
+onready var language_option: OptionButton = $"%language_option"
 
 var tween: SceneTreeTween
 var cancel_showing_content := false
@@ -10,6 +11,8 @@ var cancel_showing_content := false
 func _ready() -> void:
 	hide()
 	content.hide()
+	var config_language := languages.get(ConfigManager.get_locale()) as int
+	language_option.select(config_language)
 
 func _on_content_ready() -> void:
 	if cancel_showing_content:
@@ -19,13 +22,9 @@ func _on_content_ready() -> void:
 		content.show()
 
 func _on_language_option_item_selected(index: int) -> void:
-	match index:
-		languages.CATALAN:
-			TranslationServer.set_locale("ca")
-		languages.SPANISH:
-			TranslationServer.set_locale("es")
-		languages.ENGLISH:
-			TranslationServer.set_locale("en")
+	var locale := languages.keys()[index] as String
+	TranslationServer.set_locale(locale)
+	ConfigManager.set_locale(locale)
 
 func animated_show() -> void:
 	cancel_showing_content = false

@@ -18,7 +18,7 @@ var mouse_position: Vector2
 var game_is_running := false
 
 func _ready() -> void:
-	pass
+	TranslationServer.set_locale(ConfigManager.get_locale())
 #	for node in get_tree().get_nodes_in_group("doors"):
 #		door_collisions.append_array(getAllCollisions(node))
 #
@@ -28,8 +28,8 @@ func _ready() -> void:
 #	for node in get_tree().get_nodes_in_group("player"):
 #		player = node
 #
-#	assert(camera != null, "No camera was found!")
-#	assert(player != null, "No player was found!")
+#	assert(camera, "No camera was found!")
+#	assert(player, "No player was found!")
 
 func _process(_delta) -> void:
 	if game_is_running:
@@ -54,3 +54,5 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Icons
 var locked_icon = preload("res://assets/images/kenney_gameicons/PNG/White/1x/locked.png")
+var primary_action_icon = preload("res://assets/images/kenney_gameicons_expansion/PNG/White/1x/mouseLeft.png")
+var secondary_action_icon = preload("res://assets/images/kenney_gameicons_expansion/PNG/White/1x/mouseRight.png")

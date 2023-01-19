@@ -6,4 +6,4 @@ var window: Window
 func _ready():
 	yield(owner, "ready")
 	window = owner as Window
-	assert(window != null)
+	assert(window)

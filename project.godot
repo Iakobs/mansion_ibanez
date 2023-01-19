@@ -95,6 +95,7 @@ config/name_ca="La Mansió Ibáñez"
 
 [autoload]
 
+ConfigManager="*res://scripts/global/ConfigManager.gd"
 Global="*res://scripts/global/Global.gd"
 SceneChanger="*res://scenes/global/scene_changer.tscn"
 Events="*res://scripts/global/Events.gd"

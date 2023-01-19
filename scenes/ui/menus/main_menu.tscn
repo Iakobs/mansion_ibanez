@@ -141,11 +141,10 @@ text = "LABEL_HOW_TO_PLAY"
 
 [node name="animated_options_menu" parent="." instance=ExtResource( 11 )]
 unique_name_in_owner = true
-visible = false
-anchor_left = 0.754167
-anchor_top = 0.162963
-anchor_right = 1.04844
-anchor_bottom = 0.875
+anchor_left = 0.7625
+anchor_top = 0.177778
+anchor_right = 1.05677
+anchor_bottom = 0.889815
 __meta__ = {
 "_edit_use_anchors_": true
 }
