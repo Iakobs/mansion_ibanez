@@ -73,9 +73,11 @@ margin_bottom = 110.0
 size_flags_horizontal = 3
 
 [node name="config_button" type="Button" parent="out_margin/VBoxContainer/upper_half/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 margin_left = 1710.0
 margin_right = 1820.0
 margin_bottom = 110.0
+toggle_mode = true
 icon = ExtResource( 3 )
 
 [node name="lower_half" type="MarginContainer" parent="out_margin/VBoxContainer"]
@@ -101,6 +103,7 @@ size_flags_horizontal = 3
 custom_constants/separation = 50
 
 [node name="continue" type="Button" parent="out_margin/VBoxContainer/lower_half/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_right = 1038.0
 margin_bottom = 110.0
 custom_fonts/font = ExtResource( 5 )
@@ -138,6 +141,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="pressed" from="out_margin/VBoxContainer/upper_half/VBoxContainer/HBoxContainer/config_button" to="." method="_on_config_button_pressed"]
+[connection signal="toggled" from="out_margin/VBoxContainer/upper_half/VBoxContainer/HBoxContainer/config_button" to="." method="_on_config_button_toggled"]
 [connection signal="pressed" from="out_margin/VBoxContainer/lower_half/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="out_margin/VBoxContainer/lower_half/HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

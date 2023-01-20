@@ -67,9 +67,11 @@ margin_bottom = 110.0
 size_flags_horizontal = 3
 
 [node name="config_button" type="Button" parent="MarginContainer/VBoxContainer/upper_half/HBoxContainer"]
+unique_name_in_owner = true
 margin_left = 1710.0
 margin_right = 1820.0
 margin_bottom = 110.0
+toggle_mode = true
 icon = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/upper_half"]
@@ -135,12 +137,9 @@ size_flags_horizontal = 3
 
 [node name="sure_popup" parent="." instance=ExtResource( 8 )]
 
-[node name="scroll_text_dialog" parent="." instance=ExtResource( 9 )]
-unique_name_in_owner = true
-text = "LABEL_HOW_TO_PLAY"
-
 [node name="animated_options_menu" parent="." instance=ExtResource( 11 )]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.7625
 anchor_top = 0.177778
 anchor_right = 1.05677
@@ -149,7 +148,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/upper_half/HBoxContainer/config_button" to="." method="_on_config_button_pressed"]
+[node name="scroll_text_dialog" parent="." instance=ExtResource( 9 )]
+unique_name_in_owner = true
+visible = false
+text = "LABEL_HOW_TO_PLAY"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/upper_half/HBoxContainer/config_button" to="." method="_on_config_button_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/lower_half/HBoxContainer/buttons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/lower_half/HBoxContainer/buttons/how_to_play" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/lower_half/HBoxContainer/buttons/quit" to="." method="_on_quit_pressed"]

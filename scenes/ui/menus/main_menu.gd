@@ -4,6 +4,7 @@ onready var animated_options_menu: PanelContainer = $"animated_options_menu"
 onready var sure_popup: PopupDialog = $"%sure_popup"
 onready var scroll_text_dialog: PopupDialog = $"%scroll_text_dialog"
 onready var start_button: Button = $"%start"
+onready var config_button: Button = $"%config_button"
 
 var options_menu_is_visible := false
 
@@ -12,12 +13,11 @@ func _ready() -> void:
 	var _error := sure_popup.connect("yes_pressed", self, "_on_yes_sure_pressed")
 	_error = sure_popup.connect("no_pressed", self, "_on_no_sure_pressed")
 
-func _on_config_button_pressed() -> void:
-	if options_menu_is_visible:
-		animated_options_menu.animated_hide()
-	else:
+func _on_config_button_toggled(button_pressed):
+	if button_pressed:
 		animated_options_menu.animated_show()
-	options_menu_is_visible = !options_menu_is_visible
+	else:
+		animated_options_menu.animated_hide()
 
 func _on_start_pressed() -> void:
 	SceneChanger.load_scene("res://scenes/Game.tscn")
@@ -36,7 +36,8 @@ func _on_no_sure_pressed():
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		if options_menu_is_visible:
+		if animated_options_menu.visible:
 			animated_options_menu.hide()
-			options_menu_is_visible = false
+			config_button.grab_focus()
+			config_button.set_pressed_no_signal(false)
 			return
