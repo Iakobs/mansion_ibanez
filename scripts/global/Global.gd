@@ -9,7 +9,7 @@ enum LayerBits {
 
 var door_collisions := []
 
-var player: Player
+var player: Spatial
 var camera: Camera
 
 var ray_origin: Vector3

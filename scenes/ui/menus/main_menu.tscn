@@ -150,7 +150,6 @@ __meta__ = {
 
 [node name="scroll_text_dialog" parent="." instance=ExtResource( 9 )]
 unique_name_in_owner = true
-visible = false
 text = "LABEL_HOW_TO_PLAY"
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/upper_half/HBoxContainer/config_button" to="." method="_on_config_button_toggled"]

@@ -1,9 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/ui/components/interactable_info_display.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-BoldItalic.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/locked.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.321569, 0.243137, 0.584314, 0.352941 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color( 0, 0, 0, 0.666667 )
+shadow_size = 7
+shadow_offset = Vector2( 0, 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -69,47 +79,49 @@ margin_bottom = 415.0
 size_flags_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/lower_half"]
-margin_left = 825.0
-margin_right = 994.0
+margin_left = 815.0
+margin_right = 1004.0
 margin_bottom = 415.0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer"]
-margin_right = 169.0
-margin_bottom = 138.0
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer"]
+margin_right = 189.0
+margin_bottom = 158.0
 size_flags_horizontal = 0
+custom_styles/panel = SubResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/PanelContainer"]
+visible = false
 margin_right = 169.0
 margin_bottom = 138.0
 color = Color( 0, 0, 0, 0.313726 )
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/PanelContainer"]
+margin_right = 189.0
+margin_bottom = 158.0
+mouse_filter = 2
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="info_control" type="VBoxContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/PanelContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
 margin_right = 169.0
 margin_bottom = 138.0
-mouse_filter = 2
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
 
-[node name="info_control" type="VBoxContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 159.0
-margin_bottom = 128.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/PanelContainer/MarginContainer/info_control"]
 margin_right = 149.0
 margin_bottom = 51.0
 size_flags_horizontal = 4
 
-[node name="interactable_icon" type="TextureRect" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control/HBoxContainer"]
+[node name="interactable_icon" type="TextureRect" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/PanelContainer/MarginContainer/info_control/HBoxContainer"]
 unique_name_in_owner = true
 margin_right = 50.0
 margin_bottom = 51.0
 texture = ExtResource( 5 )
 
-[node name="interactable_name" type="Label" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control/HBoxContainer"]
+[node name="interactable_name" type="Label" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/PanelContainer/MarginContainer/info_control/HBoxContainer"]
 unique_name_in_owner = true
 margin_left = 54.0
 margin_right = 149.0
@@ -117,12 +129,12 @@ margin_bottom = 51.0
 custom_fonts/font = SubResource( 1 )
 text = "text"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/PanelContainer/MarginContainer/info_control"]
 margin_top = 55.0
 margin_right = 149.0
 margin_bottom = 59.0
 
-[node name="action_label" type="Label" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/MarginContainer/MarginContainer/info_control"]
+[node name="action_label" type="Label" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer/PanelContainer/MarginContainer/info_control"]
 unique_name_in_owner = true
 margin_top = 63.0
 margin_right = 149.0
@@ -133,13 +145,14 @@ align = 1
 valign = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/lower_half/VBoxContainer"]
-margin_top = 142.0
-margin_bottom = 142.0
-size_flags_horizontal = 0
-size_flags_vertical = 2
+margin_top = 162.0
+margin_right = 189.0
+margin_bottom = 415.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="right_push" type="Control" parent="MarginContainer/VBoxContainer/lower_half"]
-margin_left = 998.0
-margin_right = 998.0
+margin_left = 1008.0
+margin_right = 1008.0
 margin_bottom = 415.0
 size_flags_horizontal = 2

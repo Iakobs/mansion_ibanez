@@ -32,13 +32,14 @@ func _on_no_sure_pressed():
 	sure_popup.hide()
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and paused:
 		if animated_options_menu.visible:
 			animated_options_menu.hide()
 			config_button.grab_focus()
 			config_button.set_pressed_no_signal(false)
 			return
-		
+	
+	if Input.is_action_just_pressed("pause"):
 		if not paused:
 			pause()
 		else:

@@ -2,8 +2,8 @@ extends RigidBody
 
 class_name Player
 
-export var mouse_sensitivity : Vector2 = Vector2(1, 1) 
-export(float, 0.0, 1.0) var mouse_acceleration : float = 0.5 
+export var mouse_sensitivity : Vector2 = Vector2(1, 1)
+export(float, 0.0, 1.0) var mouse_acceleration : float = 0.5
 
 export var max_speed = 5.0
 export var sprint_factor = 2.0

@@ -5,8 +5,10 @@ export var text := ""
 onready var label: RichTextLabel = $"%label"
 
 func _ready() -> void:
-	label.bbcode_text = tr(text)
 	label.get_v_scroll().custom_step = 50
+
+func _on_scroll_text_dialog_about_to_show() -> void:
+	label.bbcode_text = tr(text)
 
 func _on_back_pressed() -> void:
 	hide()

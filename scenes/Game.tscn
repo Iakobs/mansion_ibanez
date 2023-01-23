@@ -6,9 +6,9 @@
 [ext_resource path="res://scenes/Game.gd" type="Script" id=4]
 [ext_resource path="res://scenes/ui/menus/pause_menu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/props/keys/static_key.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/player/ExtendedPlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/prefabs/draggable/draggable.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/props/secret_lid.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=10]
 
 [sub_resource type="BoxShape" id=12]
 extents = Vector3( 15.3, 1, 19.4 )
@@ -43,17 +43,6 @@ glow_enabled = true
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
-
-[node name="ExtendedPlayer" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0.398704, 16.3 )
-__meta__ = {
-"_edit_pinned_properties_": [ "mouse_sensitivity", "mouse_acceleration", "max_speed", "default_fov", "sprint_fov" ]
-}
-mouse_sensitivity = Vector2( 0.2, 0.2 )
-mouse_acceleration = 0.25
-max_speed = 3.5
-default_fov = 60.0
-sprint_fov = 70.0
 
 [node name="dead_zone" type="Area" parent="."]
 collision_layer = 0
@@ -150,6 +139,9 @@ rigid_scene = ExtResource( 2 )
 [node name="props" type="Spatial" parent="."]
 
 [node name="secret_lid" parent="props" instance=ExtResource( 9 )]
+
+[node name="player" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0.3, 16.5 )
 
 [node name="pause_menu" parent="." instance=ExtResource( 5 )]
 visible = false

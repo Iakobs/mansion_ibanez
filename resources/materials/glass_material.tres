@@ -5,5 +5,4 @@ flags_transparent = true
 params_blend_mode = 3
 albedo_color = Color( 1, 1, 1, 0.145098 )
 metallic = 1.0
-metallic_specular = 1.0
 roughness = 0.0
