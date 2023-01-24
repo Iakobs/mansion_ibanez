@@ -49,8 +49,9 @@ func getAllCollisions(node: Node, listOfAllNodesInTree := []) -> Array:
 	return listOfAllNodesInTree
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("door_collisions"):
-		switch_door_collisions()
+	pass
+#	if event.is_action_pressed("door_collisions"):
+#		switch_door_collisions()
 
 # Icons
 var locked_icon = preload("res://assets/images/kenney_gameicons/PNG/White/1x/locked.png")
