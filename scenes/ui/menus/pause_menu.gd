@@ -35,7 +35,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and paused:
 		if animated_options_menu.visible:
 			animated_options_menu.hide()
-			config_button.grab_focus()
+			config_button.call_deferred("grab_focus")
 			config_button.set_pressed_no_signal(false)
 			return
 	
@@ -49,7 +49,7 @@ func pause() -> void:
 	paused = true
 	get_tree().paused = paused
 	show()
-	continue_button.grab_focus()
+	continue_button.call_deferred("grab_focus")
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 

@@ -9,7 +9,7 @@ onready var config_button: Button = $"%config_button"
 var options_menu_is_visible := false
 
 func _ready() -> void:
-	start_button.grab_focus()
+	start_button.call_deferred("grab_focus")
 	var _error := sure_popup.connect("yes_pressed", self, "_on_yes_sure_pressed")
 	_error = sure_popup.connect("no_pressed", self, "_on_no_sure_pressed")
 
@@ -38,6 +38,6 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if animated_options_menu.visible:
 			animated_options_menu.hide()
-			config_button.grab_focus()
+			config_button.call_deferred("grab_focus")
 			config_button.set_pressed_no_signal(false)
 			return

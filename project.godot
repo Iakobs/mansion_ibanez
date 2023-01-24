@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/props/keys/key.gd"
 }, {
-"base": "Button",
+"base": "MenuButton",
 "class": "KeyBindingButton",
 "language": "GDScript",
 "path": "res://scenes/ui/components/key_binding_button.gd"

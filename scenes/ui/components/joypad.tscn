@@ -39,163 +39,152 @@ margin_right = 370.0
 margin_bottom = 1080.0
 custom_constants/separation = 10
 
-[node name="button_6" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="button_6" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_button", "left_section_button"]]
 unique_name_in_owner = true
 margin_right = 370.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 370, 60 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 2 )
+flat = false
 script = ExtResource( 21 )
+index = 6
 
-[node name="button_4" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_6"]
+position = Vector2( 461, 67 )
+
+[node name="button_4" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_button", "left_section_button"]]
 unique_name_in_owner = true
 margin_top = 70.0
 margin_right = 370.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 3 )
+flat = false
+script = ExtResource( 21 )
+index = 4
 
-[node name="button_12" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_4"]
+position = Vector2( 460, 48 )
+
+[node name="button_12" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_button", "left_section_button"]]
 unique_name_in_owner = true
 margin_top = 140.0
 margin_right = 370.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 4 )
+flat = false
+script = ExtResource( 21 )
+index = 12
 
-[node name="button_13" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_12"]
+position = Vector2( 482, 190 )
+
+[node name="button_13" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_button", "left_section_button"]]
 unique_name_in_owner = true
 margin_top = 210.0
 margin_right = 370.0
 margin_bottom = 270.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 6 )
+flat = false
+script = ExtResource( 21 )
+index = 13
 
-[node name="button_14" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_13"]
+position = Vector2( 482, 170 )
+
+[node name="button_14" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_button", "left_section_button"]]
 unique_name_in_owner = true
 margin_top = 280.0
 margin_right = 370.0
 margin_bottom = 340.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 8 )
+flat = false
+script = ExtResource( 21 )
+index = 14
 
-[node name="button_15" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_14"]
+position = Vector2( 458, 75 )
+
+[node name="button_15" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_button", "left_section_button"]]
 unique_name_in_owner = true
 margin_top = 350.0
 margin_right = 370.0
 margin_bottom = 410.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 7 )
+flat = false
+script = ExtResource( 21 )
+index = 15
 
-[node name="button_10" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_15"]
+position = Vector2( 506, 6 )
+
+[node name="button_10" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_button", "left_section_button"]]
 unique_name_in_owner = true
 margin_top = 420.0
 margin_right = 370.0
 margin_bottom = 480.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 10 )
+flat = false
+script = ExtResource( 21 )
+index = 10
 
-[node name="button_left_joystick" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_10"]
+position = Vector2( 574, -91 )
+
+[node name="button_left_joystick" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_motion", "left_section_button"]]
 unique_name_in_owner = true
 margin_top = 490.0
 margin_right = 370.0
 margin_bottom = 550.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 5 )
+flat = false
+script = ExtResource( 21 )
 
-[node name="button_8" type="Button" parent="HBoxContainer/left_section" groups=["left_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_left_joystick"]
+position = Vector2( 553, -52 )
+
+[node name="button_8" type="MenuButton" parent="HBoxContainer/left_section" groups=["joypad_button", "left_section_button"]]
 unique_name_in_owner = true
 margin_top = 560.0
 margin_right = 370.0
 margin_bottom = 620.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 9 )
+flat = false
+script = ExtResource( 21 )
+index = 8
+
+[node name="Position2D" type="Position2D" parent="HBoxContainer/left_section/button_8"]
+position = Vector2( 553, -122 )
 
 [node name="central_section" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 374.0
 margin_right = 869.0
 margin_bottom = 1080.0
-
-[node name="button_6_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 87, 67 )
-
-[node name="button_4_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 86, 118 )
-
-[node name="button_12_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 108, 330 )
-
-[node name="button_13_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 108, 380 )
-
-[node name="button_14_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 84, 355 )
-
-[node name="button_15_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 132, 356 )
-
-[node name="button_10_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 200, 329 )
-
-[node name="button_left_joystick_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 179, 438 )
-
-[node name="button_8_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 179, 438 )
-
-[node name="button_7_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 405, 69 )
-
-[node name="button_5_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 406, 119 )
-
-[node name="button_2_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 358, 359 )
-
-[node name="button_3_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 395, 322 )
-
-[node name="button_0_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 394, 395 )
-
-[node name="button_1_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 431, 361 )
-
-[node name="button_11_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 304, 328 )
-
-[node name="button_right_joystick_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 325, 441 )
-
-[node name="button_9_position" type="Position2D" parent="HBoxContainer/central_section"]
-unique_name_in_owner = true
-position = Vector2( 325, 441 )
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/central_section"]
 margin_right = 495.0
@@ -208,94 +197,156 @@ margin_right = 1243.0
 margin_bottom = 1080.0
 custom_constants/separation = 10
 
-[node name="button_7" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="button_7" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_button", "right_section_button"]]
 unique_name_in_owner = true
 margin_right = 370.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 1 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
+index = 7
 
-[node name="button_5" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_7"]
+position = Vector2( -94, 69 )
+
+[node name="button_5" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_button", "right_section_button"]]
 unique_name_in_owner = true
 margin_top = 70.0
 margin_right = 370.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 11 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
+index = 5
 
-[node name="button_2" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_5"]
+position = Vector2( -93, 49 )
+
+[node name="button_2" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_button", "right_section_button"]]
 unique_name_in_owner = true
 margin_top = 140.0
 margin_right = 370.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 15 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
+index = 2
 
-[node name="button_3" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_2"]
+position = Vector2( -141, 219 )
+
+[node name="button_3" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_button", "right_section_button"]]
 unique_name_in_owner = true
 margin_top = 210.0
 margin_right = 370.0
 margin_bottom = 270.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 16 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
+index = 3
 
-[node name="button_0" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_3"]
+position = Vector2( -104, 112 )
+
+[node name="button_0" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_button", "right_section_button"]]
 unique_name_in_owner = true
 margin_top = 280.0
 margin_right = 370.0
 margin_bottom = 340.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 13 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
 
-[node name="button_1" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_0"]
+position = Vector2( -105, 115 )
+
+[node name="button_1" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_button", "right_section_button"]]
 unique_name_in_owner = true
 margin_top = 350.0
 margin_right = 370.0
 margin_bottom = 410.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 12 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
+index = 1
 
-[node name="button_11" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_1"]
+position = Vector2( -68, 11 )
+
+[node name="button_11" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_button", "right_section_button"]]
 unique_name_in_owner = true
 margin_top = 420.0
 margin_right = 370.0
 margin_bottom = 480.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 17 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
+index = 11
 
-[node name="button_right_joystick" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_11"]
+position = Vector2( -195, -92 )
+
+[node name="button_right_joystick" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_motion", "right_section_button"]]
 unique_name_in_owner = true
 margin_top = 490.0
 margin_right = 370.0
 margin_bottom = 550.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 19 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
+index = 2
 
-[node name="button_9" type="Button" parent="HBoxContainer/right_section" groups=["right_section_button"]]
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_right_joystick"]
+position = Vector2( -174, -49 )
+
+[node name="button_9" type="MenuButton" parent="HBoxContainer/right_section" groups=["joypad_button", "right_section_button"]]
 unique_name_in_owner = true
 margin_top = 560.0
 margin_right = 370.0
 margin_bottom = 620.0
 rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
 size_flags_horizontal = 0
 icon = ExtResource( 18 )
+flat = false
 icon_align = 2
+script = ExtResource( 21 )
+index = 9
+
+[node name="Position2D" type="Position2D" parent="HBoxContainer/right_section/button_9"]
+position = Vector2( -174, -119 )
 
 [node name="line" type="Line2D" parent="."]
 unique_name_in_owner = true

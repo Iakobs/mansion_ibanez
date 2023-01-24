@@ -1,9 +1,8 @@
-[gd_resource type="Theme" load_steps=21 format=2]
+[gd_resource type="Theme" load_steps=20 format=2]
 
 [ext_resource path="res://resources/fonts/menu_small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/down.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/checkmark.png" type="Texture" id=3]
-[ext_resource path="res://resources/fonts/menu_medium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/up.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=6]
@@ -180,7 +179,6 @@ OptionButton/icons/arrow = ExtResource( 2 )
 Panel/styles/panel = SubResource( 1 )
 PanelContainer/styles/panel = SubResource( 17 )
 PopupDialog/styles/panel = SubResource( 9 )
-PopupMenu/fonts/font = ExtResource( 4 )
 PopupMenu/icons/radio_checked = ExtResource( 3 )
 PopupMenu/icons/radio_unchecked = SubResource( 12 )
 PopupMenu/styles/hover = SubResource( 10 )
