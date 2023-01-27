@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="keyboard_mouse_remap" type="Control"]
+size_flags_horizontal = 0

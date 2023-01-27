@@ -1,0 +1,19 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/global/input_map_manager.gd" type="Script" id=1]
+[ext_resource path="res://resources/actions/look_up.tres" type="Resource" id=2]
+[ext_resource path="res://resources/actions/player_backwards.tres" type="Resource" id=3]
+[ext_resource path="res://resources/actions/look_right.tres" type="Resource" id=4]
+[ext_resource path="res://resources/actions/player_jump.tres" type="Resource" id=5]
+[ext_resource path="res://resources/actions/look_down.tres" type="Resource" id=6]
+[ext_resource path="res://resources/actions/primary_action.tres" type="Resource" id=7]
+[ext_resource path="res://resources/actions/player_right.tres" type="Resource" id=8]
+[ext_resource path="res://resources/actions/player_forwards.tres" type="Resource" id=9]
+[ext_resource path="res://resources/actions/pause.tres" type="Resource" id=10]
+[ext_resource path="res://resources/actions/player_sprint.tres" type="Resource" id=11]
+[ext_resource path="res://resources/actions/look_left.tres" type="Resource" id=12]
+[ext_resource path="res://resources/actions/player_left.tres" type="Resource" id=13]
+
+[node name="input_map_manager" type="Spatial"]
+script = ExtResource( 1 )
+actions = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 8 ) ]

@@ -1,9 +1,8 @@
 extends Control
 
-onready var animated_options_menu: PanelContainer = $"animated_options_menu"
+onready var options_menu: Button = $"%options_menu"
 onready var sure_popup: PopupDialog = $"%sure_popup"
 onready var continue_button: Button = $"%continue"
-onready var config_button: Button = $"%config_button"
 
 var paused := false
 
@@ -11,17 +10,18 @@ func _ready() -> void:
 	var _error := sure_popup.connect("yes_pressed", self, "_on_yes_sure_pressed")
 	_error = sure_popup.connect("no_pressed", self, "_on_no_sure_pressed")
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		if not paused:
+			pause()
+		else:
+			unpause()
+
 func _on_continue_pressed() -> void:
 	unpause()
 
 func _on_quit_pressed() -> void:
 	sure_popup.popup_centered()
-
-func _on_config_button_toggled(button_pressed):
-	if button_pressed:
-		animated_options_menu.animated_show()
-	else:
-		animated_options_menu.animated_hide()
 
 func _on_yes_sure_pressed():
 	Global.game_is_running = false
@@ -31,21 +31,8 @@ func _on_yes_sure_pressed():
 func _on_no_sure_pressed():
 	sure_popup.hide()
 
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel") and paused:
-		if animated_options_menu.visible:
-			animated_options_menu.hide()
-			config_button.call_deferred("grab_focus")
-			config_button.set_pressed_no_signal(false)
-			return
-	
-	if Input.is_action_just_pressed("pause"):
-		if not paused:
-			pause()
-		else:
-			unpause()
-
 func pause() -> void:
+	set_process(false)
 	paused = true
 	get_tree().paused = paused
 	show()

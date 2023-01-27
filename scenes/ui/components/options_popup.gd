@@ -1,32 +1,29 @@
 extends PanelContainer
 
-enum languages { ca = 0, es = 1, en = 2 }
-
-onready var content: Control = $"%content"
-onready var language_option: OptionButton = $"%language_option"
-
 var tween: SceneTreeTween
 var cancel_showing_content := false
 
+onready var content: VBoxContainer = $"%content"
+onready var focus_button: Button = $"%language_option"
+
 func _ready() -> void:
-	hide()
-	content.hide()
-	var config_language := languages.get(ConfigManager.get_locale()) as int
-	language_option.select(config_language)
+	set_as_toplevel(true)
+
+func _process(_delta: float) -> void:
+	pass
+
+func _on_remap_button_pressed() -> void:
+	pass # Replace with function body.
 
 func _on_content_ready() -> void:
 	if cancel_showing_content:
 		return
-	
 	if !content.visible:
 		content.show()
 
-func _on_language_option_item_selected(index: int) -> void:
-	var locale := languages.keys()[index] as String
-	TranslationServer.set_locale(locale)
-	ConfigManager.set_locale(locale)
-
-func animated_show() -> void:
+func show_at_position(position: Vector2) -> void:
+	focus_button.call_deferred("grab_focus")
+	rect_position = position + Vector2(-rect_min_size.x, 25)
 	cancel_showing_content = false
 	if tween:
 		tween.kill()
@@ -44,7 +41,7 @@ func animated_show() -> void:
 	var _error := get_tree().create_timer(0.5)\
 		.connect("timeout", self, "_on_content_ready")
 
-func animated_hide() -> void:
+func hide_panel() -> void:
 	cancel_showing_content = true
 	if tween:
 		tween.kill()

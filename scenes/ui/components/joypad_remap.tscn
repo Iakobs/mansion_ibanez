@@ -1,0 +1,576 @@
+[gd_scene load_steps=49 format=2]
+
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonStart.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonA.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/arrowUp.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonR2.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonX.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/arrowDown.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonB.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/kenney_gameicons_expansion/PNG/White/1x/DPAD_right.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/arrowLeft.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonL2.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/arrowRight.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/kenney_gameicons_expansion/PNG/White/1x/DPAD_left.png" type="Texture" id=12]
+[ext_resource path="res://assets/images/kenney_gameicons_expansion/PNG/White/1x/DPAD_up.png" type="Texture" id=13]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonR1.png" type="Texture" id=14]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonSelect.png" type="Texture" id=15]
+[ext_resource path="res://assets/images/kenney_gameicons_expansion/PNG/White/1x/DPAD_down.png" type="Texture" id=16]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonY.png" type="Texture" id=17]
+[ext_resource path="res://assets/images/kenney_gameicons_expansion/PNG/White/1x/joystickL_top.png" type="Texture" id=18]
+[ext_resource path="res://assets/images/kenney_gameicons_expansion/PNG/White/1x/joystickR_top.png" type="Texture" id=19]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/buttonL1.png" type="Texture" id=20]
+[ext_resource path="res://assets/images/diagram_modified.png" type="Texture" id=21]
+[ext_resource path="res://scripts/input/joypad_motion_key_binding_button.gd" type="Script" id=22]
+[ext_resource path="res://scenes/ui/components/joypad_remap.gd" type="Script" id=23]
+[ext_resource path="res://scripts/input/joypad_button_key_binding_button.gd" type="Script" id=24]
+
+[sub_resource type="InputEventJoypadButton" id=2]
+button_index = 6
+
+[sub_resource type="InputEventJoypadButton" id=7]
+button_index = 4
+
+[sub_resource type="InputEventJoypadButton" id=8]
+button_index = 12
+
+[sub_resource type="InputEventJoypadButton" id=9]
+button_index = 13
+
+[sub_resource type="InputEventJoypadButton" id=10]
+button_index = 14
+
+[sub_resource type="InputEventJoypadButton" id=11]
+button_index = 15
+
+[sub_resource type="InputEventJoypadButton" id=12]
+button_index = 15
+
+[sub_resource type="InputEventJoypadButton" id=29]
+button_index = 8
+
+[sub_resource type="InputEventJoypadButton" id=17]
+button_index = 7
+
+[sub_resource type="InputEventJoypadButton" id=18]
+button_index = 5
+
+[sub_resource type="InputEventJoypadButton" id=19]
+button_index = 2
+
+[sub_resource type="InputEventJoypadButton" id=20]
+button_index = 3
+
+[sub_resource type="InputEventJoypadButton" id=21]
+
+[sub_resource type="InputEventJoypadButton" id=22]
+button_index = 1
+
+[sub_resource type="InputEventJoypadButton" id=23]
+button_index = 11
+
+[sub_resource type="InputEventJoypadButton" id=28]
+button_index = 9
+
+[sub_resource type="InputEventJoypadMotion" id=30]
+axis = 1
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id=31]
+axis = 1
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id=32]
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id=33]
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id=34]
+axis = 3
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id=35]
+axis = 3
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id=36]
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id=37]
+axis = 2
+axis_value = 1.0
+
+[node name="joypad_remap" type="Control"]
+margin_right = 1243.0
+margin_bottom = 904.0
+rect_min_size = Vector2( 1243, 904 )
+size_flags_horizontal = 0
+script = ExtResource( 23 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1243.0
+margin_bottom = 904.0
+custom_constants/separation = 20
+
+[node name="uper_section" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1243.0
+margin_bottom = 550.0
+size_flags_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="left_section" type="VBoxContainer" parent="VBoxContainer/uper_section"]
+margin_right = 370.0
+margin_bottom = 550.0
+size_flags_vertical = 0
+custom_constants/separation = 10
+
+[node name="button_6" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+unique_name_in_owner = true
+margin_right = 370.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 370, 60 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 10 )
+flat = false
+script = ExtResource( 24 )
+input_event = SubResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_6"]
+position = Vector2( 461, 68 )
+
+[node name="button_4" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+margin_top = 70.0
+margin_right = 370.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 20 )
+flat = false
+script = ExtResource( 24 )
+input_event = SubResource( 7 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_4"]
+position = Vector2( 461, 47 )
+
+[node name="button_12" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+margin_top = 140.0
+margin_right = 370.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 13 )
+flat = false
+script = ExtResource( 24 )
+input_event = SubResource( 8 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_12"]
+position = Vector2( 482, 190 )
+
+[node name="button_13" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+margin_top = 210.0
+margin_right = 370.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 16 )
+flat = false
+script = ExtResource( 24 )
+input_event = SubResource( 9 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_13"]
+position = Vector2( 482, 170 )
+
+[node name="button_14" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+margin_top = 280.0
+margin_right = 370.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 12 )
+flat = false
+script = ExtResource( 24 )
+input_event = SubResource( 10 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_14"]
+position = Vector2( 458, 75 )
+
+[node name="button_15" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+margin_top = 350.0
+margin_right = 370.0
+margin_bottom = 410.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 8 )
+flat = false
+script = ExtResource( 24 )
+input_event = SubResource( 11 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_15"]
+position = Vector2( 506, 6 )
+
+[node name="button_10" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+margin_top = 420.0
+margin_right = 370.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 15 )
+flat = false
+script = ExtResource( 24 )
+input_event = SubResource( 12 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_10"]
+position = Vector2( 574, -91 )
+
+[node name="button_8" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+margin_top = 490.0
+margin_right = 370.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 18 )
+flat = false
+script = ExtResource( 24 )
+input_event = SubResource( 29 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_8"]
+position = Vector2( 552, -49 )
+
+[node name="central_section" type="VBoxContainer" parent="VBoxContainer/uper_section"]
+margin_left = 374.0
+margin_right = 869.0
+margin_bottom = 548.0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/uper_section/central_section"]
+margin_right = 495.0
+margin_bottom = 548.0
+texture = ExtResource( 21 )
+
+[node name="right_section" type="VBoxContainer" parent="VBoxContainer/uper_section"]
+margin_left = 873.0
+margin_right = 1243.0
+margin_bottom = 550.0
+size_flags_vertical = 0
+custom_constants/separation = 10
+
+[node name="button_7" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+margin_right = 370.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 4 )
+flat = false
+icon_align = 2
+script = ExtResource( 24 )
+input_event = SubResource( 17 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_7"]
+position = Vector2( -94, 69 )
+
+[node name="button_5" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+margin_top = 70.0
+margin_right = 370.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 14 )
+flat = false
+icon_align = 2
+script = ExtResource( 24 )
+input_event = SubResource( 18 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_5"]
+position = Vector2( -93, 49 )
+
+[node name="button_2" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+margin_top = 140.0
+margin_right = 370.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 5 )
+flat = false
+icon_align = 2
+script = ExtResource( 24 )
+input_event = SubResource( 19 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_2"]
+position = Vector2( -141, 219 )
+
+[node name="button_3" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+margin_top = 210.0
+margin_right = 370.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 17 )
+flat = false
+icon_align = 2
+script = ExtResource( 24 )
+input_event = SubResource( 20 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_3"]
+position = Vector2( -104, 112 )
+
+[node name="button_0" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+margin_top = 280.0
+margin_right = 370.0
+margin_bottom = 340.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 2 )
+flat = false
+icon_align = 2
+script = ExtResource( 24 )
+input_event = SubResource( 21 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_0"]
+position = Vector2( -105, 115 )
+
+[node name="button_1" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+margin_top = 350.0
+margin_right = 370.0
+margin_bottom = 410.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 7 )
+flat = false
+icon_align = 2
+script = ExtResource( 24 )
+input_event = SubResource( 22 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_1"]
+position = Vector2( -68, 11 )
+
+[node name="button_11" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+margin_top = 420.0
+margin_right = 370.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 1 )
+flat = false
+icon_align = 2
+script = ExtResource( 24 )
+input_event = SubResource( 23 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_11"]
+position = Vector2( -195, -92 )
+
+[node name="button_9" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+margin_top = 490.0
+margin_right = 370.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 19 )
+flat = false
+icon_align = 2
+script = ExtResource( 24 )
+input_event = SubResource( 28 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_9"]
+position = Vector2( -175, -48 )
+
+[node name="lower_section" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 570.0
+margin_right = 1243.0
+margin_bottom = 904.0
+
+[node name="left_joystick" type="VBoxContainer" parent="VBoxContainer/lower_section"]
+margin_right = 436.0
+margin_bottom = 334.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/lower_section/left_joystick"]
+margin_right = 436.0
+margin_bottom = 40.0
+text = "LABEL_LEFT_JOYSTICK"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/lower_section/left_joystick"]
+margin_top = 50.0
+margin_right = 436.0
+margin_bottom = 54.0
+
+[node name="left_joystick_up" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["left_section_button"]]
+margin_top = 64.0
+margin_right = 370.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 3 )
+flat = false
+script = ExtResource( 22 )
+input_event = SubResource( 30 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/left_joystick/left_joystick_up"]
+position = Vector2( 552, -193 )
+
+[node name="left_joystick_down" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["left_section_button"]]
+margin_top = 134.0
+margin_right = 370.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 6 )
+flat = false
+script = ExtResource( 22 )
+input_event = SubResource( 31 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/left_joystick/left_joystick_down"]
+position = Vector2( 552, -263 )
+
+[node name="left_joystick_left" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["left_section_button"]]
+margin_top = 204.0
+margin_right = 370.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 9 )
+flat = false
+script = ExtResource( 22 )
+input_event = SubResource( 32 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/left_joystick/left_joystick_left"]
+position = Vector2( 552, -333 )
+
+[node name="left_joystick_right" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["left_section_button"]]
+margin_top = 274.0
+margin_right = 370.0
+margin_bottom = 334.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 0
+icon = ExtResource( 11 )
+flat = false
+script = ExtResource( 22 )
+input_event = SubResource( 33 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/left_joystick/left_joystick_right"]
+position = Vector2( 552, -403 )
+
+[node name="push_to_sides" type="Control" parent="VBoxContainer/lower_section"]
+margin_left = 440.0
+margin_right = 767.0
+margin_bottom = 334.0
+size_flags_horizontal = 3
+
+[node name="right_joystick" type="VBoxContainer" parent="VBoxContainer/lower_section"]
+margin_left = 771.0
+margin_right = 1243.0
+margin_bottom = 334.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/lower_section/right_joystick"]
+margin_right = 472.0
+margin_bottom = 40.0
+text = "LABEL_RIGHT_JOYSTICK"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/lower_section/right_joystick"]
+margin_top = 50.0
+margin_right = 472.0
+margin_bottom = 54.0
+
+[node name="right_joystick_up" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["right_section_button"]]
+margin_left = 102.0
+margin_top = 64.0
+margin_right = 472.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource( 3 )
+flat = false
+icon_align = 2
+script = ExtResource( 22 )
+input_event = SubResource( 34 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/right_joystick/right_joystick_up"]
+position = Vector2( -175, -192 )
+
+[node name="right_joystick_down" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["right_section_button"]]
+margin_left = 102.0
+margin_top = 134.0
+margin_right = 472.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource( 6 )
+flat = false
+icon_align = 2
+script = ExtResource( 22 )
+input_event = SubResource( 35 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/right_joystick/right_joystick_down"]
+position = Vector2( -175, -262 )
+
+[node name="right_joystick_left" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["right_section_button"]]
+margin_left = 102.0
+margin_top = 204.0
+margin_right = 472.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource( 9 )
+flat = false
+icon_align = 2
+script = ExtResource( 22 )
+input_event = SubResource( 36 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/right_joystick/right_joystick_left"]
+position = Vector2( -175, -332 )
+
+[node name="right_joystick_right" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["right_section_button"]]
+margin_left = 102.0
+margin_top = 274.0
+margin_right = 472.0
+margin_bottom = 334.0
+rect_min_size = Vector2( 370, 0 )
+focus_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource( 11 )
+flat = false
+icon_align = 2
+script = ExtResource( 22 )
+input_event = SubResource( 37 )
+
+[node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/right_joystick/right_joystick_right"]
+position = Vector2( -175, -402 )
+
+[node name="line" type="Line2D" parent="."]
+unique_name_in_owner = true
+width = 3.0
+default_color = Color( 0.976471, 0.639216, 0, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[connection signal="draw" from="line" to="." method="_on_line_draw"]

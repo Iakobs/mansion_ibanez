@@ -144,7 +144,6 @@ rigid_scene = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0.3, 16.5 )
 
 [node name="pause_menu" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [connection signal="body_entered" from="dead_zone" to="." method="_on_dead_zone_body_entered"]
 

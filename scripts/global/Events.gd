@@ -21,3 +21,7 @@ signal collectible_consumed(payload)
 enum collectibles {
 	key
 }
+
+#UI
+# warning-ignore:unused_signal
+signal locale_changed
