@@ -2,15 +2,13 @@ extends PanelContainer
 
 var tween: SceneTreeTween
 var cancel_showing_content := false
+var mouse_is_inside := false
 
 onready var content: VBoxContainer = $"%content"
 onready var focus_button: Button = $"%language_option"
 
 func _ready() -> void:
 	set_as_toplevel(true)
-
-func _process(_delta: float) -> void:
-	pass
 
 func _on_remap_button_pressed() -> void:
 	pass # Replace with function body.
@@ -20,9 +18,9 @@ func _on_content_ready() -> void:
 		return
 	if !content.visible:
 		content.show()
+		focus_button.call_deferred("grab_focus")
 
 func show_at_position(position: Vector2) -> void:
-	focus_button.call_deferred("grab_focus")
 	rect_position = position + Vector2(-rect_min_size.x, 25)
 	cancel_showing_content = false
 	if tween:

@@ -10,7 +10,7 @@ func _ready() -> void:
 	var _error := sure_popup.connect("yes_pressed", self, "_on_yes_sure_pressed")
 	_error = sure_popup.connect("no_pressed", self, "_on_no_sure_pressed")
 
-func _input(_event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if not paused:
 			pause()
@@ -32,7 +32,6 @@ func _on_no_sure_pressed():
 	sure_popup.hide()
 
 func pause() -> void:
-	set_process(false)
 	paused = true
 	get_tree().paused = paused
 	show()

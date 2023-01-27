@@ -86,14 +86,19 @@ custom_constants/separation = 50
 unique_name_in_owner = true
 margin_right = 1038.0
 margin_bottom = 110.0
+rect_min_size = Vector2( 605, 0 )
+size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 5 )
 text = "BUTTON_CONTINUE"
 icon = ExtResource( 2 )
 
 [node name="quit" type="Button" parent="out_margin/VBoxContainer/lower_half/VBoxContainer"]
+margin_left = 126.0
 margin_top = 160.0
-margin_right = 1038.0
+margin_right = 912.0
 margin_bottom = 270.0
+rect_min_size = Vector2( 605, 0 )
+size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 5 )
 text = "BUTTON_QUIT"
 icon = ExtResource( 1 )
