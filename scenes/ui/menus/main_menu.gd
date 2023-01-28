@@ -21,7 +21,7 @@ func _on_quit_pressed() -> void:
 	sure_popup.popup_centered()
 
 func _on_yes_sure_pressed() -> void:
-	get_tree().quit()
+	get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
 
 func _on_no_sure_pressed() -> void:
 	sure_popup.hide()
