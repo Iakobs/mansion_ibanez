@@ -25,3 +25,7 @@ enum collectibles {
 #UI
 # warning-ignore:unused_signal
 signal locale_changed
+# warning-ignore:unused_signal
+signal remap_submenu_requested
+# warning-ignore:unused_signal
+signal remap_submenu_closed

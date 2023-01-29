@@ -6,13 +6,13 @@ onready var player: AnimationPlayer = $"%AnimationPlayer"
 var thread: Thread
 
 func _ready() -> void:
-	loose_focus()
+	turn_off()
 
 func load_scene(path: String) -> void:
 	thread = Thread.new()
 	var _error := thread.start( self, "_thread_load", path)
 	get_tree().current_scene.queue_free()
-	get_focus()
+	turn_on()
 
 func _thread_load(path: String) -> void:
 	var loader := ResourceLoader.load_interactive(path)
@@ -43,7 +43,7 @@ func _thread_done(resource: PackedScene) -> void:
 
 	# Always wait for threads to finish, this is required on Windows.
 	thread.wait_to_finish()
-	loose_focus()
+	turn_off()
 
 	# Instantiate new scene.
 	var new_scene := resource.instance()
@@ -52,10 +52,10 @@ func _thread_done(resource: PackedScene) -> void:
 	# Set as current scene.
 	get_tree().current_scene = new_scene
 
-func get_focus() -> void:
+func turn_on() -> void:
 	show()
 	player.play("loading")
 
-func loose_focus() -> void:
+func turn_off() -> void:
 	hide()
 	player.stop(true)

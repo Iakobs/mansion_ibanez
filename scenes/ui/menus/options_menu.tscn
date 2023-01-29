@@ -15,3 +15,6 @@ script = ExtResource( 2 )
 [node name="options_popup" parent="." instance=ExtResource( 3 )]
 unique_name_in_owner = true
 visible = false
+
+[node name="popup_origin" type="Position2D" parent="."]
+unique_name_in_owner = true

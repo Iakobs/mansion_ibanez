@@ -3,6 +3,8 @@ extends PanelContainer
 var tween: SceneTreeTween
 var cancel_showing_content := false
 var mouse_is_inside := false
+var min_horizontal_rect_size := 411.0
+var max_vertical_rect_size := 679.0
 
 onready var content: VBoxContainer = $"%content"
 onready var focus_button: Button = $"%language_option"
@@ -11,7 +13,7 @@ func _ready() -> void:
 	set_as_toplevel(true)
 
 func _on_remap_button_pressed() -> void:
-	pass # Replace with function body.
+	Events.emit_signal("remap_submenu_requested")
 
 func _on_content_ready() -> void:
 	if cancel_showing_content:
@@ -21,7 +23,7 @@ func _on_content_ready() -> void:
 		focus_button.call_deferred("grab_focus")
 
 func show_at_position(position: Vector2) -> void:
-	rect_position = position + Vector2(-rect_min_size.x, 25)
+	rect_position = position
 	cancel_showing_content = false
 	if tween:
 		tween.kill()
@@ -32,8 +34,8 @@ func show_at_position(position: Vector2) -> void:
 	var _discard := tween.tween_property(
 		self,
 		"rect_size",
-		Vector2(411, 679),
-		1.0).from(Vector2(411, 0))
+		Vector2(min_horizontal_rect_size, max_vertical_rect_size),
+		1.0).from(Vector2(min_horizontal_rect_size, 0))
 	show()
 	if content: content.hide()
 	var _error := get_tree().create_timer(0.5)\
@@ -51,8 +53,8 @@ func hide_panel() -> void:
 	var _discard := tween.tween_property(
 		self,
 		"rect_size",
-		Vector2(411, 0),
-		0.5).from(Vector2(411, 679))
+		Vector2(min_horizontal_rect_size, 0),
+		0.5).from(Vector2(min_horizontal_rect_size, max_vertical_rect_size))
 	yield(tween, "finished")
 	hide()
 	cancel_showing_content = false

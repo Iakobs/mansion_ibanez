@@ -7,11 +7,12 @@ onready var continue_button: Button = $"%continue"
 var paused := false
 
 func _ready() -> void:
+	unpause()
 	var _error := sure_popup.connect("yes_pressed", self, "_on_yes_sure_pressed")
 	_error = sure_popup.connect("no_pressed", self, "_on_no_sure_pressed")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("pause"):
+	if event.is_action_pressed("pause"):
 		if not paused:
 			pause()
 		else:

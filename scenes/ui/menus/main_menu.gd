@@ -1,6 +1,5 @@
 extends Control
 
-onready var remap_menu: Control = $"%remap_menu"
 onready var scroll_text_dialog: PopupDialog = $"%scroll_text_dialog"
 onready var sure_popup: PopupDialog = $"%sure_popup"
 
@@ -25,6 +24,3 @@ func _on_yes_sure_pressed() -> void:
 
 func _on_no_sure_pressed() -> void:
 	sure_popup.hide()
-
-func _on_remap_menu_pressed() -> void:
-	remap_menu.show()

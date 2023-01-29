@@ -56,6 +56,7 @@ size_flags_vertical = 3
 tab_align = 0
 
 [node name="keyboard_mouse_section" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 50.0
@@ -74,13 +75,9 @@ margin_bottom = 825.0
 [node name="keyboard_mouse_remap" parent="MarginContainer/VBoxContainer/TabContainer/keyboard_mouse_section/ScrollContainer" instance=ExtResource( 2 )]
 
 [node name="controller_section" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 58.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 50.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 25
 custom_constants/margin_top = 25
@@ -90,27 +87,27 @@ custom_constants/margin_bottom = 25
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 1787.0
-margin_bottom = 813.0
+margin_right = 1795.0
+margin_bottom = 825.0
 custom_constants/separation = 20
 
 [node name="controller_section_scroll_container" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer"]
 unique_name_in_owner = true
-margin_right = 1762.0
-margin_bottom = 708.0
+margin_right = 1770.0
+margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
 scroll_horizontal_enabled = false
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer/controller_section_scroll_container"]
-margin_right = 1762.0
+margin_right = 1720.0
 margin_bottom = 944.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer/controller_section_scroll_container/CenterContainer"]
-margin_left = 259.0
-margin_right = 1502.0
+margin_left = 238.0
+margin_right = 1481.0
 margin_bottom = 944.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
@@ -120,10 +117,10 @@ margin_top = 20.0
 margin_bottom = 924.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer"]
-margin_left = 513.0
-margin_top = 728.0
-margin_right = 1248.0
-margin_bottom = 788.0
+margin_left = 517.0
+margin_top = 740.0
+margin_right = 1252.0
+margin_bottom = 800.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
