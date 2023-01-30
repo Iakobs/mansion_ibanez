@@ -104,3 +104,18 @@ func get_action_from_joypad_motion_event(event: InputEventJoypadMotion) -> Strin
 			and cached_event.axis_value == event.axis_value:
 				return action
 	return ""
+
+func get_keyboard_keys_from_action(action: String) -> Array:
+	var keys := []
+	if action:
+		for event in cache[action]:
+			if event is InputEventKey:
+				keys.append(event.as_text())
+	return keys
+
+func get_mouse_button_index_from_action(action: String) -> int:
+	if action:
+		for event in cache[action]:
+			if event is InputEventMouseButton:
+				return event.button_index
+	return -1

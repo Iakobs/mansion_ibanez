@@ -28,5 +28,6 @@ func change_action(new_action: String) -> void:
 	if !new_action.empty():
 		pass
 	else:
-		InputMapManager.remove_event_from_action(action, input_event)
-		unassign()
+		pass
+#		InputMapManager.remove_event_from_action(action, input_event)
+#		unassign()

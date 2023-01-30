@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ui/components/keyboard_keybinding_container.gd" type="Script" id=1]
+
+[node name="keyboard_keybinding_container" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -356, -236 )
+script = ExtResource( 1 )
+
+[node name="label" type="Label" parent="."]
+unique_name_in_owner = true
+margin_top = 5.0
+margin_right = 350.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 350, 0 )
+size_flags_horizontal = 0
+text = "player_jump: "
+
+[node name="button_1" type="Button" parent="."]
+unique_name_in_owner = true
+margin_left = 354.0
+margin_right = 554.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 0
+text = "Space"
+
+[node name="button_2" type="Button" parent="."]
+unique_name_in_owner = true
+margin_left = 558.0
+margin_right = 758.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 0
+text = "Space"
+
+[node name="mouse_icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+margin_left = 762.0
+margin_right = 762.0
+margin_bottom = 50.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

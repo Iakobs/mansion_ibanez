@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
-keyboard_keys = [ 16777352, 16777234 ]
+keyboard_keys = [ 16777234, 16777352 ]
 joypad_button_index = -1
 joypad_motion_axis = 3
 joypad_motion_axis_value = 1

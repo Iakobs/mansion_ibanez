@@ -16,4 +16,4 @@
 
 [node name="input_map_manager" type="Spatial"]
 script = ExtResource( 1 )
-actions = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 8 ) ]
+actions = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 4 ) ]

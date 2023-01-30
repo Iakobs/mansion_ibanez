@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/ui/components/joypad_remap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ui/components/keyboard_mouse_remap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/checkmark.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/return.png" type="Texture" id=4]
 [ext_resource path="res://scenes/ui/menus/remap_menu.gd" type="Script" id=5]
+[ext_resource path="res://scenes/ui/components/iterable_button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://resources/ui/scrollable_container_bg.tres" type="StyleBox" id=7]
+[ext_resource path="res://scripts/components/submenu.gd" type="Script" id=8]
 
 [node name="remap_menu" type="Control"]
 anchor_right = 1.0
@@ -40,102 +43,210 @@ margin_bottom = 1030.0
 custom_constants/separation = 20
 
 [node name="button_back" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_left = 1487.0
 margin_right = 1820.0
 margin_bottom = 60.0
+focus_neighbour_left = NodePath("../iterable_button")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../iterable_button")
+focus_previous = NodePath(".")
 size_flags_horizontal = 8
 text = "BUTTON_BACK"
 icon = ExtResource( 4 )
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+[node name="iterable_button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+unique_name_in_owner = true
 margin_top = 80.0
+margin_bottom = 140.0
+iterable = [ {
+"element": 0,
+"name": "SECTION_KEYBOARD_REMAP"
+}, {
+"element": 1,
+"name": "SECTION_CONTROLLER_REMAP"
+} ]
+
+[node name="tab_container" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 160.0
 margin_right = 1820.0
 margin_bottom = 980.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
+tabs_visible = false
 
-[node name="keyboard_mouse_section" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
-visible = false
+[node name="keyboard_mouse_section" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 50.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 25
 custom_constants/margin_top = 25
 custom_constants/margin_left = 25
 custom_constants/margin_bottom = 25
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/keyboard_mouse_section"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section"]
 margin_left = 25.0
 margin_top = 25.0
 margin_right = 1795.0
-margin_bottom = 825.0
+margin_bottom = 795.0
 
-[node name="keyboard_mouse_remap" parent="MarginContainer/VBoxContainer/TabContainer/keyboard_mouse_section/ScrollContainer" instance=ExtResource( 2 )]
-
-[node name="controller_section" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 50.0
-size_flags_horizontal = 3
-custom_constants/margin_right = 25
-custom_constants/margin_top = 25
-custom_constants/margin_left = 25
-custom_constants/margin_bottom = 25
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section"]
-margin_left = 25.0
-margin_top = 25.0
-margin_right = 1795.0
-margin_bottom = 825.0
-custom_constants/separation = 20
-
-[node name="controller_section_scroll_container" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer"]
 margin_right = 1770.0
-margin_bottom = 720.0
+margin_bottom = 706.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="keyboard_section_scroll_container" type="ScrollContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1750.0
+margin_bottom = 686.0
+custom_styles/bg = ExtResource( 7 )
 follow_focus = true
 scroll_horizontal_enabled = false
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer/controller_section_scroll_container"]
-margin_right = 1720.0
-margin_bottom = 944.0
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/MarginContainer/keyboard_section_scroll_container"]
+margin_right = 1680.0
+margin_bottom = 880.0
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer/controller_section_scroll_container/CenterContainer"]
-margin_left = 238.0
-margin_right = 1481.0
-margin_bottom = 944.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/MarginContainer/keyboard_section_scroll_container/CenterContainer"]
+margin_left = 434.0
+margin_right = 1246.0
+margin_bottom = 880.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
-[node name="joypad" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer/controller_section_scroll_container/CenterContainer/MarginContainer" instance=ExtResource( 1 )]
+[node name="keyboard_mouse_remap" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/MarginContainer/keyboard_section_scroll_container/CenterContainer/MarginContainer" instance=ExtResource( 2 )]
 margin_top = 20.0
-margin_bottom = 924.0
+margin_right = 812.0
+margin_bottom = 860.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer"]
 margin_left = 517.0
-margin_top = 740.0
+margin_top = 710.0
 margin_right = 1252.0
-margin_bottom = 800.0
+margin_bottom = 770.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
-[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer/HBoxContainer"]
+[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
 margin_right = 331.0
 margin_bottom = 60.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath("../button_reset")
 text = "BUTTON_SAVE"
 icon = ExtResource( 3 )
 
-[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/controller_section/VBoxContainer/HBoxContainer"]
+[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
 margin_left = 381.0
 margin_right = 735.0
 margin_bottom = 60.0
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../button_save")
 size_flags_horizontal = 4
 text = "BUTTON_RESET"
 icon = ExtResource( 4 )
 
+[node name="controller_section" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/tab_container/controller_section"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 1795.0
+margin_bottom = 795.0
+custom_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer"]
+margin_right = 1770.0
+margin_bottom = 690.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="controller_section_scroll_container" type="ScrollContainer" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1750.0
+margin_bottom = 670.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = ExtResource( 7 )
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/MarginContainer/controller_section_scroll_container"]
+margin_right = 1730.0
+margin_bottom = 944.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/MarginContainer/controller_section_scroll_container/CenterContainer"]
+margin_left = 243.0
+margin_right = 1486.0
+margin_bottom = 944.0
+custom_constants/margin_top = 20
+custom_constants/margin_bottom = 20
+
+[node name="joypad_remap" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/MarginContainer/controller_section_scroll_container/CenterContainer/MarginContainer" instance=ExtResource( 1 )]
+margin_top = 20.0
+margin_bottom = 924.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer"]
+margin_left = 517.0
+margin_top = 710.0
+margin_right = 1252.0
+margin_bottom = 770.0
+size_flags_horizontal = 4
+custom_constants/separation = 50
+
+[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
+margin_right = 331.0
+margin_bottom = 60.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath("../button_reset")
+text = "BUTTON_SAVE"
+icon = ExtResource( 3 )
+
+[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
+margin_left = 381.0
+margin_right = 735.0
+margin_bottom = 60.0
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../button_save")
+size_flags_horizontal = 4
+text = "BUTTON_RESET"
+icon = ExtResource( 4 )
+
+[node name="Submenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 8 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/button_back" to="." method="_on_button_back_pressed"]

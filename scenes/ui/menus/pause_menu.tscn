@@ -108,5 +108,6 @@ icon = ExtResource( 1 )
 
 [node name="submenus" parent="." instance=ExtResource( 7 )]
 
+[connection signal="visibility_changed" from="out_margin" to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="out_margin/VBoxContainer/lower_half/VBoxContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="out_margin/VBoxContainer/lower_half/VBoxContainer/quit" to="." method="_on_quit_pressed"]

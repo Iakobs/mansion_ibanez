@@ -6,7 +6,6 @@ onready var sure_popup: PopupDialog = $"%sure_popup"
 onready var focus_button: Button = $"%start"
 
 func _ready() -> void:
-	focus_button.call_deferred("grab_focus")
 	var _error := sure_popup.connect("yes_pressed", self, "_on_yes_sure_pressed")
 	_error = sure_popup.connect("no_pressed", self, "_on_no_sure_pressed")
 
@@ -24,3 +23,7 @@ func _on_yes_sure_pressed() -> void:
 
 func _on_no_sure_pressed() -> void:
 	sure_popup.hide()
+
+func _on_visibility_changed() -> void:
+	if visible:
+		focus_button.call_deferred("grab_focus")

@@ -17,6 +17,8 @@ var mouse_position: Vector2
 
 var game_is_running := false
 
+var is_submenu_open := false
+
 func _ready() -> void:
 	TranslationServer.set_locale(ConfigManager.get_locale())
 #	for node in get_tree().get_nodes_in_group("doors"):
@@ -54,6 +56,11 @@ func _unhandled_input(event: InputEvent) -> void:
 #		switch_door_collisions()
 
 # Icons
-var locked_icon = preload("res://assets/images/kenney_gameicons/PNG/White/1x/locked.png")
-var primary_action_icon = preload("res://assets/images/kenney_gameicons_expansion/PNG/White/1x/mouseLeft.png")
-var secondary_action_icon = preload("res://assets/images/kenney_gameicons_expansion/PNG/White/1x/mouseRight.png")
+var locked_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/locked.png")
+var primary_action_icon := preload("res://assets/images/kenney_gameicons_expansion/PNG/White/1x/mouseLeft.png")
+var secondary_action_icon := preload("res://assets/images/kenney_gameicons_expansion/PNG/White/1x/mouseRight.png")
+var mouse_icon := preload("res://assets/images/kenney_gameicons_expansion/PNG/White/1x/mouse.png")
+var page_next_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/buttonR1.png")
+var page_previous_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/buttonL1.png")
+var backward_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/backward.png")
+var forward_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/forward.png")

@@ -8,7 +8,6 @@ const right_section_button_group := "right_section_button"
 var action: String
 
 func _ready() -> void:
-	yield(owner, "ready")
 	_connect_signals()
 	setup_button()
 	fill_menu()

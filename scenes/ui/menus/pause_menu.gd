@@ -17,7 +17,6 @@ func _input(event: InputEvent) -> void:
 			pause()
 		else:
 			unpause()
-		get_tree().set_input_as_handled()
 
 func _on_continue_pressed() -> void:
 	unpause()
@@ -37,13 +36,17 @@ func pause() -> void:
 	paused = true
 	get_tree().paused = paused
 	show()
-	continue_button.call_deferred("grab_focus")
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 
 func unpause() -> void:
-	paused = false
-	get_tree().paused = paused
-	hide()
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+	if not Global.is_submenu_open:
+		paused = false
+		get_tree().paused = paused
+		hide()
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+
+func _on_visibility_changed() -> void:
+	if visible:
+		continue_button.call_deferred("grab_focus")

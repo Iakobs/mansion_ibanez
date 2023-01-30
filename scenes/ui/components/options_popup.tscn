@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/ui/menus/languages_submenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/components/options_popup.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/gamepad.png" type="Texture" id=3]
 [ext_resource path="res://resources/fonts/menu_medium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/ui/popup.tres" type="StyleBox" id=5]
+[ext_resource path="res://scripts/components/submenu.gd" type="Script" id=6]
 
 [node name="options_popup" type="PanelContainer"]
 margin_right = 565.0
@@ -89,6 +90,13 @@ custom_fonts/font = ExtResource( 4 )
 icon = ExtResource( 3 )
 icon_align = 1
 expand_icon = true
+
+[node name="Submenu" type="Control" parent="."]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 562.0
+margin_bottom = 676.0
+script = ExtResource( 6 )
 
 [connection signal="item_selected" from="MarginContainer/content/languages_menu/language_option" to="MarginContainer/content/languages_menu" method="_on_language_option_item_selected"]
 [connection signal="pressed" from="MarginContainer/content/remap_menu/remap_button" to="." method="_on_remap_button_pressed"]

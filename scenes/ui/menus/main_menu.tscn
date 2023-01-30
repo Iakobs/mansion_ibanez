@@ -113,6 +113,7 @@ text = "LABEL_HOW_TO_PLAY"
 
 [node name="submenus" parent="." instance=ExtResource( 1 )]
 
+[connection signal="visibility_changed" from="MarginContainer" to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/main_container/lower_half/buttons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/main_container/lower_half/buttons/how_to_play" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="MarginContainer/main_container/lower_half/buttons/quit" to="." method="_on_quit_pressed"]
