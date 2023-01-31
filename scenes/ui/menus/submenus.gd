@@ -1,12 +1,15 @@
 extends Control
 
 onready var remap_menu: Control = $"%remap_menu"
+onready var audio_menu: Control = $"%audio_menu"
 
 var siblings := []
 
 func _ready() -> void:
 	var _error := Events.connect("remap_submenu_requested", self, "_on_remap_submenu_request")
 	_error = Events.connect("remap_submenu_closed", self, "_on_remap_submenu_closed")
+	_error = Events.connect("audio_submenu_requested", self, "_on_audio_submenu_request")
+	_error = Events.connect("audio_submenu_closed", self, "_on_audio_submenu_closed")
 	for sibling in get_parent().get_children():
 		if sibling != self:
 			siblings.append(sibling)
@@ -23,6 +26,14 @@ func _on_remap_submenu_request() -> void:
 func _on_remap_submenu_closed() -> void:
 	change_siblings_visibility()
 	remap_menu.hide()
+
+func _on_audio_submenu_request() -> void:
+	change_siblings_visibility(false)
+	audio_menu.show()
+
+func _on_audio_submenu_closed() -> void:
+	change_siblings_visibility()
+	audio_menu.hide()
 
 func handle_ui_cancel() -> void:
 	for child in get_children():

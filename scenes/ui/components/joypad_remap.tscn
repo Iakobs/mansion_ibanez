@@ -128,7 +128,7 @@ margin_bottom = 550.0
 size_flags_vertical = 0
 custom_constants/separation = 10
 
-[node name="button_6" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+[node name="button_6" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["button", "left_section_button"]]
 unique_name_in_owner = true
 margin_right = 370.0
 margin_bottom = 60.0
@@ -147,7 +147,7 @@ input_event = SubResource( 2 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_6"]
 position = Vector2( 461, 68 )
 
-[node name="button_4" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+[node name="button_4" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["button", "left_section_button"]]
 margin_top = 70.0
 margin_right = 370.0
 margin_bottom = 130.0
@@ -168,7 +168,7 @@ input_event = SubResource( 7 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_4"]
 position = Vector2( 461, 47 )
 
-[node name="button_12" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+[node name="button_12" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["button", "left_section_button"]]
 margin_top = 140.0
 margin_right = 370.0
 margin_bottom = 200.0
@@ -189,7 +189,7 @@ input_event = SubResource( 8 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_12"]
 position = Vector2( 482, 190 )
 
-[node name="button_13" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+[node name="button_13" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["button", "left_section_button"]]
 margin_top = 210.0
 margin_right = 370.0
 margin_bottom = 270.0
@@ -210,7 +210,7 @@ input_event = SubResource( 9 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_13"]
 position = Vector2( 482, 170 )
 
-[node name="button_14" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+[node name="button_14" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["button", "left_section_button"]]
 margin_top = 280.0
 margin_right = 370.0
 margin_bottom = 340.0
@@ -231,7 +231,7 @@ input_event = SubResource( 10 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_14"]
 position = Vector2( 458, 75 )
 
-[node name="button_15" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+[node name="button_15" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["button", "left_section_button"]]
 margin_top = 350.0
 margin_right = 370.0
 margin_bottom = 410.0
@@ -252,7 +252,7 @@ input_event = SubResource( 11 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_15"]
 position = Vector2( 506, 6 )
 
-[node name="button_10" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+[node name="button_10" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["button", "left_section_button"]]
 margin_top = 420.0
 margin_right = 370.0
 margin_bottom = 480.0
@@ -273,7 +273,7 @@ input_event = SubResource( 12 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/left_section/button_10"]
 position = Vector2( 574, -91 )
 
-[node name="button_8" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["left_section_button"]]
+[node name="button_8" type="MenuButton" parent="VBoxContainer/uper_section/left_section" groups=["button", "left_section_button"]]
 margin_top = 490.0
 margin_right = 370.0
 margin_bottom = 550.0
@@ -312,7 +312,7 @@ margin_bottom = 550.0
 size_flags_vertical = 0
 custom_constants/separation = 10
 
-[node name="button_7" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+[node name="button_7" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["button", "right_section_button"]]
 margin_right = 370.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 370, 0 )
@@ -332,7 +332,7 @@ input_event = SubResource( 17 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_7"]
 position = Vector2( -94, 69 )
 
-[node name="button_5" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+[node name="button_5" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["button", "right_section_button"]]
 margin_top = 70.0
 margin_right = 370.0
 margin_bottom = 130.0
@@ -354,7 +354,7 @@ input_event = SubResource( 18 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_5"]
 position = Vector2( -93, 49 )
 
-[node name="button_2" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+[node name="button_2" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["button", "right_section_button"]]
 margin_top = 140.0
 margin_right = 370.0
 margin_bottom = 200.0
@@ -376,7 +376,7 @@ input_event = SubResource( 19 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_2"]
 position = Vector2( -141, 219 )
 
-[node name="button_3" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+[node name="button_3" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["button", "right_section_button"]]
 margin_top = 210.0
 margin_right = 370.0
 margin_bottom = 270.0
@@ -398,7 +398,7 @@ input_event = SubResource( 20 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_3"]
 position = Vector2( -104, 112 )
 
-[node name="button_0" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+[node name="button_0" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["button", "right_section_button"]]
 margin_top = 280.0
 margin_right = 370.0
 margin_bottom = 340.0
@@ -420,7 +420,7 @@ input_event = SubResource( 21 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_0"]
 position = Vector2( -105, 115 )
 
-[node name="button_1" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+[node name="button_1" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["button", "right_section_button"]]
 margin_top = 350.0
 margin_right = 370.0
 margin_bottom = 410.0
@@ -442,7 +442,7 @@ input_event = SubResource( 22 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_1"]
 position = Vector2( -68, 11 )
 
-[node name="button_11" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+[node name="button_11" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["button", "right_section_button"]]
 margin_top = 420.0
 margin_right = 370.0
 margin_bottom = 480.0
@@ -464,7 +464,7 @@ input_event = SubResource( 23 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/uper_section/right_section/button_11"]
 position = Vector2( -195, -92 )
 
-[node name="button_9" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["right_section_button"]]
+[node name="button_9" type="MenuButton" parent="VBoxContainer/uper_section/right_section" groups=["button", "right_section_button"]]
 margin_top = 490.0
 margin_right = 370.0
 margin_bottom = 550.0
@@ -507,7 +507,7 @@ margin_top = 50.0
 margin_right = 436.0
 margin_bottom = 54.0
 
-[node name="left_joystick_up" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["left_section_button"]]
+[node name="left_joystick_up" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["button", "left_section_button"]]
 margin_top = 64.0
 margin_right = 370.0
 margin_bottom = 124.0
@@ -528,7 +528,7 @@ input_event = SubResource( 30 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/left_joystick/left_joystick_up"]
 position = Vector2( 552, -193 )
 
-[node name="left_joystick_down" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["left_section_button"]]
+[node name="left_joystick_down" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["button", "left_section_button"]]
 margin_top = 134.0
 margin_right = 370.0
 margin_bottom = 194.0
@@ -549,7 +549,7 @@ input_event = SubResource( 31 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/left_joystick/left_joystick_down"]
 position = Vector2( 552, -263 )
 
-[node name="left_joystick_left" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["left_section_button"]]
+[node name="left_joystick_left" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["button", "left_section_button"]]
 margin_top = 204.0
 margin_right = 370.0
 margin_bottom = 264.0
@@ -570,7 +570,7 @@ input_event = SubResource( 32 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/left_joystick/left_joystick_left"]
 position = Vector2( 552, -333 )
 
-[node name="left_joystick_right" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["left_section_button"]]
+[node name="left_joystick_right" type="MenuButton" parent="VBoxContainer/lower_section/left_joystick" groups=["button", "left_section_button"]]
 margin_top = 274.0
 margin_right = 370.0
 margin_bottom = 334.0
@@ -613,7 +613,7 @@ margin_top = 50.0
 margin_right = 472.0
 margin_bottom = 54.0
 
-[node name="right_joystick_up" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["right_section_button"]]
+[node name="right_joystick_up" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["button", "right_section_button"]]
 margin_left = 102.0
 margin_top = 64.0
 margin_right = 472.0
@@ -636,7 +636,7 @@ input_event = SubResource( 34 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/right_joystick/right_joystick_up"]
 position = Vector2( -175, -192 )
 
-[node name="right_joystick_down" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["right_section_button"]]
+[node name="right_joystick_down" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["button", "right_section_button"]]
 margin_left = 102.0
 margin_top = 134.0
 margin_right = 472.0
@@ -659,7 +659,7 @@ input_event = SubResource( 35 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/right_joystick/right_joystick_down"]
 position = Vector2( -175, -262 )
 
-[node name="right_joystick_left" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["right_section_button"]]
+[node name="right_joystick_left" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["button", "right_section_button"]]
 margin_left = 102.0
 margin_top = 204.0
 margin_right = 472.0
@@ -682,7 +682,7 @@ input_event = SubResource( 36 )
 [node name="Position2D" type="Position2D" parent="VBoxContainer/lower_section/right_joystick/right_joystick_left"]
 position = Vector2( -175, -332 )
 
-[node name="right_joystick_right" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["right_section_button"]]
+[node name="right_joystick_right" type="MenuButton" parent="VBoxContainer/lower_section/right_joystick" groups=["button", "right_section_button"]]
 margin_left = 102.0
 margin_top = 274.0
 margin_right = 472.0

@@ -6,10 +6,12 @@ onready var sure_popup: PopupDialog = $"%sure_popup"
 onready var focus_button: Button = $"%start"
 
 func _ready() -> void:
+	AudioManager.menu_music.play()
 	var _error := sure_popup.connect("yes_pressed", self, "_on_yes_sure_pressed")
 	_error = sure_popup.connect("no_pressed", self, "_on_no_sure_pressed")
 
 func _on_start_pressed() -> void:
+	AudioManager.menu_music.stop()
 	SceneChanger.load_scene("res://scenes/Game.tscn")
 
 func _on_how_to_play_pressed() -> void:

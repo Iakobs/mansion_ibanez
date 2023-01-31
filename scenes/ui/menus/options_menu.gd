@@ -27,7 +27,8 @@ func _ready() -> void:
 		Vector2.ZERO,
 		rect_size
 	)
-	var _error := Events.connect("remap_submenu_requested", self, "_on_remap_submenu_request")
+	var _error := Events.connect("remap_submenu_requested", self, "_on_submenu_request")
+	_error = Events.connect("audio_submenu_requested", self, "_on_submenu_request")
 
 func _toggled(button_pressed: bool) -> void:
 	if button_pressed:
@@ -39,7 +40,7 @@ func _input(event: InputEvent) -> void:
 	handle_ui_cancel()
 	handle_clicking_outside_popup(event)
 
-func _on_remap_submenu_request() -> void:
+func _on_submenu_request() -> void:
 	hide_popup(true)
 
 func hide_popup(inmediately := false):

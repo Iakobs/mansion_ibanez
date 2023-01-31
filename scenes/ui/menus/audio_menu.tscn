@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/components/submenu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/menus/audio_menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/return.png" type="Texture" id=3]
+
+[node name="audio_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Submenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1870.0
+margin_bottom = 1030.0
+
+[node name="button_back" type="Button" parent="MarginContainer/VBoxContainer" groups=["button"]]
+unique_name_in_owner = true
+margin_left = 1487.0
+margin_right = 1820.0
+margin_bottom = 60.0
+focus_neighbour_left = NodePath("../iterable_button")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../iterable_button")
+focus_previous = NodePath(".")
+size_flags_horizontal = 8
+text = "BUTTON_BACK"
+icon = ExtResource( 3 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/button_back" to="." method="_on_button_back_pressed"]

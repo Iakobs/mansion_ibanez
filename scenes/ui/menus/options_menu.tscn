@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/ui/menus/options_menu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/ui/components/options_popup.tscn" type="PackedScene" id=3]
 
-[node name="options_menu" type="Button"]
+[node name="options_menu" type="Button" groups=["button"]]
 margin_right = 10.0
 margin_bottom = 50.0
 size_flags_horizontal = 8

@@ -4,6 +4,7 @@
 [ext_resource path="res://scenes/ui/components/scroll_text_dialog.gd" type="Script" id=2]
 
 [node name="scroll_text_dialog" type="PopupDialog"]
+visible = true
 margin_right = 1309.0
 margin_bottom = 659.0
 script = ExtResource( 2 )
@@ -73,7 +74,7 @@ margin_right = 434.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 
-[node name="back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
 margin_left = 438.0
 margin_right = 771.0
 margin_bottom = 60.0

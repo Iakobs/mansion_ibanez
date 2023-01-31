@@ -121,6 +121,7 @@ config/name_ca="La Mansió Ibáñez"
 
 ConfigManager="*res://scripts/global/ConfigManager.gd"
 InputMapManager="*res://scenes/global/input_map_manager.tscn"
+AudioManager="*res://scenes/global/audio_manager.tscn"
 Global="*res://scripts/global/Global.gd"
 SceneChanger="*res://scenes/global/scene_changer.tscn"
 Events="*res://scripts/global/Events.gd"
@@ -287,11 +288,13 @@ pause={
 ui_page_next={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":5,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 ui_page_previous={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 

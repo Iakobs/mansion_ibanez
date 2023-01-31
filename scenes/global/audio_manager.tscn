@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/global/audio_manager.gd" type="Script" id=1]
+[ext_resource path="res://assets/audio/kenney_interface_sounds/click_001.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/kenney_interface_sounds/click_004.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/kenney_interface_sounds/bong_001.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/kenney_interface_sounds/click_002.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/music/juego_con_mi_melocotonero.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/kenney_interface_sounds/select_005.wav" type="AudioStream" id=7]
+
+[node name="audio_manager" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="toggle" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 5 )
+bus = "UI"
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 3 )
+bus = "UI"
+
+[node name="release" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 2 )
+bus = "UI"
+
+[node name="hover_or_focus" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 4 )
+bus = "UI"
+
+[node name="menu_music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 6 )
+bus = "Music"
+
+[node name="pause" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 7 )
+bus = "FX"

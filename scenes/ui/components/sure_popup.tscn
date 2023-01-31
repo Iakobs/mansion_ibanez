@@ -49,7 +49,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_constants/separation = 50
 
-[node name="yes_sure" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="yes_sure" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
 margin_right = 158.0
 margin_bottom = 61.0
 size_flags_horizontal = 6
@@ -57,7 +57,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "YES"
 icon = ExtResource( 3 )
 
-[node name="no_sure" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="no_sure" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" groups=["button"]]
 margin_left = 208.0
 margin_right = 336.0
 margin_bottom = 61.0

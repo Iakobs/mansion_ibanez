@@ -10,6 +10,8 @@ onready var mouse_icon: TextureRect = $"%mouse_icon"
 func _ready() -> void:
 	button_1.focus_neighbour_left = button_1.get_path()
 	button_2.focus_neighbour_right = button_2.get_path()
+	AudioManager.connect_button(button_1)
+	AudioManager.connect_button(button_2)
 
 func set_label_text() -> void:
 	label.text = "{0}: ".format([tr(action)])

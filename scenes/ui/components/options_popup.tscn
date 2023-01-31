@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/ui/menus/languages_submenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/components/options_popup.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://resources/fonts/menu_medium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/ui/popup.tres" type="StyleBox" id=5]
 [ext_resource path="res://scripts/components/submenu.gd" type="Script" id=6]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/audioOn.png" type="Texture" id=7]
 
 [node name="options_popup" type="PanelContainer"]
 margin_right = 565.0
@@ -52,7 +53,7 @@ margin_top = 61.0
 margin_right = 459.0
 margin_bottom = 65.0
 
-[node name="language_option" type="OptionButton" parent="MarginContainer/content/languages_menu"]
+[node name="language_option" type="OptionButton" parent="MarginContainer/content/languages_menu" groups=["button"]]
 unique_name_in_owner = true
 margin_top = 75.0
 margin_right = 459.0
@@ -81,13 +82,41 @@ margin_top = 61.0
 margin_right = 459.0
 margin_bottom = 65.0
 
-[node name="remap_button" type="Button" parent="MarginContainer/content/remap_menu"]
+[node name="remap_button" type="Button" parent="MarginContainer/content/remap_menu" groups=["button"]]
 margin_top = 75.0
 margin_right = 459.0
 margin_bottom = 136.0
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 4 )
 icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[node name="audio_menu" type="VBoxContainer" parent="MarginContainer/content"]
+margin_top = 372.0
+margin_right = 459.0
+margin_bottom = 508.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+
+[node name="title_remap" type="Label" parent="MarginContainer/content/audio_menu"]
+margin_right = 459.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 4 )
+text = "TITLE_AUDIO"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/content/audio_menu"]
+margin_top = 61.0
+margin_right = 459.0
+margin_bottom = 65.0
+
+[node name="audio_button" type="Button" parent="MarginContainer/content/audio_menu" groups=["button"]]
+margin_top = 75.0
+margin_right = 459.0
+margin_bottom = 136.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 4 )
+icon = ExtResource( 7 )
 icon_align = 1
 expand_icon = true
 
@@ -100,3 +129,4 @@ script = ExtResource( 6 )
 
 [connection signal="item_selected" from="MarginContainer/content/languages_menu/language_option" to="MarginContainer/content/languages_menu" method="_on_language_option_item_selected"]
 [connection signal="pressed" from="MarginContainer/content/remap_menu/remap_button" to="." method="_on_remap_button_pressed"]
+[connection signal="pressed" from="MarginContainer/content/audio_menu/audio_button" to="." method="_on_audio_button_pressed"]

@@ -51,6 +51,7 @@ func _thread_done(resource: PackedScene) -> void:
 	get_tree().root.add_child(new_scene)
 	# Set as current scene.
 	get_tree().current_scene = new_scene
+	AudioManager._ready()
 
 func turn_on() -> void:
 	show()

@@ -18,8 +18,10 @@ var mouse_position: Vector2
 var game_is_running := false
 
 var is_submenu_open := false
+var is_joystick_active := false
 
 func _ready() -> void:
+	pause_mode = PAUSE_MODE_PROCESS
 	TranslationServer.set_locale(ConfigManager.get_locale())
 #	for node in get_tree().get_nodes_in_group("doors"):
 #		door_collisions.append_array(getAllCollisions(node))
@@ -49,6 +51,17 @@ func getAllCollisions(node: Node, listOfAllNodesInTree := []) -> Array:
 	for childNode in node.get_children():
 		var _discarded = getAllCollisions(childNode, listOfAllNodesInTree)
 	return listOfAllNodesInTree
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton\
+	or (event is InputEventJoypadMotion and event.axis_value >= 0.5):
+		if not is_joystick_active:
+			is_joystick_active = true
+			Events.emit_signal("is_joystick_active", is_joystick_active)
+	if event is InputEventMouse or event is InputEventKey:
+		if is_joystick_active:
+			is_joystick_active = false
+			Events.emit_signal("is_joystick_active", is_joystick_active)
 
 func _unhandled_input(event: InputEvent) -> void:
 	pass

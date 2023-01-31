@@ -29,3 +29,9 @@ signal locale_changed
 signal remap_submenu_requested
 # warning-ignore:unused_signal
 signal remap_submenu_closed
+# warning-ignore:unused_signal
+signal audio_submenu_requested
+# warning-ignore:unused_signal
+signal audio_submenu_closed
+# warning-ignore:unused_signal
+signal is_joystick_active(value)

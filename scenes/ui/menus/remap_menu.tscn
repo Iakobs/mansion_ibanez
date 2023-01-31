@@ -42,7 +42,7 @@ margin_right = 1870.0
 margin_bottom = 1030.0
 custom_constants/separation = 20
 
-[node name="button_back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="button_back" type="Button" parent="MarginContainer/VBoxContainer" groups=["button"]]
 unique_name_in_owner = true
 margin_left = 1487.0
 margin_right = 1820.0
@@ -60,6 +60,9 @@ icon = ExtResource( 4 )
 unique_name_in_owner = true
 margin_top = 80.0
 margin_bottom = 140.0
+__meta__ = {
+"_editor_description_": "A button that iterates over an array and emits a signal returning the current selected element every time the element is changed. The list must be a list of dicitonaries containing the \"element\" and the "
+}
 iterable = [ {
 "element": 0,
 "name": "SECTION_KEYBOARD_REMAP"
@@ -138,7 +141,7 @@ margin_bottom = 770.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
-[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
+[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer" groups=["button"]]
 margin_right = 331.0
 margin_bottom = 60.0
 focus_neighbour_left = NodePath(".")
@@ -147,7 +150,7 @@ focus_next = NodePath("../button_reset")
 text = "BUTTON_SAVE"
 icon = ExtResource( 3 )
 
-[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
+[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer" groups=["button"]]
 margin_left = 381.0
 margin_right = 735.0
 margin_bottom = 60.0
@@ -222,7 +225,7 @@ margin_bottom = 770.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
-[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
+[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer" groups=["button"]]
 margin_right = 331.0
 margin_bottom = 60.0
 focus_neighbour_left = NodePath(".")
@@ -231,7 +234,7 @@ focus_next = NodePath("../button_reset")
 text = "BUTTON_SAVE"
 icon = ExtResource( 3 )
 
-[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
+[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer" groups=["button"]]
 margin_left = 381.0
 margin_right = 735.0
 margin_bottom = 60.0

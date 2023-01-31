@@ -73,7 +73,7 @@ margin_bottom = 430.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
-[node name="start" type="Button" parent="MarginContainer/main_container/lower_half/buttons"]
+[node name="start" type="Button" parent="MarginContainer/main_container/lower_half/buttons" groups=["button"]]
 unique_name_in_owner = true
 margin_left = 196.0
 margin_right = 1035.0
@@ -84,7 +84,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "BUTTON_START"
 icon = ExtResource( 5 )
 
-[node name="how_to_play" type="Button" parent="MarginContainer/main_container/lower_half/buttons"]
+[node name="how_to_play" type="Button" parent="MarginContainer/main_container/lower_half/buttons" groups=["button"]]
 margin_top = 160.0
 margin_right = 1231.0
 margin_bottom = 270.0
@@ -94,7 +94,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "BUTTON_HOW_TO_PLAY"
 icon = ExtResource( 4 )
 
-[node name="quit" type="Button" parent="MarginContainer/main_container/lower_half/buttons"]
+[node name="quit" type="Button" parent="MarginContainer/main_container/lower_half/buttons" groups=["button"]]
 margin_left = 230.0
 margin_top = 320.0
 margin_right = 1001.0
@@ -107,6 +107,7 @@ icon = ExtResource( 3 )
 
 [node name="scroll_text_dialog" parent="." instance=ExtResource( 9 )]
 unique_name_in_owner = true
+visible = false
 text = "LABEL_HOW_TO_PLAY"
 
 [node name="sure_popup" parent="." instance=ExtResource( 8 )]

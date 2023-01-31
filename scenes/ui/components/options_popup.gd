@@ -15,6 +15,9 @@ func _ready() -> void:
 func _on_remap_button_pressed() -> void:
 	Events.emit_signal("remap_submenu_requested")
 
+func _on_audio_button_pressed() -> void:
+	Events.emit_signal("audio_submenu_requested")
+
 func _on_content_ready() -> void:
 	if cancel_showing_content:
 		return
@@ -38,7 +41,7 @@ func show_at_position(position: Vector2) -> void:
 		1.0).from(Vector2(min_horizontal_rect_size, 0))
 	show()
 	if content: content.hide()
-	var _error := get_tree().create_timer(0.5)\
+	var _error := get_tree().create_timer(1.0)\
 		.connect("timeout", self, "_on_content_ready")
 
 func hide_panel() -> void:
