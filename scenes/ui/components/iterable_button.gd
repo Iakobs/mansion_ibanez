@@ -18,6 +18,10 @@ onready var go_right: Button = $"%go_right"
 func _ready() -> void:
 	display_current_index()
 	var _error := Events.connect("is_joystick_active", self, "_on_joystick_active")
+	_error = go_left.connect("mouse_entered", self, "_on_mouse_entered", [go_left])
+	_error = go_left.connect("mouse_exited", self, "_on_mouse_exited", [go_left])
+	_error = go_right.connect("mouse_entered", self, "_on_mouse_entered", [go_right])
+	_error = go_right.connect("mouse_exited", self, "_on_mouse_exited", [go_right])
 	AudioManager.connect_on_hover_or_focus(current_element_label)
 	go_left_initial_position = go_left.rect_position
 	go_right_initial_position = go_right.rect_position
@@ -42,16 +46,6 @@ func _input(event: InputEvent) -> void:
 			go_left.emit_signal("pressed")
 		if event.is_action_pressed("ui_right"):
 			go_right.emit_signal("pressed")
-
-func _on_go_left_pressed() -> void:
-	animate_button(go_left, go_left_initial_position, -1)
-	AudioManager.toggle.play()
-	previous_element()
-
-func _on_go_right_pressed() -> void:
-	animate_button(go_right, go_right_initial_position)
-	AudioManager.toggle.play()
-	next_element()
 
 func previous_element():
 	if iterable:
@@ -82,6 +76,22 @@ func animate_button(button: Button, initial_position: Vector2, direction := 1) -
 		"rect_position",
 		initial_position,
 		0.5).from(initial_position + Vector2(10 * direction, 0))
+
+func _on_mouse_entered(control: Control) -> void:
+	control.modulate = Color("f9a300")
+
+func _on_mouse_exited(control: Control) -> void:
+	control.modulate = Color.white
+
+func _on_go_left_pressed() -> void:
+	animate_button(go_left, go_left_initial_position, -1)
+	AudioManager.toggle.play()
+	previous_element()
+
+func _on_go_right_pressed() -> void:
+	animate_button(go_right, go_right_initial_position)
+	AudioManager.toggle.play()
+	next_element()
 
 func _on_focus_entered() -> void:
 	current_element_label.call_deferred("grab_focus")
