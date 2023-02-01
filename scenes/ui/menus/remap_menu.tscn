@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/ui/components/joypad_remap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ui/components/keyboard_mouse_remap.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/ui/components/iterable_button.tscn" type="PackedScene" id=6]
 [ext_resource path="res://resources/ui/scrollable_container_bg.tres" type="StyleBox" id=7]
 [ext_resource path="res://scripts/components/submenu.gd" type="Script" id=8]
+[ext_resource path="res://scripts/components/interactive_button.gd" type="Script" id=9]
 
 [node name="remap_menu" type="Control"]
 anchor_right = 1.0
@@ -42,7 +43,7 @@ margin_right = 1870.0
 margin_bottom = 1030.0
 custom_constants/separation = 20
 
-[node name="button_back" type="Button" parent="MarginContainer/VBoxContainer" groups=["button"]]
+[node name="button_back" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_left = 1487.0
 margin_right = 1820.0
@@ -56,9 +57,13 @@ size_flags_horizontal = 8
 text = "BUTTON_BACK"
 icon = ExtResource( 4 )
 
+[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/button_back"]
+script = ExtResource( 9 )
+
 [node name="iterable_button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
 margin_top = 80.0
+margin_right = 1820.0
 margin_bottom = 140.0
 __meta__ = {
 "_editor_description_": "A button that iterates over an array and emits a signal returning the current selected element every time the element is changed. The list must be a list of dicitonaries containing the \"element\" and the "
@@ -141,7 +146,7 @@ margin_bottom = 770.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
-[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer" groups=["button"]]
+[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
 margin_right = 331.0
 margin_bottom = 60.0
 focus_neighbour_left = NodePath(".")
@@ -150,7 +155,10 @@ focus_next = NodePath("../button_reset")
 text = "BUTTON_SAVE"
 icon = ExtResource( 3 )
 
-[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer" groups=["button"]]
+[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer/button_save"]
+script = ExtResource( 9 )
+
+[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
 margin_left = 381.0
 margin_right = 735.0
 margin_bottom = 60.0
@@ -161,6 +169,9 @@ focus_previous = NodePath("../button_save")
 size_flags_horizontal = 4
 text = "BUTTON_RESET"
 icon = ExtResource( 4 )
+
+[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer/button_reset"]
+script = ExtResource( 9 )
 
 [node name="controller_section" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container"]
 visible = false
@@ -225,7 +236,7 @@ margin_bottom = 770.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
-[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer" groups=["button"]]
+[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
 margin_right = 331.0
 margin_bottom = 60.0
 focus_neighbour_left = NodePath(".")
@@ -234,7 +245,10 @@ focus_next = NodePath("../button_reset")
 text = "BUTTON_SAVE"
 icon = ExtResource( 3 )
 
-[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer" groups=["button"]]
+[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer/button_save"]
+script = ExtResource( 9 )
+
+[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
 margin_left = 381.0
 margin_right = 735.0
 margin_bottom = 60.0
@@ -245,6 +259,9 @@ focus_previous = NodePath("../button_save")
 size_flags_horizontal = 4
 text = "BUTTON_RESET"
 icon = ExtResource( 4 )
+
+[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer/button_reset"]
+script = ExtResource( 9 )
 
 [node name="Submenu" type="Control" parent="."]
 margin_right = 40.0

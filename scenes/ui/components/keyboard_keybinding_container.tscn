@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/ui/components/keyboard_keybinding_container.gd" type="Script" id=1]
+[ext_resource path="res://scripts/components/interactive_button.gd" type="Script" id=2]
 
 [node name="keyboard_keybinding_container" type="HBoxContainer"]
 margin_right = 40.0
@@ -26,6 +27,9 @@ rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 0
 text = "Space"
 
+[node name="InteractiveButton" type="Node" parent="button_1"]
+script = ExtResource( 2 )
+
 [node name="button_2" type="Button" parent="."]
 unique_name_in_owner = true
 margin_left = 558.0
@@ -34,6 +38,9 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 0
 text = "Space"
+
+[node name="InteractiveButton" type="Node" parent="button_2"]
+script = ExtResource( 2 )
 
 [node name="mouse_icon" type="TextureRect" parent="."]
 unique_name_in_owner = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/components/submenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/menus/audio_menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/return.png" type="Texture" id=3]
+[ext_resource path="res://scripts/components/interactive_button.gd" type="Script" id=4]
 
 [node name="audio_menu" type="Control"]
 anchor_right = 1.0
@@ -41,7 +42,7 @@ margin_top = 50.0
 margin_right = 1870.0
 margin_bottom = 1030.0
 
-[node name="button_back" type="Button" parent="MarginContainer/VBoxContainer" groups=["button"]]
+[node name="button_back" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_left = 1487.0
 margin_right = 1820.0
@@ -54,6 +55,9 @@ focus_previous = NodePath(".")
 size_flags_horizontal = 8
 text = "BUTTON_BACK"
 icon = ExtResource( 3 )
+
+[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/button_back"]
+script = ExtResource( 4 )
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/button_back" to="." method="_on_button_back_pressed"]

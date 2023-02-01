@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/2x/gear.png" type="Texture" id=1]
 [ext_resource path="res://scenes/ui/menus/options_menu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/ui/components/options_popup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/components/interactive_button.gd" type="Script" id=4]
 
-[node name="options_menu" type="Button" groups=["button"]]
+[node name="options_menu" type="Button"]
 margin_right = 10.0
 margin_bottom = 50.0
 size_flags_horizontal = 8
@@ -18,3 +19,6 @@ visible = false
 
 [node name="popup_origin" type="Position2D" parent="."]
 unique_name_in_owner = true
+
+[node name="InteractiveButton" type="Node" parent="."]
+script = ExtResource( 4 )
