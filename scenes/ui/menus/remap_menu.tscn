@@ -100,10 +100,11 @@ margin_left = 25.0
 margin_top = 25.0
 margin_right = 1795.0
 margin_bottom = 795.0
+custom_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer"]
 margin_right = 1770.0
-margin_bottom = 706.0
+margin_bottom = 690.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 20
@@ -116,7 +117,7 @@ unique_name_in_owner = true
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1750.0
-margin_bottom = 686.0
+margin_bottom = 670.0
 custom_styles/bg = ExtResource( 7 )
 follow_focus = true
 scroll_horizontal_enabled = false

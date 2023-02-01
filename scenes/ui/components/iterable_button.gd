@@ -69,14 +69,6 @@ func display_current_index() -> void:
 	var text := tr(iterable[current_index].name) if iterable else ""
 	current_element_label.bbcode_text = "[center]{0}[/center]".format([text])
 
-func animate_button(button: Button, initial_position: Vector2, direction := 1) -> void:
-	var tween := button.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	var _discard := tween.tween_property(
-		button,
-		"rect_position",
-		initial_position,
-		0.5).from(initial_position + Vector2(10 * direction, 0))
-
 func _on_mouse_entered(control: Control) -> void:
 	control.modulate = Color("f9a300")
 
@@ -84,16 +76,17 @@ func _on_mouse_exited(control: Control) -> void:
 	control.modulate = Color.white
 
 func _on_go_left_pressed() -> void:
-	animate_button(go_left, go_left_initial_position, -1)
+	TweenManager.shake_horizontal(go_left, -1, 4)
 	AudioManager.toggle.play()
 	previous_element()
 
 func _on_go_right_pressed() -> void:
-	animate_button(go_right, go_right_initial_position)
+	TweenManager.shake_horizontal(go_right, 1, 4)
 	AudioManager.toggle.play()
 	next_element()
 
 func _on_focus_entered() -> void:
+	TweenManager.shake_vertical(current_element_label)
 	current_element_label.call_deferred("grab_focus")
 
 func _on_visibility_changed() -> void:

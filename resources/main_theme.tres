@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=2]
+[gd_resource type="Theme" load_steps=25 format=2]
 
 [ext_resource path="res://resources/fonts/menu_small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/down.png" type="Texture" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://resources/ui/scroll_grabber_pressed.tres" type="StyleBox" id=14]
 [ext_resource path="res://resources/ui/scroll_grabber.tres" type="StyleBox" id=15]
 [ext_resource path="res://resources/ui/scroll_grabber_highlight.tres" type="StyleBox" id=16]
+[ext_resource path="res://resources/ui/slider.tres" type="StyleBox" id=17]
+[ext_resource path="res://resources/ui/grabber.tres" type="StyleBox" id=18]
+[ext_resource path="res://assets/images/kenney_gameicons_expansion/PNG/White/1x/fightJ.png" type="Texture" id=19]
 
 [sub_resource type="StyleBoxLine" id=16]
 color = Color( 1, 1, 1, 1 )
@@ -56,6 +59,12 @@ Button/styles/normal = ExtResource( 9 )
 Button/styles/pressed = ExtResource( 4 )
 HSeparator/constants/separation = 4
 HSeparator/styles/separator = SubResource( 16 )
+HSlider/icons/grabber = ExtResource( 19 )
+HSlider/icons/grabber_disabled = ExtResource( 19 )
+HSlider/icons/grabber_highlight = ExtResource( 19 )
+HSlider/styles/grabber_area = ExtResource( 18 )
+HSlider/styles/grabber_area_highlight = ExtResource( 18 )
+HSlider/styles/slider = ExtResource( 17 )
 OptionButton/icons/arrow = ExtResource( 2 )
 Panel/styles/panel = ExtResource( 13 )
 PanelContainer/styles/panel = ExtResource( 6 )

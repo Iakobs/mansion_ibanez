@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/ui/components/audio_slider.gd" type="Script" id=1]
+[ext_resource path="res://resources/ui/button_hover.tres" type="StyleBox" id=2]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/audioOff.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/signal2.png" type="Texture" id=4]
+
+[node name="audio_slider" type="PanelContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 1 )
+label_text = "LABEL_MASTER_BUS"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1389.0
+margin_bottom = 55.0
+custom_constants/margin_right = 50
+custom_constants/margin_left = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 50.0
+margin_right = 1334.0
+margin_bottom = 50.0
+custom_constants/separation = 20
+
+[node name="bus_name" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_top = 5.0
+margin_right = 390.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 390, 0 )
+size_flags_horizontal = 0
+text = "LABEL:"
+
+[node name="slider" type="HSlider" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 410.0
+margin_right = 1160.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 750, 0 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_right = NodePath(".")
+size_flags_horizontal = 0
+min_value = 0.001
+max_value = 1.995
+step = 0.05
+value = 1.0
+scrollable = false
+tick_count = 50
+ticks_on_borders = true
+
+[node name="icon_group" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 1180.0
+margin_right = 1284.0
+margin_bottom = 50.0
+
+[node name="audio_icon" type="TextureRect" parent="MarginContainer/HBoxContainer/icon_group"]
+margin_right = 50.0
+margin_bottom = 50.0
+texture = ExtResource( 3 )
+
+[node name="audio_amount_icon" type="TextureRect" parent="MarginContainer/HBoxContainer/icon_group"]
+unique_name_in_owner = true
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+texture = ExtResource( 4 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="focus_entered" from="MarginContainer/HBoxContainer/slider" to="." method="_on_slider_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/HBoxContainer/slider" to="." method="_on_slider_focus_exited"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/slider" to="." method="_on_slider_value_changed"]

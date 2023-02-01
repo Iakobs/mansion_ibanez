@@ -1,5 +1,9 @@
 extends Node2D
 
+enum audio_bus {
+	Master, UI, FX, Music
+}
+
 onready var toggle: AudioStreamPlayer = $"%toggle"
 onready var click: AudioStreamPlayer = $"%click"
 onready var release: AudioStreamPlayer = $"%release"

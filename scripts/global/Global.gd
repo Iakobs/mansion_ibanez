@@ -23,6 +23,7 @@ var is_joystick_active := false
 func _ready() -> void:
 	pause_mode = PAUSE_MODE_PROCESS
 	TranslationServer.set_locale(ConfigManager.get_locale())
+	OS.window_maximized = true
 #	for node in get_tree().get_nodes_in_group("doors"):
 #		door_collisions.append_array(getAllCollisions(node))
 #

@@ -4,37 +4,24 @@ extends Node
 
 var parent: Button
 var initial_position := Vector2.INF
-var tween: SceneTreeTween = null
 
 func _enter_tree() -> void:
 	parent = get_parent() as Button
 	connect_button(parent)
-
-func animate_button(direction := 1) -> void:
-	if tween != null:
-		return
-	tween = parent.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	var _discard := tween.tween_property(
-		parent,
-		"rect_position",
-		parent.rect_position,
-		0.5).from(parent.rect_position + Vector2(0, -2.5 * direction))
-	yield(tween, "finished")
-	tween = null
 
 func _on_button_toggled(_button_pressed: bool) -> void:
 	AudioManager.toggle.play()
 
 func _on_button_click() -> void:
 	AudioManager.click.play()
-	call_deferred("animate_button", -1)
+	TweenManager.call_deferred("shake_vertical", parent, -1)
 
 func _on_button_release() -> void:
 	AudioManager.release.play()
 
 func _on_hover_or_focus() -> void:
 	AudioManager.hover_or_focus.play()
-	call_deferred("animate_button")
+	TweenManager.call_deferred("shake_vertical", parent)
 
 func _on_lost_hover_or_focus() -> void:
 	pass

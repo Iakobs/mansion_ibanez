@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/components/submenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/menus/audio_menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/return.png" type="Texture" id=3]
 [ext_resource path="res://scripts/components/interactive_button.gd" type="Script" id=4]
+[ext_resource path="res://scenes/ui/components/audio_slider.tscn" type="PackedScene" id=5]
 
 [node name="audio_menu" type="Control"]
 anchor_right = 1.0
@@ -41,16 +42,15 @@ margin_left = 50.0
 margin_top = 50.0
 margin_right = 1870.0
 margin_bottom = 1030.0
+custom_constants/separation = 50
 
 [node name="button_back" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_left = 1487.0
 margin_right = 1820.0
 margin_bottom = 60.0
-focus_neighbour_left = NodePath("../iterable_button")
 focus_neighbour_top = NodePath(".")
 focus_neighbour_right = NodePath(".")
-focus_neighbour_bottom = NodePath("../iterable_button")
 focus_previous = NodePath(".")
 size_flags_horizontal = 8
 text = "BUTTON_BACK"
@@ -58,6 +58,32 @@ icon = ExtResource( 3 )
 
 [node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/button_back"]
 script = ExtResource( 4 )
+
+[node name="master" parent="MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 110.0
+margin_right = 1820.0
+margin_bottom = 170.0
+
+[node name="music" parent="MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 220.0
+margin_right = 1820.0
+margin_bottom = 280.0
+label_text = "LABEL_MUSIC_BUS"
+audio_bus = 3
+
+[node name="ui" parent="MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 330.0
+margin_right = 1820.0
+margin_bottom = 390.0
+label_text = "LABEL_UI_BUS"
+audio_bus = 1
+
+[node name="fx" parent="MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+margin_top = 440.0
+margin_right = 1820.0
+margin_bottom = 500.0
+label_text = "LABEL_FX_BUS"
+audio_bus = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/button_back" to="." method="_on_button_back_pressed"]

@@ -126,6 +126,7 @@ Global="*res://scripts/global/Global.gd"
 SceneChanger="*res://scenes/global/scene_changer.tscn"
 Events="*res://scripts/global/Events.gd"
 PlayerStats="*res://scripts/global/PlayerStats.gd"
+TweenManager="*res://scripts/global/tween_manager.gd"
 
 [display]
 
