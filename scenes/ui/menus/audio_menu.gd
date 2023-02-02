@@ -13,3 +13,7 @@ func _on_button_back_pressed() -> void:
 func _on_visibility_changed() -> void:
 	if visible:
 		focus_button.call_deferred("grab_focus")
+
+func _on_button_reset_pressed() -> void:
+	for index in AudioManager.audio_bus.values():
+		SaveManager.reset_volume(index)

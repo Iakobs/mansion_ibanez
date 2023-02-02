@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/ui/components/joypad_remap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ui/components/keyboard_mouse_remap.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/checkmark.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/return.png" type="Texture" id=4]
 [ext_resource path="res://scenes/ui/menus/remap_menu.gd" type="Script" id=5]
 [ext_resource path="res://scenes/ui/components/iterable_button.tscn" type="PackedScene" id=6]
@@ -140,33 +139,19 @@ margin_right = 812.0
 margin_bottom = 860.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer"]
-margin_left = 517.0
+margin_left = 708.0
 margin_top = 710.0
-margin_right = 1252.0
+margin_right = 1062.0
 margin_bottom = 770.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
-[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
-margin_right = 331.0
-margin_bottom = 60.0
-focus_neighbour_left = NodePath(".")
-focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath("../button_reset")
-text = "BUTTON_SAVE"
-icon = ExtResource( 3 )
-
-[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer/button_save"]
-script = ExtResource( 9 )
-
 [node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
-margin_left = 381.0
-margin_right = 735.0
+margin_right = 354.0
 margin_bottom = 60.0
 focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath(".")
 focus_next = NodePath(".")
-focus_previous = NodePath("../button_save")
 size_flags_horizontal = 4
 text = "BUTTON_RESET"
 icon = ExtResource( 4 )
@@ -237,18 +222,6 @@ margin_bottom = 770.0
 size_flags_horizontal = 4
 custom_constants/separation = 50
 
-[node name="button_save" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
-margin_right = 331.0
-margin_bottom = 60.0
-focus_neighbour_left = NodePath(".")
-focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath("../button_reset")
-text = "BUTTON_SAVE"
-icon = ExtResource( 3 )
-
-[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer/button_save"]
-script = ExtResource( 9 )
-
 [node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
 margin_left = 381.0
 margin_right = 735.0
@@ -256,7 +229,6 @@ margin_bottom = 60.0
 focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath(".")
 focus_next = NodePath(".")
-focus_previous = NodePath("../button_save")
 size_flags_horizontal = 4
 text = "BUTTON_RESET"
 icon = ExtResource( 4 )

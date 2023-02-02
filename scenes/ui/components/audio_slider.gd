@@ -14,7 +14,11 @@ onready var bus_name: Label = $"%bus_name"
 onready var slider: HSlider = $"%slider"
 onready var audio_amount_icon: TextureRect = $"%audio_amount_icon"
 
+func _ready() -> void:
+	var _error := SaveManager.connect("value_reseted", self, "_on_visibility_changed")
+
 func _on_slider_value_changed(value: float) -> void:
+	SaveManager.set_volume(audio_bus, linear2db(value))
 	var relative_value := value / slider.max_value * 100
 	if relative_value > 1:
 		audio_amount_icon.texture = signal_1_resource
@@ -46,6 +50,7 @@ func _on_slider_value_changed(value: float) -> void:
 
 func _on_visibility_changed() -> void:
 	bus_name.text = "{0}:".format([tr(label_text)])
+	slider.set_value(db2linear(SaveManager.get_volume(audio_bus)))
 
 func _on_slider_focus_entered() -> void:
 	add_stylebox_override("panel", focus_bg_resource)

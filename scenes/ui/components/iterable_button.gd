@@ -77,11 +77,13 @@ func _on_mouse_exited(control: Control) -> void:
 
 func _on_go_left_pressed() -> void:
 	TweenManager.shake_horizontal(go_left, -1, 4)
+	TweenManager.shake_vertical(current_element_label, -1)
 	AudioManager.toggle.play()
 	previous_element()
 
 func _on_go_right_pressed() -> void:
 	TweenManager.shake_horizontal(go_right, 1, 4)
+	TweenManager.shake_vertical(current_element_label, -1)
 	AudioManager.toggle.play()
 	next_element()
 

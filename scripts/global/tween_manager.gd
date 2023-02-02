@@ -42,7 +42,6 @@ func get_tween_from_pool(control: Control) -> SceneTreeTween:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_QUIT_REQUEST:
 		for key in tween_pool.keys():
-			print("Removing tween")
 			var tween := tween_pool[key] as SceneTreeTween
 			tween.kill()
 			var _erased := tween_pool.erase(key)

@@ -85,5 +85,27 @@ margin_bottom = 500.0
 label_text = "LABEL_FX_BUS"
 audio_bus = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_left = 733.0
+margin_top = 550.0
+margin_right = 1087.0
+margin_bottom = 610.0
+size_flags_horizontal = 4
+custom_constants/separation = 50
+
+[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 354.0
+margin_bottom = 60.0
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+size_flags_horizontal = 4
+text = "BUTTON_RESET"
+icon = ExtResource( 3 )
+
+[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/HBoxContainer/button_reset"]
+script = ExtResource( 4 )
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/button_back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/button_reset" to="." method="_on_button_reset_pressed"]
