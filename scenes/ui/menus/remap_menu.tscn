@@ -127,15 +127,15 @@ margin_bottom = 880.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/MarginContainer/keyboard_section_scroll_container/CenterContainer"]
-margin_left = 434.0
-margin_right = 1246.0
+margin_left = 335.0
+margin_right = 1345.0
 margin_bottom = 880.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
 [node name="keyboard_mouse_remap" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/MarginContainer/keyboard_section_scroll_container/CenterContainer/MarginContainer" instance=ExtResource( 2 )]
 margin_top = 20.0
-margin_right = 812.0
+margin_right = 1010.0
 margin_bottom = 860.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer"]

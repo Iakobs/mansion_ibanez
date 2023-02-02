@@ -20,7 +20,7 @@ func clear_cache() -> void:
 func reset_input_map() -> void:
 	for action_resource in actions:
 		var action := action_resource as Action
-		var default_values := action.default_values as ActionDefaultValues
+		var default_values := action.default_values as ActionEvents
 		
 		InputMap.erase_action(action.name)
 		InputMap.add_action(action.name)

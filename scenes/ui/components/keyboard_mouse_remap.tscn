@@ -5,7 +5,7 @@
 [node name="keyboard_mouse_remap" type="Control"]
 margin_right = 362.0
 margin_bottom = 70.0
-rect_min_size = Vector2( 812, 840 )
+rect_min_size = Vector2( 1010, 840 )
 size_flags_horizontal = 0
 script = ExtResource( 1 )
 

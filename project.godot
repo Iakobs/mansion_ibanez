@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://scripts/resources/action.gd"
 }, {
 "base": "Resource",
-"class": "ActionDefaultValues",
+"class": "ActionEvents",
 "language": "GDScript",
-"path": "res://scripts/resources/action_default_values.gd"
+"path": "res://scripts/resources/action_events.gd"
 }, {
 "base": "Node",
 "class": "AnimationManager",
@@ -91,7 +91,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Action": "",
-"ActionDefaultValues": "",
+"ActionEvents": "",
 "AnimationManager": "",
 "Door": "",
 "DoorAnimationManager": "",

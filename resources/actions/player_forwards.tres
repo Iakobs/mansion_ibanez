@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://scripts/resources/action.gd" type="Script" id=1]
-[ext_resource path="res://scripts/resources/action_default_values.gd" type="Script" id=2]
+[ext_resource path="res://scripts/resources/action_events.gd" type="Script" id=2]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
@@ -15,5 +15,4 @@ mouse_button_index = -1
 script = ExtResource( 1 )
 name = "player_forwards"
 is_axis = true
-axis_value = -1
 default_values = SubResource( 1 )

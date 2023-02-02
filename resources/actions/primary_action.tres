@@ -1,19 +1,18 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://scripts/resources/action.gd" type="Script" id=1]
-[ext_resource path="res://scripts/resources/action_default_values.gd" type="Script" id=2]
+[ext_resource path="res://scripts/resources/action_events.gd" type="Script" id=2]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
 keyboard_keys = [ 16777238 ]
 joypad_button_index = 7
 joypad_motion_axis = -1
-joypad_motion_axis_value = -1
+joypad_motion_axis_value = 0
 mouse_button_index = 1
 
 [resource]
 script = ExtResource( 1 )
 name = "primary_action"
 is_axis = false
-axis_value = 0
 default_values = SubResource( 1 )
