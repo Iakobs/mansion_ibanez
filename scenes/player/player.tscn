@@ -1,10 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player/Arm.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/audio/kenney_impact_sounds/footstep_grass_004.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.3
+
+[sub_resource type="Animation" id=2]
+resource_name = "footsteps"
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_footsteps"
+}, {
+"args": [  ],
+"method": "play_footsteps"
+} ]
+}
 
 [node name="player" type="KinematicBody"]
 collision_layer = 2
@@ -23,3 +45,12 @@ unique_name_in_owner = true
 current = true
 
 [node name="Arm" parent="rotation_helper/camera" instance=ExtResource( 2 )]
+
+[node name="footsteps" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 3 )
+bus = "FX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+anims/footsteps = SubResource( 2 )

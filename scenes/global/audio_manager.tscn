@@ -40,4 +40,5 @@ bus = "Music"
 [node name="pause" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource( 7 )
+volume_db = -8.0
 bus = "FX"

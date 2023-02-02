@@ -25,12 +25,14 @@ var scanned_layers = Global.LayerValues.WORLD + Global.LayerValues.INTERACTABLE
 onready var rotation_helper: Spatial = $"%rotation_helper"
 onready var camera: Camera = $"%camera"
 onready var arm: Area = $"%Arm"
+onready var animation_player: AnimationPlayer = $"%AnimationPlayer"
+onready var footsteps: AudioStreamPlayer3D = $"%footsteps"
 
 func _ready() -> void:
 	arm.set_length(arm_length)
 	Global.player = self
 	Global.camera = camera
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(_delta: float) -> void:
 	calculate_objects()
@@ -40,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	process_input()
 	process_movement(delta)
 	process_joypad()
+	process_footsteps()
 
 func calculate_objects() -> void:
 	var to_looking_object := Global.ray_origin\
@@ -110,6 +113,21 @@ func process_joypad() -> void:
 	var camera_rotation := rotation_helper.rotation_degrees
 	camera_rotation.x = clamp(camera_rotation.x, -80, 80)
 	rotation_helper.rotation_degrees = camera_rotation
+
+func process_footsteps() -> void:
+	var horizontal_velocity := velocity
+	horizontal_velocity.y = 0
+	if horizontal_velocity.length() > 0.5 and is_on_floor():
+		if is_sprinting:
+			animation_player.play("footsteps", -1, 1.5)
+		else:
+			animation_player.play("footsteps")
+	else:
+		animation_player.stop(true)
+
+func play_footsteps() -> void:
+	footsteps.pitch_scale = rand_range(0.5, 1.5)
+	footsteps.play()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
