@@ -119,8 +119,8 @@ config/name_ca="La Mansió Ibáñez"
 
 [autoload]
 
-SaveManager="*res://scripts/global/save_manager.gd"
 InputMapManager="*res://scenes/global/input_map_manager.tscn"
+SaveManager="*res://scripts/global/save_manager.gd"
 AudioManager="*res://scenes/global/audio_manager.tscn"
 Global="*res://scripts/global/global.gd"
 SceneChanger="*res://scenes/global/scene_changer.tscn"

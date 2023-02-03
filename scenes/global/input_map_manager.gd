@@ -3,11 +3,6 @@ extends Node
 export(Array, Resource) var actions := []
 
 var cache := {}
-var joypad_axis_actions := []
-
-func _ready() -> void:
-	reset_input_map()
-	clear_cache()
 
 func clear_cache() -> void:
 	cache = {}
@@ -17,33 +12,21 @@ func clear_cache() -> void:
 			events.append(event)
 		cache[action.name] = events
 
-func reset_input_map() -> void:
-	for action_resource in actions:
-		var action := action_resource as Action
-		var default_values := action.default_values as ActionEvents
-		
-		InputMap.erase_action(action.name)
-		InputMap.add_action(action.name)
-		add_events_to_action(
-			action.name,
-			default_values.keyboard_keys,
-			default_values.joypad_button_index,
-			default_values.joypad_motion_axis,
-			default_values.joypad_motion_axis_value,
-			default_values.mouse_button_index)
+func reset_action(action: String, events: ActionEvents) -> void:
+	InputMap.erase_action(action)
+	InputMap.add_action(action)
+	add_events_to_action(
+		action,
+		events)
 
-func add_events_to_action(
-	action: String,
-	keyboard_keys: Array,
-	joypad_button_index: int,
-	joypad_motion_axis: int,
-	joypad_motion_axis_value: int,
-	mouse_button_index: int
-) -> void:
-	add_keyboard_keys_to_action(action, keyboard_keys)
-	add_joypad_button_to_action(action, joypad_button_index)
-	add_joypad_motion_to_action(action, joypad_motion_axis, joypad_motion_axis_value)
-	add_mouse_button_to_action(action, mouse_button_index)
+func add_events_to_action(action: String, events: ActionEvents) -> void:
+	add_keyboard_keys_to_action(action, events.keyboard_keys)
+	add_joypad_button_to_action(action, events.joypad_button_index)
+	add_joypad_motion_to_action(
+		action, 
+		events.joypad_motion_axis, 
+		events.joypad_motion_axis_value)
+	add_mouse_button_to_action(action, events.mouse_button_index)
 
 func add_keyboard_keys_to_action(action: String, keyboard_keys: Array) -> void:
 	if !keyboard_keys.empty():
@@ -52,12 +35,14 @@ func add_keyboard_keys_to_action(action: String, keyboard_keys: Array) -> void:
 			var input_event := InputEventKey.new()
 			input_event.scancode = scancode
 			InputMap.action_add_event(action, input_event)
+			clear_cache()
 
 func add_joypad_button_to_action(action: String, button_index: int) -> void:
 	if button_index > -1:
 		var input_event := InputEventJoypadButton.new()
 		input_event.button_index = button_index
 		InputMap.action_add_event(action, input_event)
+		clear_cache()
 
 func add_joypad_motion_to_action(action: String, axis: int, axis_value: int) -> void:
 	if axis > -1:
@@ -65,19 +50,37 @@ func add_joypad_motion_to_action(action: String, axis: int, axis_value: int) -> 
 		input_event.axis = axis
 		input_event.axis_value = axis_value
 		InputMap.action_add_event(action, input_event)
+		clear_cache()
 
 func add_mouse_button_to_action(action: String, button_index: int) -> void:
 	if button_index > -1:
 		var input_event := InputEventMouseButton.new()
 		input_event.button_index = button_index
 		InputMap.action_add_event(action, input_event)
+		clear_cache()
 
 func remove_event_from_action(action: String, event: InputEvent) -> void:
 	if InputMap.has_action(action) and InputMap.action_has_event(action, event):
 		InputMap.action_erase_event(action, event)
+		clear_cache()
 
 func get_actions() -> Array:
 	return cache.keys()
+
+func get_action_events(action: String) -> ActionEvents:
+	var events := cache.get(action, []) as Array
+	var action_events := null if events.empty() else ActionEvents.new()
+	for event in events:
+		if event is InputEventKey:
+			action_events.keyboard_keys.append(event.scancode)
+		if event is InputEventJoypadMotion:
+			action_events.joypad_motion_axis = event.axis
+			action_events.joypad_motion_axis_value = event.axis_value
+		if event is InputEventJoypadButton:
+			action_events.joypad_button_index = event.button_index
+		if event is InputEventMouseButton:
+			action_events.mouse_button_index = event.button_index
+	return action_events
 
 func get_axis_actions() -> Array:
 	var result := []

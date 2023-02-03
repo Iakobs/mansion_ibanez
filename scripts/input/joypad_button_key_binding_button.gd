@@ -1,5 +1,7 @@
 extends KeyBindingButton
 
+
+
 export(InputEventJoypadButton) var input_event: InputEventJoypadButton
 
 func setup_button() -> void:
@@ -8,6 +10,7 @@ func setup_button() -> void:
 
 func fill_menu() -> void:
 	var popup := get_popup()
+	popup.clear()
 	
 	popup.add_item(tr("ACTION_UNASSIGN"))
 	popup.add_separator(tr("ACTION_SEPARATOR"))
@@ -26,8 +29,19 @@ func fill_menu() -> void:
 
 func change_action(new_action: String) -> void:
 	if !new_action.empty():
-		pass
+		var action_events := InputMapManager.get_action_events(new_action)
+		var action_in_use := (ActionEvents.JoypadButton.none != action_events.joypad_button_index) as bool
+		if action_in_use:
+			handle_action_already_in_use()
+		else:
+			action_events.joypad_button_index = input_event.button_index
+			SaveManager.set_action(new_action, action_events)
+			InputMapManager.add_events_to_action(new_action, action_events)
+			assign(new_action)
 	else:
-		pass
-#		InputMapManager.remove_event_from_action(action, input_event)
-#		unassign()
+		var old_action = action
+		if not old_action.empty():
+			InputMapManager.remove_event_from_action(old_action, input_event)
+			var action_events := InputMapManager.get_action_events(old_action)
+			SaveManager.set_action(old_action, action_events)
+			unassign()

@@ -37,3 +37,9 @@ func _process(_delta: float) -> void:
 func _on_visibility_changed() -> void:
 	if visible:
 		focus_button.call_deferred("grab_focus")
+
+func _on_button_reset_pressed() -> void:
+	for action_resource in InputMapManager.actions:
+		var action := action_resource as Action
+		var default_events := action.default_values as ActionEvents
+		SaveManager.reset_action(action.name, default_events)

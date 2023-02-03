@@ -30,6 +30,12 @@ func set_locale(locale: String) -> void:
 func get_locale() -> String:
 	return config_file.get_value(preferences_section, locale_key)
 
+func reset_locale() -> void:
+	var system_locale := OS.get_locale_language()
+	set_locale(system_locale)
+	TranslationServer.set_locale(system_locale)
+	emit_signal("value_reseted")
+
 func set_volume(bus_index: int, volume_db: float) -> void:
 	var key := get_key_from_audio_bus_index(bus_index)
 	config_file.set_value(preferences_section, key, volume_db)
@@ -42,6 +48,18 @@ func get_volume(bus_index: int) -> float:
 func reset_volume(bus_index: int) -> void:
 	set_volume(bus_index, 0.0)
 	AudioServer.set_bus_volume_db(bus_index, 0.0)
+	emit_signal("value_reseted")
+
+func set_action(action: String, events: ActionEvents) -> void:
+	config_file.set_value(preferences_section, action, events)
+	var _error := config_file.save(preferences_file_path)
+
+func get_action_events(action: String) -> ActionEvents:
+	return config_file.get_value(preferences_section, action)
+
+func reset_action(action: String, events: ActionEvents) -> void:
+	set_action(action, events)
+	InputMapManager.reset_action(action, events)
 	emit_signal("value_reseted")
 
 func get_key_from_audio_bus_index(index: int) -> String:
@@ -58,12 +76,19 @@ func get_key_from_audio_bus_index(index: int) -> String:
 			return ""
 
 func store_default_values() -> void:
-	var system_locale := OS.get_locale_language()
-	set_locale(system_locale)
+	reset_locale()
 	for index in AudioManager.audio_bus.values():
 		reset_volume(index)
+	for action_resource in InputMapManager.actions:
+		var action := action_resource as Action
+		var default_events := action.default_values as ActionEvents
+		reset_action(action.name, default_events)
 
 func set_sensible_defaults() -> void:
 	TranslationServer.set_locale(SaveManager.get_locale())
 	for index in AudioManager.audio_bus.values():
 		AudioServer.set_bus_volume_db(index, get_volume(index))
+	for action_resource in InputMapManager.actions:
+		var action := action_resource as Action
+		var events := get_action_events(action.name)
+		InputMapManager.reset_action(action.name, events)

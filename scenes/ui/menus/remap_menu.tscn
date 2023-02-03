@@ -79,7 +79,7 @@ iterable = [ {
 unique_name_in_owner = true
 margin_top = 160.0
 margin_right = 1820.0
-margin_bottom = 980.0
+margin_bottom = 900.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
@@ -98,7 +98,7 @@ custom_constants/margin_bottom = 25
 margin_left = 25.0
 margin_top = 25.0
 margin_right = 1795.0
-margin_bottom = 795.0
+margin_bottom = 715.0
 custom_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer"]
@@ -138,27 +138,6 @@ margin_top = 20.0
 margin_right = 1010.0
 margin_bottom = 860.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer"]
-margin_left = 708.0
-margin_top = 710.0
-margin_right = 1062.0
-margin_bottom = 770.0
-size_flags_horizontal = 4
-custom_constants/separation = 50
-
-[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer"]
-margin_right = 354.0
-margin_bottom = 60.0
-focus_neighbour_right = NodePath(".")
-focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath(".")
-size_flags_horizontal = 4
-text = "BUTTON_RESET"
-icon = ExtResource( 4 )
-
-[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/tab_container/keyboard_mouse_section/VBoxContainer/HBoxContainer/button_reset"]
-script = ExtResource( 9 )
-
 [node name="controller_section" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container"]
 visible = false
 anchor_right = 1.0
@@ -173,7 +152,7 @@ custom_constants/margin_bottom = 25
 margin_left = 25.0
 margin_top = 25.0
 margin_right = 1795.0
-margin_bottom = 795.0
+margin_bottom = 715.0
 custom_constants/separation = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer"]
@@ -214,18 +193,11 @@ custom_constants/margin_bottom = 20
 margin_top = 20.0
 margin_bottom = 924.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer"]
-margin_left = 517.0
-margin_top = 710.0
-margin_right = 1252.0
-margin_bottom = 770.0
-size_flags_horizontal = 4
-custom_constants/separation = 50
-
-[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer"]
-margin_left = 381.0
-margin_right = 735.0
-margin_bottom = 60.0
+[node name="button_reset" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_left = 733.0
+margin_top = 920.0
+margin_right = 1087.0
+margin_bottom = 980.0
 focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath(".")
 focus_next = NodePath(".")
@@ -233,7 +205,7 @@ size_flags_horizontal = 4
 text = "BUTTON_RESET"
 icon = ExtResource( 4 )
 
-[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/tab_container/controller_section/VBoxContainer/HBoxContainer/button_reset"]
+[node name="InteractiveButton" type="Node" parent="MarginContainer/VBoxContainer/button_reset"]
 script = ExtResource( 9 )
 
 [node name="Submenu" type="Control" parent="."]
@@ -243,3 +215,4 @@ script = ExtResource( 8 )
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/button_back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/button_reset" to="." method="_on_button_reset_pressed"]
