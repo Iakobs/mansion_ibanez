@@ -42,6 +42,7 @@ margin_left = 159.0
 margin_top = 113.0
 margin_right = 220.0
 margin_bottom = 163.0
+rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 4
 text = "BUTTON_OK"
 

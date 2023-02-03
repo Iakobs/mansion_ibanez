@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/ui/components/action_remap_button.gd" type="Script" id=1]
+[ext_resource path="res://scripts/components/interactive_button.gd" type="Script" id=2]
+[ext_resource path="res://resources/ui/remap_button_group.tres" type="ButtonGroup" id=3]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/trashcan.png" type="Texture" id=4]
+
+[node name="action_remap_button" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="unassign_button" type="Button" parent="."]
+unique_name_in_owner = true
+margin_right = 60.0
+margin_bottom = 60.0
+icon = ExtResource( 4 )
+flat = true
+
+[node name="InteractiveButton" type="Node" parent="unassign_button"]
+script = ExtResource( 2 )
+
+[node name="assign_button" type="Button" parent="."]
+unique_name_in_owner = true
+margin_left = 64.0
+margin_right = 364.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+toggle_mode = true
+group = ExtResource( 3 )
+icon_align = 1
+
+[node name="InteractiveButton" type="Node" parent="assign_button"]
+script = ExtResource( 2 )
+
+[connection signal="focus_entered" from="unassign_button" to="." method="_on_unassign_focus_or_hover_entered"]
+[connection signal="focus_exited" from="unassign_button" to="." method="_on_unassign_focus_or_hover_exited"]
+[connection signal="mouse_entered" from="unassign_button" to="." method="_on_unassign_focus_or_hover_entered"]
+[connection signal="mouse_exited" from="unassign_button" to="." method="_on_unassign_focus_or_hover_exited"]
+[connection signal="pressed" from="unassign_button" to="." method="_on_unassign_button_pressed"]

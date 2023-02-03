@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/ui/components/keyboard_keybinding_container.gd" type="Script" id=1]
-[ext_resource path="res://scripts/components/interactive_button.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ui/components/action_remap_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/images/kenney_gameicons/PNG/White/1x/mouse.png" type="Texture" id=6]
 
 [node name="keyboard_keybinding_container" type="HBoxContainer"]
 margin_right = 40.0
@@ -12,41 +13,30 @@ script = ExtResource( 1 )
 
 [node name="label" type="Label" parent="."]
 unique_name_in_owner = true
-margin_top = 5.0
+margin_top = 10.0
 margin_right = 350.0
-margin_bottom = 45.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 350, 0 )
 size_flags_horizontal = 0
 text = "player_jump: "
 
-[node name="button_1" type="Button" parent="."]
+[node name="action_remap_button_1" parent="." groups=["left"] instance=ExtResource( 2 )]
 unique_name_in_owner = true
 margin_left = 370.0
-margin_right = 670.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 300, 0 )
-size_flags_horizontal = 0
-text = "Space"
+margin_right = 734.0
+margin_bottom = 60.0
 
-[node name="InteractiveButton" type="Node" parent="button_1"]
-script = ExtResource( 2 )
-
-[node name="button_2" type="Button" parent="."]
+[node name="action_remap_button_2" parent="." groups=["right"] instance=ExtResource( 2 )]
 unique_name_in_owner = true
-margin_left = 690.0
-margin_right = 990.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 300, 0 )
-size_flags_horizontal = 0
-text = "Numpad  9"
-
-[node name="InteractiveButton" type="Node" parent="button_2"]
-script = ExtResource( 2 )
+margin_left = 754.0
+margin_right = 1118.0
+margin_bottom = 60.0
 
 [node name="mouse_icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
-margin_left = 1010.0
-margin_right = 1010.0
-margin_bottom = 50.0
+margin_left = 1138.0
+margin_right = 1188.0
+margin_bottom = 60.0
+texture = ExtResource( 6 )
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

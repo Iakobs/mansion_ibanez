@@ -3,10 +3,10 @@
 [ext_resource path="res://scenes/ui/components/keyboard_mouse_remap.gd" type="Script" id=1]
 
 [node name="keyboard_mouse_remap" type="Control"]
-margin_right = 362.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 1010, 840 )
+margin_right = 1188.0
+rect_min_size = Vector2( 1188, 940 )
 size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource( 1 )
 
 [node name="actions" type="VBoxContainer" parent="."]

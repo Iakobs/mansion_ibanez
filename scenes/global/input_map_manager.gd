@@ -113,7 +113,7 @@ func get_keyboard_keys_from_action(action: String) -> Array:
 	if action:
 		for event in cache[action]:
 			if event is InputEventKey:
-				keys.append(event.as_text())
+				keys.append(event)
 	return keys
 
 func get_mouse_button_index_from_action(action: String) -> int:
@@ -122,3 +122,10 @@ func get_mouse_button_index_from_action(action: String) -> int:
 			if event is InputEventMouseButton:
 				return event.button_index
 	return -1
+
+func key_is_assigned(scancode: int) -> bool:
+	for action in cache.keys():
+		for event in cache[action]:
+			if event is InputEventKey and event.scancode == scancode:
+				return true
+	return false

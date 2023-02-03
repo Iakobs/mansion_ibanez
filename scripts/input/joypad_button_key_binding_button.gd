@@ -1,7 +1,5 @@
 extends KeyBindingButton
 
-
-
 export(InputEventJoypadButton) var input_event: InputEventJoypadButton
 
 func setup_button() -> void:
