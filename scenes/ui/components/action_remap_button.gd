@@ -2,12 +2,11 @@ extends Control
 
 var import_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/import.png")
 var trash_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/trashcan.png")
-var tras_open_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/trashcanOpen.png")
+var trash_open_icon := preload("res://assets/images/kenney_gameicons/PNG/White/1x/trashcanOpen.png")
 var window_dialog_resource := preload("res://scenes/ui/components/window_dialog.tscn")
 
 var action: String
 var input_event: InputEventKey setget set_input_event
-var text: String
 
 onready var unassign_button: Button = $"%unassign_button"
 onready var assign_button: Button = $"%assign_button"
@@ -28,7 +27,7 @@ func _on_assign_button_toggled(button_pressed: bool) -> void:
 		assign_button.icon = import_icon
 	else:
 		assign_button.icon = null
-		set_text()
+		update_text()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -43,11 +42,12 @@ func _input(event: InputEvent) -> void:
 				SaveManager.set_action(action, action_events)
 		else:
 			toast("LABEL_KEY_NOT_ALLOWED")
+		
 		assign_button.pressed = false
 		get_tree().set_input_as_handled()
 
 func _on_unassign_focus_or_hover_entered() -> void:
-	unassign_button.icon = tras_open_icon
+	unassign_button.icon = trash_open_icon
 
 func _on_unassign_focus_or_hover_exited() -> void:
 	unassign_button.icon = trash_icon
@@ -58,15 +58,11 @@ func _on_visibility_changed() -> void:
 		assign_button.pressed = false
 
 func set_input_event(event: InputEventKey) -> void:
-	if event:
-		input_event = event
-		text = event.as_text()
-	else:
-		text = ""
-	set_text()
+	input_event = event
+	update_text()
 
-func set_text() -> void:
-	assign_button.text = text
+func update_text() -> void:
+	assign_button.text = input_event.as_text() if input_event else ""
 
 func toast(message: String) -> void:
 	var dialog := window_dialog_resource.instance()
@@ -75,8 +71,8 @@ func toast(message: String) -> void:
 	dialog.popup_centered()
 
 func _on_unassign_button_pressed() -> void:
-	InputMapManager.remove_event_from_action(action, input_event)
-	var action_events := InputMapManager.get_action_events(action)
-	SaveManager.set_action(action, action_events)
-	text = ""
-	set_text()
+	if input_event:
+		InputMapManager.remove_event_from_action(action, input_event)
+		var action_events := InputMapManager.get_action_events(action)
+		SaveManager.set_action(action, action_events)
+		set_input_event(null)
