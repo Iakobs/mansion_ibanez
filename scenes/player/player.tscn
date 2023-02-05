@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player/Arm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/audio/kenney_impact_sounds/footstep_grass_004.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/ui/components/HUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.3
@@ -45,6 +46,8 @@ unique_name_in_owner = true
 current = true
 
 [node name="Arm" parent="rotation_helper/camera" instance=ExtResource( 2 )]
+
+[node name="HUD" parent="rotation_helper/camera" instance=ExtResource( 4 )]
 
 [node name="footsteps" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true

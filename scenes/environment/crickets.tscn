@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/audio/fx/crickets.ogg" type="AudioStream" id=1]
+[ext_resource path="res://scenes/environment/crickets.gd" type="Script" id=2]
+
+[sub_resource type="SphereMesh" id=15]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="Shader" id=18]
+code = "shader_type spatial;
+render_mode depth_draw_opaque, cull_disabled, ambient_light_disabled, blend_add, shadows_disabled;
+
+uniform vec4 color : hint_color;
+uniform float fresnel_power = 1.0;
+uniform float edge_intensity = 2.0;
+uniform float fill_amount : hint_range(0, 1) = 0.1;
+
+uniform float pulsing_strength = 0.25;
+uniform float pulsing_speed = 1.0;
+
+uniform float scanline_period = 0.5;
+uniform float scanline_width : hint_range(0, 0.49) = 0.1;
+uniform float scanline_intensity = 0.35;
+
+uniform float pattern_scroll_speed = 0.025;
+uniform vec2 pattern_uv_offset = vec2(6.0, 3.0);
+
+uniform sampler2D pattern_texture : hint_albedo;
+
+void vertex() {
+	float pulse_distance = sin(TIME * pulsing_speed) * 0.1 * pulsing_strength;
+	VERTEX += NORMAL * pulse_distance;
+}
+
+void fragment() {
+	// Create a fresnel effect from the NORMAL and VIEW vectors.
+	float fresnel = pow(1.0 - dot(NORMAL, VIEW), fresnel_power) * edge_intensity;
+	
+	// Add back transparency in the middle
+	fresnel = fresnel + fill_amount;
+	
+	// Get the raw linear depth from the depth texture into a  [-1, 1] range
+	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r * 2.0 - 1.0;
+	// Recreate linear depth of the intersecting geometry using projection matrix, and subtract the vertex of the sphere
+	depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]) + VERTEX.z;
+	// Intensity intersection effect
+	depth = pow(1.0 - clamp(depth, 0, 1), fresnel_power) * edge_intensity;
+	
+	// Calculate final alpha using fresnel and depth joined together
+	fresnel = fresnel + depth;
+	
+	// Calculate UV scrolling pattern
+	float scrolling_time = TIME * pattern_scroll_speed;
+	vec4 pattern = texture(pattern_texture, (UV * pattern_uv_offset) + vec2(scrolling_time));
+	
+	// Use pattern to cut holes in alpha
+	fresnel *= pattern.r;
+	
+	float uv_offset = mod(-TIME * scanline_period, 2.0) - 1.0;
+	float scanline = smoothstep(0.5 - scanline_width, 0.5, UV.y + uv_offset) 
+			* (1.0 - smoothstep(0.5, 0.5 + scanline_width, UV.y + uv_offset)) * pattern.r;
+	
+	// Apply final color
+	ALBEDO = vec3(0);
+	EMISSION = color.rgb;
+	ALPHA = smoothstep(0.0, 1.0, fresnel + scanline * scanline_intensity);
+}"
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 18 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/fresnel_power = 8.0
+shader_param/edge_intensity = 2.0
+shader_param/fill_amount = 0.1
+shader_param/pulsing_strength = 0.1
+shader_param/pulsing_speed = 1.0
+shader_param/scanline_period = 0.5
+shader_param/scanline_width = 0.1
+shader_param/scanline_intensity = 0.35
+shader_param/pattern_scroll_speed = 0.025
+shader_param/pattern_uv_offset = Vector2( 6, 3 )
+
+[sub_resource type="SphereShape" id=17]
+radius = 2.0
+
+[node name="crickets" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="sound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -2.4, -15.3 )
+stream = ExtResource( 1 )
+unit_db = -2.5
+unit_size = 5.0
+bus = "FX"
+
+[node name="sound_debug_mesh" type="MeshInstance" parent="sound"]
+unique_name_in_owner = true
+mesh = SubResource( 15 )
+material/0 = SubResource( 19 )
+
+[node name="sound_area" type="Area" parent="sound"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="sound/sound_area"]
+shape = SubResource( 17 )
+
+[node name="locations" type="Spatial" parent="."]
+unique_name_in_owner = true
+
+[node name="location_1" type="Position3D" parent="locations"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -2.4, -15.3 )
+
+[node name="location_2" type="Position3D" parent="locations"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2, -2.4, -15.3 )
+
+[node name="location_3" type="Position3D" parent="locations"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, -2.4, -15.3 )
+
+[node name="location_4" type="Position3D" parent="locations"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, -2.4, -6.8 )
+
+[connection signal="body_entered" from="sound/sound_area" to="." method="_on_sound_area_body_entered"]

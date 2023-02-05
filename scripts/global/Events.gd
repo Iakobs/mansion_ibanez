@@ -4,6 +4,16 @@ extends Node
 # warning-ignore:unused_signal
 signal dead_zone_entered(body)
 
+#In-game events
+# warning-ignore:unused_signal
+signal dawn
+# warning-ignore:unused_signal
+signal day
+# warning-ignore:unused_signal
+signal sunset
+# warning-ignore:unused_signal
+signal night
+
 # Interactables
 # warning-ignore:unused_signal
 signal interactable_entered(payload)

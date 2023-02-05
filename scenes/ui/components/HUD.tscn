@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/ui/components/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/icons/key_small.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/ComicNeue-Angular/ComicNeueAngular-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://resources/fonts/outline_medium.tres" type="DynamicFont" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -73,3 +74,11 @@ margin_right = 176.0
 margin_bottom = 66.0
 custom_fonts/font = SubResource( 1 )
 text = "100"
+
+[node name="time" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 4.0
+margin_right = 1820.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 4 )
+text = "10:00"

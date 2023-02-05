@@ -112,8 +112,31 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 4.9, 21 ),
+"times": PoolRealArray( 5, 21 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("..")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 5, 7, 19.5, 21 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "notify_dawn"
+}, {
+"args": [  ],
+"method": "notify_day"
+}, {
+"args": [  ],
+"method": "notify_sunset"
+}, {
+"args": [  ],
+"method": "notify_night"
+} ]
 }
