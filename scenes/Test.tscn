@@ -92,6 +92,5 @@ rigid_scene = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.41, 13.8 )
 
 [node name="pause_menu" parent="." instance=ExtResource( 6 )]
-visible = false
 
 [node name="mansion" parent="." instance=ExtResource( 2 )]

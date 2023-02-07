@@ -54,6 +54,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/components/interactive_button.gd"
 }, {
+"base": "Area",
+"class": "InteractiveElement",
+"language": "GDScript",
+"path": "res://addons/interactive_element/interactive_element.gd"
+}, {
+"base": "Resource",
+"class": "InteractiveEventCommand",
+"language": "GDScript",
+"path": "res://addons/interactive_element/interactive_event_command.gd"
+}, {
 "base": "Interacter",
 "class": "Key",
 "language": "GDScript",
@@ -99,6 +109,8 @@ _global_script_class_icons={
 "GarageDoor": "",
 "Interacter": "",
 "InteractiveButton": "",
+"InteractiveElement": "",
+"InteractiveEventCommand": "",
 "Key": "",
 "KeyBindingButton": "",
 "State": "",
@@ -127,6 +139,7 @@ SceneChanger="*res://scenes/global/scene_changer.tscn"
 Events="*res://scripts/global/events.gd"
 PlayerStats="*res://scripts/global/player_stats.gd"
 TweenManager="*res://scripts/global/tween_manager.gd"
+InteractiveElementEvents="*res://addons/interactive_element/interactive_element_events.gd"
 
 [display]
 
@@ -137,7 +150,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/interactable/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/interactable/plugin.cfg", "res://addons/interactive_element/plugin.cfg" )
 
 [gdnative]
 
