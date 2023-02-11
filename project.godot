@@ -44,11 +44,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/prefabs/garage_door.gd"
 }, {
-"base": "Spatial",
-"class": "Interacter",
-"language": "GDScript",
-"path": "res://addons/interactable/interacter.gd"
-}, {
 "base": "Node",
 "class": "InteractiveButton",
 "language": "GDScript",
@@ -63,11 +58,6 @@ _global_script_classes=[ {
 "class": "InteractiveEventCommand",
 "language": "GDScript",
 "path": "res://addons/interactive_element/interactive_event_command.gd"
-}, {
-"base": "Interacter",
-"class": "Key",
-"language": "GDScript",
-"path": "res://scenes/props/keys/key.gd"
 }, {
 "base": "MenuButton",
 "class": "KeyBindingButton",
@@ -107,11 +97,9 @@ _global_script_class_icons={
 "DoorAnimationManager": "",
 "DoorState": "",
 "GarageDoor": "",
-"Interacter": "",
 "InteractiveButton": "",
 "InteractiveElement": "",
 "InteractiveEventCommand": "",
-"Key": "",
 "KeyBindingButton": "",
 "State": "",
 "StateMachine": "",
@@ -150,7 +138,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/interactable/plugin.cfg", "res://addons/interactive_element/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/interactive_element/plugin.cfg" )
 
 [gdnative]
 
