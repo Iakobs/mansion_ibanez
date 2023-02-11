@@ -1,7 +1,3 @@
-extends Interacter
+extends RigidBody
 
-func _ready() -> void:
-	action = "ACTION_PICK"
-
-func _to_string() -> String:
-	return tr("KEY_NAME")
+onready var interactive_element: Area = $"%InteractiveElement"

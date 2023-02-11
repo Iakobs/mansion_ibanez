@@ -1,5 +1,5 @@
 class_name Door
-extends Interacter
+extends Spatial
 
 enum DoorPanelAngle { positive = 90, negative = -90 }
 enum DoorKnobAngle { positive = 1, negative = -1 }
@@ -13,6 +13,7 @@ onready var door_panel: StaticBody = $"%door_panel"
 onready var doorknob: Spatial = $"%doorknob"
 onready var unlock_area: Area = $"%unlock_area"
 onready var key_lock_position: Position3D = $"%key_lock_position"
+onready var interactive_element: InteractiveElement = $"%InteractiveElement"
 
 onready var state_machine: StateMachine = $"%StateMachine"
 onready var animation_manager: DoorAnimationManager = $"%DoorAnimationManager"
@@ -21,9 +22,11 @@ var clicking_is_active := true
 var player_is_in_front := false
 
 func _ready() -> void:
+	interactive_element.status_icon = Global.locked_icon if is_locked else null
 	var _err := state_machine.connect("transitioned", self, "_on_door_state_change")
 	_err = unlock_area.connect("body_entered", self, "_on_unlock_area_body_entered")
 	_err = animation_manager.connect("animation_finished", self, "_on_animation_finished")
+	_err = interactive_element.connect("area_entered", self, "_on_interactive_element_entered")
 
 func _process(_delta: float) -> void:
 	var direction_to_player := door_panel.global_translation\
@@ -31,12 +34,11 @@ func _process(_delta: float) -> void:
 	var facing_front_direction := Vector3.RIGHT if doorknob_axis == "x" else Vector3.BACK
 	player_is_in_front = direction_to_player.dot(facing_front_direction) > 0.0
 
-func _on_interactable_area_entered(area: Area) -> void:
-	._on_interactable_area_entered(area)
-	check_clicking()
+func _on_interactive_element_entered(_area: Area) -> void:
+	call_deferred("check_clicking")
 
 func _on_door_state_change(_state_name: String) -> void:
-	emit_interactable_event("interactable_updated")
+	interactive_element.emit("updated")
 
 func _on_unlock_area_body_entered(body: PhysicsBody) -> void:
 	if body.is_in_group("key") and is_locked\
@@ -45,22 +47,24 @@ func _on_unlock_area_body_entered(body: PhysicsBody) -> void:
 
 func _on_animation_finished(payload := {}) -> void:
 	if payload.animation_name == "unlock" and is_locked:
-		is_locked = false
+		finish_unlock()
 		state_machine.transition_to("Opened")
 
-func emit_interactable_event(event := "") -> void:
-	var payload = get_payload()
-	payload.status_icon = Global.locked_icon if is_locked else null
-	Events.emit_signal(event, payload)
+func change_action(new_action: String) -> void:
+	interactive_element.action = new_action
 
 func check_clicking() -> void:
-	clicking_is_active = not (inside_interactable \
+	clicking_is_active = not (interactive_element.is_inside \
 		and Input.is_action_pressed("primary_action"))
 
 func unlock(body: PhysicsBody) -> void:
 	body.owner.queue_free()
 	if body.has_node("MeshInstance"):
 		animate_unlock(body)
+
+func finish_unlock() -> void:
+	is_locked = false
+	interactive_element.status_icon = null
 
 func animate_unlock(body: PhysicsBody) -> void:
 	var duplicated_mesh := body.get_node("MeshInstance")\
@@ -89,6 +93,3 @@ func prepare_mesh_position(mesh: MeshInstance, origin: PhysicsBody) -> void:
 		facing_door_rotation_in_radians = deg2rad(90.0) if player_is_in_front\
 			else deg2rad(-90.0)
 	mesh.global_rotate(Vector3.UP, facing_door_rotation_in_radians)
-
-func _to_string() -> String:
-	return tr("DOOR_NAME")

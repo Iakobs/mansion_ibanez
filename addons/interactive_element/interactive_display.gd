@@ -14,31 +14,31 @@ func _ready() -> void:
 	crosshair_original_size = crosshair.rect_scale
 	display.visible = false
 	var _error := InteractiveElementEvents.connect(
-		"interactable_entered",
+		"entered",
 		self,
-		"_on_interactable_entered")
+		"_on_interactive_element_entered")
 	_error = InteractiveElementEvents.connect(
-		"interactable_exited",
+		"exited",
 		self,
-		"_on_interactable_exited")
+		"_on_interactive_element_exited")
 	_error = InteractiveElementEvents.connect(
-		"interactable_updated",
+		"updated",
 		self,
-		"_on_interactable_updated")
+		"_on_interactive_element_updated")
 
-func _on_interactable_entered(command: InteractiveEventCommand) -> void:
+func _on_interactive_element_entered(command: InteractiveEventCommand) -> void:
 	interactive_element = command.interactive_element
 	crosshair.modulate = Color.red
 	update_display(command)
 	display.visible = true
 
-func _on_interactable_exited(command: InteractiveEventCommand) -> void:
+func _on_interactive_element_exited(command: InteractiveEventCommand) -> void:
 	if command.interactive_element == interactive_element:
 		interactive_element = null
 		crosshair.modulate = Color.white
 		display.visible = false
 
-func _on_interactable_updated(command: InteractiveEventCommand) -> void:
+func _on_interactive_element_updated(command: InteractiveEventCommand) -> void:
 	update_display(command)
 
 func update_display(command: InteractiveEventCommand) -> void:

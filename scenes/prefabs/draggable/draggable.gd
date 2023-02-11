@@ -32,7 +32,7 @@ func _on_exiting_tree() -> void:
 
 func _process(_delta:float) -> void:
 	if Input.is_action_just_pressed("primary_action")\
-	and rigid_member.inside_interactable:
+	and rigid_member.interactive_element.is_inside:
 		pickup()
 	elif Input.is_action_just_released("primary_action")\
 	and dragging:

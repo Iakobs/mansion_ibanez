@@ -1,8 +1,8 @@
 extends Node
 
 # warning-ignore:unused_signal
-signal interactable_entered(command)
+signal entered(command)
 # warning-ignore:unused_signal
-signal interactable_exited(command)
+signal exited(command)
 # warning-ignore:unused_signal
-signal interactable_updated(command)
+signal updated(command)

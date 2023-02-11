@@ -93,13 +93,13 @@
 
 [node name="kitchen_window" parent="windows" instance=ExtResource( 29 )]
 
-[node name="laundry_room_window" parent="windows" instance=ExtResource( 30 )]
-
 [node name="mid_dorm_window" parent="windows" instance=ExtResource( 31 )]
 
 [node name="small_bathroom_window" parent="windows" instance=ExtResource( 32 )]
 
 [node name="small_dorm_window" parent="windows" instance=ExtResource( 33 )]
+
+[node name="laundry_room_window" parent="windows" instance=ExtResource( 30 )]
 
 [node name="first_floor_exterior" parent="." instance=ExtResource( 9 )]
 

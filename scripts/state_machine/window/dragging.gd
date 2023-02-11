@@ -5,19 +5,17 @@ var point_of_contact: float
 func enter(_payload := {}) -> void:
 	window.dragging = true
 	move_lock()
-	switch_monitoring()
 	find_point_of_contact()
 
 func exit() -> void:
 	move_lock(true)
-	switch_monitoring()
 
 func update(_delta: float) -> void:
 	if not window.is_locked:
 		drag_window()
 	
 	if Input.is_action_just_released("primary_action")\
-	or not window.inside_interactable:
+	or not window.is_inside():
 		state_machine.transition_to("Stopped")
 
 func drag_window() -> void:
@@ -71,14 +69,6 @@ func move_lock(reverse := false) -> void:
 				window.lock_vertical_origin,
 				0.1)\
 				.from_current()
-
-func switch_monitoring() -> void:
-	if window.interactable == window.right_interactable:
-		window.left_interactable.monitoring = !window.left_interactable.monitoring
-		window.left_interactable.monitorable = !window.left_interactable.monitorable
-	else:
-		window.right_interactable.monitoring = !window.right_interactable.monitoring
-		window.right_interactable.monitorable = !window.right_interactable.monitorable
 
 func find_point_of_contact() -> void:
 	var looking_position := PlayerStats.looking_object["position"] as Vector3

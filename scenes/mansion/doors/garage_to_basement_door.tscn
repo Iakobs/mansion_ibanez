@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/prefabs/door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/materials/madera.material" type="Material" id=2]
 [ext_resource path="res://resources/materials/Worn Yellow Brass Metal.material" type="Material" id=3]
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.05, 1.04, 0.49 )
 
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.1, 0.06, 0.07 )
@@ -69,6 +72,10 @@ door_panel_angle = -90
 
 [node name="door_panel" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46952, -2.5, 5.55707 )
+
+[node name="CollisionShape" type="CollisionShape" parent="door_panel/InteractiveElement" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0500007, 1.05, 0.489999 )
+shape = SubResource( 9 )
 
 [node name="doorknob" parent="door_panel" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0505209, 1.045, 0.903542 )

@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/components/animation_manager.gd"
 }, {
-"base": "Interacter",
+"base": "Spatial",
 "class": "Door",
 "language": "GDScript",
 "path": "res://scenes/prefabs/door.gd"
@@ -89,7 +89,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/components/submenu.gd"
 }, {
-"base": "Interacter",
+"base": "Spatial",
 "class": "Window",
 "language": "GDScript",
 "path": "res://scenes/prefabs/window.gd"

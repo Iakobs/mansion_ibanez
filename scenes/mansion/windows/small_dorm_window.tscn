@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/prefabs/window.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/materials/rachola_exterior.material" type="Material" id=2]
@@ -21,6 +21,9 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 16
 }
+
+[sub_resource type="BoxShape" id=123]
+extents = Vector3( 0.377627, 0.548532, 0.0321928 )
 
 [sub_resource type="ArrayMesh" id=117]
 resource_name = "first_floor_doors_and_windows_Plane245"
@@ -77,6 +80,9 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 16
 }
+
+[sub_resource type="BoxShape" id=124]
+extents = Vector3( 0.379584, 0.551059, 0.0349687 )
 
 [sub_resource type="ArrayMesh" id=114]
 resource_name = "first_floor_doors_and_windows_Plane246"
@@ -187,13 +193,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51, 1.799, -1.494 )
 [node name="right_sash" parent="." index="4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46903, 1.79897, -1.54925 )
 
-[node name="right_lock" parent="right_sash" index="1"]
+[node name="right_lock" parent="right_sash" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351312, -0.0244172, 0.0242722 )
 
 [node name="MeshInstance" type="MeshInstance" parent="right_sash/right_lock" index="0"]
 mesh = SubResource( 119 )
 skeleton = NodePath("../../MeshInstance")
 material/0 = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="right_sash/right_interactive_element" index="0"]
+shape = SubResource( 123 )
 
 [node name="MeshInstance" type="MeshInstance" parent="right_sash" index="2"]
 mesh = SubResource( 117 )
@@ -211,13 +220,16 @@ shape = SubResource( 122 )
 [node name="left_sash" parent="." index="5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21032, 1.79897, -1.49415 )
 
-[node name="left_lock" parent="left_sash" index="1"]
+[node name="left_lock" parent="left_sash" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.351311, -0.0244172, 0.0242722 )
 
 [node name="MeshInstance" type="MeshInstance" parent="left_sash/left_lock" index="0"]
 mesh = SubResource( 116 )
 skeleton = NodePath("../../MeshInstance")
 material/0 = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="left_sash/left_interactive_element" index="0"]
+shape = SubResource( 124 )
 
 [node name="MeshInstance" type="MeshInstance" parent="left_sash" index="2"]
 mesh = SubResource( 114 )
@@ -232,7 +244,7 @@ material/0 = ExtResource( 7 )
 [node name="CollisionShape" type="CollisionShape" parent="left_sash" index="3"]
 shape = SubResource( 121 )
 
-[node name="MeshInstance" type="MeshInstance" parent="." index="8"]
+[node name="MeshInstance" type="MeshInstance" parent="." index="7"]
 mesh = SubResource( 113 )
 material/0 = ExtResource( 5 )
 material/1 = ExtResource( 3 )

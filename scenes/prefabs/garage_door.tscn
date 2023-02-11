@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/prefabs/garage_door.gd" type="Script" id=1]
-[ext_resource path="res://addons/interactable/interactable.gd" type="Script" id=2]
 [ext_resource path="res://scripts/state_machine/state_machine.gd" type="Script" id=3]
 [ext_resource path="res://scripts/components/door_animation_manager.gd" type="Script" id=4]
 [ext_resource path="res://scripts/state_machine/door/closed.gd" type="Script" id=5]
 [ext_resource path="res://scripts/state_machine/door/opened.gd" type="Script" id=6]
+[ext_resource path="res://addons/interactive_element/interactive_element.gd" type="Script" id=7]
 
 [node name="garage_door" type="Spatial"]
 script = ExtResource( 1 )
@@ -22,21 +22,17 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 collision_mask = 0
 
-[node name="upper_interactable" type="Area" parent="upper_door_panel"]
+[node name="UpperInteractiveElement" type="Area" parent="upper_door_panel"]
 unique_name_in_owner = true
-collision_layer = 4
-collision_mask = 2
-script = ExtResource( 2 )
+script = ExtResource( 7 )
 
 [node name="lower_door_panel" type="StaticBody" parent="upper_door_panel"]
 unique_name_in_owner = true
 collision_mask = 0
 
-[node name="lower_interactable" type="Area" parent="upper_door_panel/lower_door_panel"]
+[node name="LowerInteractiveElement" type="Area" parent="upper_door_panel/lower_door_panel"]
 unique_name_in_owner = true
-collision_layer = 4
-collision_mask = 2
-script = ExtResource( 2 )
+script = ExtResource( 7 )
 
 [node name="DoorAnimationManager" type="Node" parent="."]
 unique_name_in_owner = true

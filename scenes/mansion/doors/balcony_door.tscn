@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://resources/materials/Matal solid paint white.material" type="Material" id=1]
 [ext_resource path="res://resources/materials/black_pvc.material" type="Material" id=2]
 [ext_resource path="res://resources/materials/glass_material.tres" type="Material" id=3]
 [ext_resource path="res://scenes/prefabs/door.tscn" type="PackedScene" id=4]
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.0344506, 1.05, 0.560808 )
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.11, 0.12, 0.06 )
@@ -79,6 +82,10 @@ extents = Vector3( 0.0344506, 1.05, 0.560808 )
 
 [node name="door_panel" parent="." index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95043, 0.25, -2.95207 )
+
+[node name="CollisionShape" type="CollisionShape" parent="door_panel/InteractiveElement" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0338016, 1.05, 0.562785 )
+shape = SubResource( 8 )
 
 [node name="doorknob" parent="door_panel" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0340166, 1.0541, 1.09072 )
