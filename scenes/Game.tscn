@@ -161,7 +161,7 @@ static_scene = ExtResource( 6 )
 rigid_scene = ExtResource( 2 )
 
 [node name="key4" parent="collectibles" instance=ExtResource( 8 )]
-transform = Transform( 1.70699e-08, 1, -3.90806e-08, 0.258819, -4.2167e-08, -0.965926, -0.965926, 6.3735e-09, -0.258819, 7.8, 5.8, 2.9 )
+transform = Transform( 1.70699e-08, 1, -3.90806e-08, 0.258819, -4.2167e-08, -0.965926, -0.965926, 6.3735e-09, -0.258819, 7.8, 6.16519, 2.72397 )
 static_scene = ExtResource( 6 )
 rigid_scene = ExtResource( 2 )
 
@@ -180,3 +180,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0.3, 16.5 )
 [node name="pause_menu" parent="." instance=ExtResource( 5 )]
 
 [connection signal="body_entered" from="dead_zone" to="." method="_on_dead_zone_body_entered"]
+
+[editable path="mansion"]

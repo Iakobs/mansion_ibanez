@@ -6,10 +6,10 @@ export(PackedScene) var rigid_scene: PackedScene
 
 onready var origin_mesh: MeshInstance = $"%origin_mesh"
 
-var static_member: Spatial
-var rigid_member: Spatial
+var static_member: StaticBody
+var rigid_member: RigidBody
 
-var active_member: Spatial
+var active_member: PhysicsBody
 var dragging := false
 var tween: SceneTreeTween
 
@@ -47,7 +47,10 @@ func _process(_delta:float) -> void:
 		active_member.global_translation = floating_point
 
 func _on_dead_zone_entered() -> void:
+	print("An object respawned!")
 	active_member.global_translation = self.global_translation
+	if active_member == rigid_member:
+		rigid_member.apply_central_impulse(Vector3.ZERO)
 
 func pickup() -> void:
 	if not dragging:
